@@ -1,0 +1,13 @@
+name: Deploy
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages Deploy
+        run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
+
