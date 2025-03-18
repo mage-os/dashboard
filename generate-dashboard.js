@@ -1,9 +1,9 @@
 import { writeFile } from 'fs/promises';
 import { mkdir } from 'fs/promises';
 
-const GITHUB_ORG = 'mage-os';
+const GITHUB_ORGS = ['mage-os', 'mage-os-lab'];
 
-async function fetchOrgData() {
+async function fetchOrgData(orgName) {
     const query = `
     query ($org: String!) {
       organization(login: $org) {
@@ -52,7 +52,7 @@ async function fetchOrgData() {
             'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query, variables: { org: GITHUB_ORG } })
+        body: JSON.stringify({ query, variables: { org: orgName } })
     });
 
     if (!response.ok) {
@@ -60,18 +60,82 @@ async function fetchOrgData() {
     }
 
     const result = await response.json();
+    
     // Filter out archived repositories
-    result.data.organization.repositories.nodes = result.data.organization.repositories.nodes.filter(repo => !repo.isArchived);
+    if (result.data && result.data.organization) {
+        result.data.organization.repositories.nodes = result.data.organization.repositories.nodes.filter(repo => !repo.isArchived);
+    }
+    
     return result;
 }
 
-function generateHTML(data) {
+function generateOrgSection(orgName, data) {
     const repos = data.data.organization.repositories.nodes;
-    const lastUpdate = new Date().toISOString();
 
     const activeRepos = repos.filter(repo =>
         repo.issues.totalCount > 0 || repo.pullRequests.totalCount > 0
     );
+
+    if (activeRepos.length === 0) {
+        return '';
+    }
+
+    return `
+      <section class="mb-5">
+        <h2 class="display-6 mb-4">${orgName}</h2>
+        <div class="two-columns">
+          ${activeRepos.map(repo => `
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h2><a href="${repo.url}" class="text-decoration-none" target="_blank">${repo.name}</a></h2>
+                </div>
+                <div class="card-body">  
+                  ${repo.issues.totalCount > 0 ? `
+                    <h3 class="h6 table-title">Issues</h3>
+                    <table class="table table-hover">
+                      <tbody>
+                        ${repo.issues.nodes.map(issue => `
+                          <tr>
+                            <td>
+                              <a href="${issue.url}" class="text-decoration-none truncate-text" target="_blank" title="${issue.title}">${issue.title}</a>
+                            </td>
+                          </tr>
+                        `).join('')}
+                      </tbody>
+                    </table>
+                  ` : ''}
+                  
+                  ${repo.pullRequests.totalCount > 0 ? `
+                    <h3 class="h6 table-title">Pull Requests</h3>
+                    <table class="table table-hover">
+                      <tbody>
+                        ${repo.pullRequests.nodes.map(pr => `
+                          <tr>
+                            <td>
+                              <a href="${pr.url}" class="text-decoration-none truncate-text" target="_blank" title="${pr.title}">${pr.title}</a>
+                            </td>
+                          </tr>
+                        `).join('')}
+                      </tbody>
+                    </table>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+}
+
+function generateHTML(orgDataMap) {
+    const lastUpdate = new Date().toISOString();
+    
+    let orgSections = '';
+    for (const [orgName, data] of Object.entries(orgDataMap)) {
+        orgSections += generateOrgSection(orgName, data);
+    }
 
     return `
     <!DOCTYPE html>
@@ -160,52 +224,11 @@ function generateHTML(data) {
       <body>
         <div class="container">
           <header class="mb-4">
-            <h1 class="display-6">Mage-OS Dashboard</h1>
+            <h1 class="display-5">Mage-OS Dashboard</h1>
             <p class="last-update">Last updated: ${new Date(lastUpdate).toLocaleString()}</p>
           </header>
           
-          <div class="two-columns">
-            ${activeRepos.map(repo => `
-              <div class="col">
-                <div class="card h-100">
-                  <div class="card-header">
-                    <h2><a href="${repo.url}" class="text-decoration-none" target="_blank">${repo.name}</a></h2>
-                  </div>
-                  <div class="card-body">  
-                    ${repo.issues.totalCount > 0 ? `
-                      <h3 class="h6 table-title">Issues</h3>
-                      <table class="table table-hover">
-                        <tbody>
-                          ${repo.issues.nodes.map(issue => `
-                            <tr>
-                              <td>
-                                <a href="${issue.url}" class="text-decoration-none truncate-text" target="_blank" title="${issue.title}">${issue.title}</a>
-                              </td>
-                            </tr>
-                          `).join('')}
-                        </tbody>
-                      </table>
-                    ` : ''}
-                    
-                    ${repo.pullRequests.totalCount > 0 ? `
-                      <h3 class="h6 table-title">Pull Requests</h3>
-                      <table class="table table-hover">
-                        <tbody>
-                          ${repo.pullRequests.nodes.map(pr => `
-                            <tr>
-                              <td>
-                                <a href="${pr.url}" class="text-decoration-none truncate-text" target="_blank" title="${pr.title}">${pr.title}</a>
-                              </td>
-                            </tr>
-                          `).join('')}
-                        </tbody>
-                      </table>
-                    ` : ''}
-                  </div>
-                </div>
-              </div>
-            `).join('')}
-          </div>
+          ${orgSections}
         </div>
       </body>
     </html>
@@ -214,8 +237,25 @@ function generateHTML(data) {
 
 async function main() {
   try {
-    const data = await fetchOrgData();
-    const html = generateHTML(data);
+    const orgDataMap = {};
+    
+    for (const orgName of GITHUB_ORGS) {
+      console.log(`Fetching data for ${orgName}...`);
+      const data = await fetchOrgData(orgName);
+      
+      if (data.errors) {
+        console.error(`Error fetching data for ${orgName}:`, data.errors);
+        continue; // Skip this org but continue with others
+      }
+      
+      orgDataMap[orgName] = data;
+    }
+    
+    if (Object.keys(orgDataMap).length === 0) {
+      throw new Error('No organization data was successfully retrieved');
+    }
+    
+    const html = generateHTML(orgDataMap);
     
     await mkdir('dist', { recursive: true });
     await writeFile('dist/index.html', html);
