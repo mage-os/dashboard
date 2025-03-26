@@ -40,6 +40,11 @@ async function fetchOrgData(orgName) {
                 }
               }
             }
+            workflowRuns(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
+              nodes {
+                createdAt
+              }
+            }
           }
         }
       }
@@ -129,6 +134,49 @@ function generateOrgSection(orgName, data) {
     `;
 }
 
+function generateWorkflowRunsSection(orgDataMap) {
+    // Only get repositories from the mage-os organization
+    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
+
+    // Filter out archived repositories and sort alphabetically
+    const sortedRepos = mageOsRepos
+        .filter(repo => !repo.isArchived)
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+    return `
+    <section class="mb-5">
+      <h2 class="display-6 mb-4">Workflow Runs</h2>
+      <table id="workflowRunsTable" class="table table-hover sortable">
+        <thead>
+          <tr>
+            <th>Repository</th>
+            <th>Last Workflow Run</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${sortedRepos.map(repo => {
+        const lastRunDate = repo.workflowRuns.nodes[0]
+            ? new Date(repo.workflowRuns.nodes[0].createdAt)
+            : null;
+
+        // Format the date as YYYY-MM-DD HH:MM:SS
+        const formattedDate = lastRunDate
+            ? lastRunDate.toISOString().replace('T', ' ').substring(0, 19)
+            : 'N/A';
+
+        return `
+              <tr>
+                <td><a href="${repo.url}" class="text-decoration-none" target="_blank">${repo.name}</a></td>
+                <td>${formattedDate}</td>
+              </tr>
+            `;
+    }).join('')}
+        </tbody>
+      </table>
+    </section>
+  `;
+}
+
 function generateHTML(orgDataMap) {
     const lastUpdate = new Date().toISOString();
     
@@ -145,6 +193,7 @@ function generateHTML(orgDataMap) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mage-OS Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/tofsjonas/sortable@latest/sortable.min.js" defer></script>
         <style>
           body { 
             padding: 1rem;
@@ -219,6 +268,16 @@ function generateHTML(orgDataMap) {
             text-overflow: ellipsis;
             display: block;
           }
+          
+          .sortable th {
+            cursor: pointer;
+          }
+          .sortable th.asc::after {
+            content: " ▲";
+          }
+          .sortable th.desc::after {
+            content: " ▼";
+          }
         </style>
       </head>
       <body>
@@ -229,6 +288,7 @@ function generateHTML(orgDataMap) {
           </header>
           
           ${orgSections}
+          ${generateWorkflowRunsSection(orgDataMap)}
         </div>
       </body>
     </html>
