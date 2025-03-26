@@ -40,11 +40,6 @@ async function fetchOrgData(orgName) {
                 }
               }
             }
-            workflowRuns(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
-              nodes {
-                createdAt
-              }
-            }
           }
         }
       }
@@ -134,7 +129,7 @@ function generateOrgSection(orgName, data) {
     `;
 }
 
-function generateWorkflowRunsSection(orgDataMap) {
+async function generateWorkflowRunsSection(orgDataMap) {
     // Only get repositories from the mage-os organization
     const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
 
@@ -143,10 +138,31 @@ function generateWorkflowRunsSection(orgDataMap) {
         .filter(repo => !repo.isArchived)
         .sort((a, b) => a.name.localeCompare(b.name));
 
+    // Fetch workflow runs for each repository
+    const reposWithRuns = await Promise.all(
+        sortedRepos.map(async (repo) => {
+            try {
+                const runsData = await fetchWorkflowRunsForRepo('mage-os', repo.name);
+                return {
+                    ...repo,
+                    lastRunDate: runsData.workflow_runs && runsData.workflow_runs.length > 0
+                        ? new Date(runsData.workflow_runs[0].created_at)
+                        : null
+                };
+            } catch (error) {
+                console.error(`Error fetching workflow runs for ${repo.name}:`, error);
+                return {
+                    ...repo,
+                    lastRunDate: null
+                };
+            }
+        })
+    );
+
     return `
     <section class="mb-5">
       <h2 class="display-6 mb-4">Workflow Runs</h2>
-      <table id="workflowRunsTable" class="table table-hover sortable">
+      <table id="workflowRunsTable" class="table table-bordered table-hover sortable" style="width:auto">
         <thead>
           <tr>
             <th>Repository</th>
@@ -154,15 +170,10 @@ function generateWorkflowRunsSection(orgDataMap) {
           </tr>
         </thead>
         <tbody>
-          ${sortedRepos.map(repo => {
-        const lastRunDate = repo.workflowRuns.nodes[0]
-            ? new Date(repo.workflowRuns.nodes[0].createdAt)
-            : null;
-
-        // Format the date as YYYY-MM-DD HH:MM:SS
-        const formattedDate = lastRunDate
-            ? lastRunDate.toISOString().replace('T', ' ').substring(0, 19)
-            : 'N/A';
+          ${reposWithRuns.map(repo => {
+        const formattedDate = repo.lastRunDate
+            ? repo.lastRunDate.toISOString().replace('T', ' ').substring(0, 19)
+            : '-';
 
         return `
               <tr>
@@ -177,13 +188,24 @@ function generateWorkflowRunsSection(orgDataMap) {
   `;
 }
 
-function generateHTML(orgDataMap) {
-    const lastUpdate = new Date().toISOString();
-    
-    let orgSections = '';
-    for (const [orgName, data] of Object.entries(orgDataMap)) {
-        orgSections += generateOrgSection(orgName, data);
+async function fetchWorkflowRunsForRepo(owner, repo) {
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/runs?per_page=1`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github+json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.statusText}`);
     }
+
+    return response.json();
+}
+
+function generateHTML(orgSections, workflowSection) {
+    const lastUpdate = new Date().toISOString();
 
     return `
     <!DOCTYPE html>
@@ -239,10 +261,13 @@ function generateHTML(orgDataMap) {
             font-size: 0.9rem;
             margin-bottom: 0;
             table-layout: fixed;
-            width: 100%;
+          }
+          
+          .card .table {
+            width: 100%;          
           }
         
-          .table td {
+          .card .table td {
             vertical-align: middle;
             width: 100%;
             max-width: 0;
@@ -272,10 +297,10 @@ function generateHTML(orgDataMap) {
           .sortable th {
             cursor: pointer;
           }
-          .sortable th.asc::after {
+          .sortable th[aria-sort=ascending]::after {
             content: " ▲";
           }
-          .sortable th.desc::after {
+          .sortable th[aria-sort=descending]::after {
             content: " ▼";
           }
         </style>
@@ -288,7 +313,7 @@ function generateHTML(orgDataMap) {
           </header>
           
           ${orgSections}
-          ${generateWorkflowRunsSection(orgDataMap)}
+          ${workflowSection}
         </div>
       </body>
     </html>
@@ -296,34 +321,41 @@ function generateHTML(orgDataMap) {
 }
 
 async function main() {
-  try {
-    const orgDataMap = {};
-    
-    for (const orgName of GITHUB_ORGS) {
-      console.log(`Fetching data for ${orgName}...`);
-      const data = await fetchOrgData(orgName);
-      
-      if (data.errors) {
-        console.error(`Error fetching data for ${orgName}:`, data.errors);
-        continue; // Skip this org but continue with others
-      }
-      
-      orgDataMap[orgName] = data;
+    try {
+        const orgDataMap = {};
+
+        for (const orgName of GITHUB_ORGS) {
+            console.log(`Fetching data for ${orgName}...`);
+            const data = await fetchOrgData(orgName);
+
+            if (data.errors) {
+                console.error(`Error fetching data for ${orgName}:`, data.errors);
+                continue; // Skip this org but continue with others
+            }
+
+            orgDataMap[orgName] = data;
+        }
+
+        if (Object.keys(orgDataMap).length === 0) {
+            throw new Error('No organization data was successfully retrieved');
+        }
+
+        let orgSections = '';
+        for (const [orgName, data] of Object.entries(orgDataMap)) {
+            orgSections += generateOrgSection(orgName, data);
+        }
+
+        const workflowSection = await generateWorkflowRunsSection(orgDataMap);
+
+        const html = generateHTML(orgSections, workflowSection);
+
+        await mkdir('dist', { recursive: true });
+        await writeFile('dist/index.html', html);
+        console.log('Dashboard generated successfully!');
+    } catch (error) {
+        console.error('Error generating dashboard:', error);
+        process.exit(1);
     }
-    
-    if (Object.keys(orgDataMap).length === 0) {
-      throw new Error('No organization data was successfully retrieved');
-    }
-    
-    const html = generateHTML(orgDataMap);
-    
-    await mkdir('dist', { recursive: true });
-    await writeFile('dist/index.html', html);
-    console.log('Dashboard generated successfully!');
-  } catch (error) {
-    console.error('Error generating dashboard:', error);
-    process.exit(1);
-  }
 }
 
 main();
