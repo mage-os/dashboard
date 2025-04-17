@@ -204,7 +204,75 @@ async function fetchWorkflowRunsForRepo(owner, repo) {
     return response.json();
 }
 
-function generateHTML(orgSections, workflowSection) {
+async function fetchMagentoRepos() {
+    const response = await fetch('https://api.github.com/orgs/magento/repos?per_page=100', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github+json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.statusText}`);
+    }
+
+    return response.json();
+}
+
+async function generateMissingMirrorsSection(orgDataMap) {
+    // Fetch all repositories from the Magento organization
+    console.log('Fetching Magento repositories...');
+    const magentoRepos = await fetchMagentoRepos();
+
+    // Extract all Mage-OS repositories
+    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
+
+    // Create a set of mirrored repo names (without the "mirror-" prefix)
+    const mirroredRepoNames = new Set();
+    mageOsRepos.forEach(repo => {
+        if (repo.name.startsWith('mirror-')) {
+            mirroredRepoNames.add(repo.name.substring(7)); // Remove "mirror-" prefix
+        }
+    });
+
+    // Filter Magento repos that don't have mirrors
+    const unmirroredRepos = magentoRepos.filter(repo =>
+        !mirroredRepoNames.has(repo.name) && !repo.archived
+    ).sort((a, b) => a.name.localeCompare(b.name));
+
+    return `
+    <section class="mb-5">
+      <h2 class="display-6 mb-4">Magento Repositories Without Mage-OS Mirrors</h2>
+      <table class="table table-bordered table-hover sortable" style="width:auto">
+        <thead>
+          <tr>
+            <th>Repository</th>
+            <th>Description</th>
+            <th>Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${unmirroredRepos.map(repo => {
+        const formattedDate = repo.updated_at
+            ? new Date(repo.updated_at).toISOString().replace('T', ' ').substring(0, 19)
+            : '-';
+
+        return `
+              <tr>
+                <td><a href="${repo.html_url}" class="text-decoration-none" target="_blank">${repo.name}</a></td>
+                <td>${repo.description || '-'}</td>
+                <td>${formattedDate}</td>
+              </tr>
+            `;
+    }).join('')}
+        </tbody>
+      </table>
+    </section>
+  `;
+}
+
+function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
     const lastUpdate = new Date().toISOString();
 
     return `
@@ -313,6 +381,7 @@ function generateHTML(orgSections, workflowSection) {
           </header>
           
           ${orgSections}
+          ${missingMirrorsSection}
           ${workflowSection}
         </div>
       </body>
@@ -345,9 +414,10 @@ async function main() {
             orgSections += generateOrgSection(orgName, data);
         }
 
+        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap);
         const workflowSection = await generateWorkflowRunsSection(orgDataMap);
 
-        const html = generateHTML(orgSections, workflowSection);
+        const html = generateHTML(orgSections, missingMirrorsSection, workflowSection);
 
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
