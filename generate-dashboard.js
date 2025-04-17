@@ -204,7 +204,109 @@ async function fetchWorkflowRunsForRepo(owner, repo) {
     return response.json();
 }
 
-function generateHTML(orgSections, workflowSection) {
+async function fetchMagentoRepos() {
+    let page = 1;
+    let allRepos = [];
+    let hasMoreRepos = true;
+
+    while (hasMoreRepos) {
+        const response = await fetch(`https://api.github.com/orgs/magento/repos?per_page=100&page=${page}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+                'Accept': 'application/vnd.github+json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.statusText} (Status: ${response.status})`);
+        }
+
+        const repos = await response.json();
+
+        // If we received fewer repos than requested, this must be the last page
+        if (repos.length < 100) {
+            hasMoreRepos = false;
+        }
+
+        allRepos = [...allRepos, ...repos];
+        page++;
+    }
+
+    // Filter out archived repositories
+    return allRepos.filter(repo => !repo.archived);
+}
+
+async function generateMissingMirrorsSection(orgDataMap) {
+    // Fetch all non-archived repositories from the Magento organization
+    console.log('Fetching non-archived Magento repositories...');
+    const magentoRepos = await fetchMagentoRepos();
+
+    // Extract all Mage-OS repositories
+    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
+
+    // Create a Map of Magento repos for faster lookups
+    const magentoReposMap = new Map(
+        magentoRepos.map(repo => [repo.name, repo])
+    );
+
+    // Create a Set of mirrored repo names (without the "mirror-" prefix) for faster lookups
+    const mirroredRepoNames = new Set(
+        mageOsRepos
+            .filter(repo => repo.name.startsWith('mirror-'))
+            .map(repo => repo.name.substring(7))
+    );
+
+    // Find repositories that don't have mirrors - more efficient than filter
+    const unmirroredRepos = [];
+    for (const [name, repo] of magentoReposMap.entries()) {
+        if (!mirroredRepoNames.has(name)) {
+            unmirroredRepos.push(repo);
+        }
+    }
+
+    // Sort only once after filtering
+    unmirroredRepos.sort((a, b) => a.name.localeCompare(b.name));
+
+    // Pre-compile the row generation function outside the loop
+    const generateRow = repo => {
+        const formattedDate = repo.updated_at
+            ? new Date(repo.updated_at).toISOString().split('T')[0] + ' ' +
+            new Date(repo.updated_at).toISOString().split('T')[1].substring(0, 8)
+            : '-';
+
+        return `
+              <tr>
+                <td><a href="${repo.html_url}" class="text-decoration-none" target="_blank">${repo.name}</a></td>
+                <td>${repo.description || '-'}</td>
+                <td>${formattedDate}</td>
+              </tr>
+            `;
+    };
+
+    // Build all rows at once and join
+    const tableRows = unmirroredRepos.map(generateRow).join('');
+
+    return `
+    <section class="mb-5">
+      <h2 class="display-6 mb-4">Magento Repositories Without Mage-OS Mirrors</h2>
+      <table class="table table-bordered table-hover sortable" style="width:auto">
+        <thead>
+          <tr>
+            <th>Repository</th>
+            <th>Description</th>
+            <th>Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRows}
+        </tbody>
+      </table>
+    </section>
+  `;
+}
+
+function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
     const lastUpdate = new Date().toISOString();
 
     return `
@@ -313,6 +415,7 @@ function generateHTML(orgSections, workflowSection) {
           </header>
           
           ${orgSections}
+          ${missingMirrorsSection}
           ${workflowSection}
         </div>
       </body>
@@ -345,9 +448,10 @@ async function main() {
             orgSections += generateOrgSection(orgName, data);
         }
 
+        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap);
         const workflowSection = await generateWorkflowRunsSection(orgDataMap);
 
-        const html = generateHTML(orgSections, workflowSection);
+        const html = generateHTML(orgSections, missingMirrorsSection, workflowSection);
 
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
