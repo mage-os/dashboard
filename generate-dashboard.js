@@ -278,7 +278,6 @@ async function generateMissingMirrorsSection(orgDataMap) {
         return `
               <tr>
                 <td><a href="${repo.html_url}" class="text-decoration-none" target="_blank">${repo.name}</a></td>
-                <td>${repo.description || '-'}</td>
                 <td>${formattedDate}</td>
               </tr>
             `;
@@ -294,7 +293,6 @@ async function generateMissingMirrorsSection(orgDataMap) {
         <thead>
           <tr>
             <th>Repository</th>
-            <th>Description</th>
             <th>Last Updated</th>
           </tr>
         </thead>
