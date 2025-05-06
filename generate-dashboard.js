@@ -237,7 +237,7 @@ async function fetchMagentoRepos() {
     return allRepos.filter(repo => !repo.archived);
 }
 
-async function generateMissingMirrorsSection(orgDataMap) {
+async function generateMissingMirrorsSection(orgDataMap, whitelist = []) {
     // Fetch all non-archived repositories from the Magento organization
     console.log('Fetching non-archived Magento repositories...');
     const magentoRepos = await fetchMagentoRepos();
@@ -257,16 +257,31 @@ async function generateMissingMirrorsSection(orgDataMap) {
             .map(repo => repo.name.substring(7))
     );
 
-    // Find repositories that don't have mirrors - more efficient than filter
+    // Create a Set of whitelisted repos for faster lookups
+    const whitelistedRepos = new Set(whitelist);
+
+    // Find repositories that don't have mirrors and aren't in the whitelist
     const unmirroredRepos = [];
     for (const [name, repo] of magentoReposMap.entries()) {
-        if (!mirroredRepoNames.has(name)) {
+        if (!mirroredRepoNames.has(name) && !whitelistedRepos.has(name)) {
             unmirroredRepos.push(repo);
         }
     }
 
     // Sort only once after filtering
     unmirroredRepos.sort((a, b) => a.name.localeCompare(b.name));
+
+    // If no repositories need mirroring, return a message
+    if (unmirroredRepos.length === 0) {
+        return `
+        <section class="mb-5">
+          <h2 class="display-6 mb-4">Magento Repositories Without Mage-OS Mirrors</h2>
+          <div class="alert alert-success">
+            All necessary Magento repositories have been mirrored.
+          </div>
+        </section>
+        `;
+    }
 
     // Pre-compile the row generation function outside the loop
     const generateRow = repo => {
@@ -446,7 +461,19 @@ async function main() {
             orgSections += generateOrgSection(orgName, data);
         }
 
-        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap);
+        const missingMirrorsWhitelist = [
+            'adobe-commerce-catalog-service', 'aep-launch', 'app-builder-samples', 'architecture', 'baler',
+            'catalog-storefront', 'community-engineering', 'community-features', 'CssXPath', 'devdocs',
+            'devops-cla-test-public', 'directive-parser', 'Dom', 'ece-tools', 'graphql', 'language-ja_JP',
+            'm2-baler', 'm2-devtools', 'magento-cloud', 'magento-cloud-components', 'magento-cloud-docker',
+            'magento-coding-standard', 'magento-eslint', 'magento-japan-tax', 'magento-vcs-installer',
+            'magento2-jp', 'magento2-phpstorm-plugin', 'magento2-pwa', 'magento2-pwa-commerce',
+            'magento2-upward-connector', 'marketplace-eqp', 'marketplace-subscriptions', 'meta-for-magento2',
+            'module-grpc', 'php-proto-generator', 'pwa-studio', 'pwa-tests', 'storefront-authentication-ce',
+            'storefront-message-broker', 'storefront-pricing-ce', 'storefront-product-reviews-ce',
+            'storefront-search-ce', 'ts-types', 'upward-php'
+        ];
+        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, missingMirrorsWhitelist);
         const workflowSection = await generateWorkflowRunsSection(orgDataMap);
 
         const html = generateHTML(orgSections, missingMirrorsSection, workflowSection);
