@@ -237,7 +237,7 @@ async function fetchMagentoRepos() {
     return allRepos.filter(repo => !repo.archived);
 }
 
-async function generateMissingMirrorsSection(orgDataMap, whitelist = []) {
+async function generateMissingMirrorsSection(orgDataMap, ignoreList = []) {
     // Fetch all non-archived repositories from the Magento organization
     console.log('Fetching non-archived Magento repositories...');
     const magentoRepos = await fetchMagentoRepos();
@@ -257,13 +257,13 @@ async function generateMissingMirrorsSection(orgDataMap, whitelist = []) {
             .map(repo => repo.name.substring(7))
     );
 
-    // Create a Set of whitelisted repos for faster lookups
-    const whitelistedRepos = new Set(whitelist);
+    // Create a Set of ignored repos for faster lookups
+    const ignoredRepos = new Set(ignoreList);
 
-    // Find repositories that don't have mirrors and aren't in the whitelist
+    // Find repositories that don't have mirrors and aren't in the ignore list
     const unmirroredRepos = [];
     for (const [name, repo] of magentoReposMap.entries()) {
-        if (!mirroredRepoNames.has(name) && !whitelistedRepos.has(name)) {
+        if (!mirroredRepoNames.has(name) && !ignoredRepos.has(name)) {
             unmirroredRepos.push(repo);
         }
     }
@@ -461,7 +461,7 @@ async function main() {
             orgSections += generateOrgSection(orgName, data);
         }
 
-        const missingMirrorsWhitelist = [
+        const missingMirrorsIgnoreList = [
             'adobe-commerce-catalog-service', 'aep-launch', 'app-builder-samples', 'architecture', 'baler',
             'catalog-storefront', 'community-engineering', 'community-features', 'CssXPath', 'devdocs',
             'devops-cla-test-public', 'directive-parser', 'Dom', 'ece-tools', 'graphql', 'language-ja_JP',
@@ -473,7 +473,7 @@ async function main() {
             'storefront-message-broker', 'storefront-pricing-ce', 'storefront-product-reviews-ce',
             'storefront-search-ce', 'ts-types', 'upward-php'
         ];
-        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, missingMirrorsWhitelist);
+        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, missingMirrorsIgnoreList);
         const workflowSection = await generateWorkflowRunsSection(orgDataMap);
 
         const html = generateHTML(orgSections, missingMirrorsSection, workflowSection);
