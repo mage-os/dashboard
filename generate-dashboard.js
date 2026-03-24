@@ -35,6 +35,26 @@ function formatAge(dateString) {
     return `${years}y ago`;
 }
 
+function getReviewStatusBadge(pr) {
+    const lastReview = pr.reviews?.nodes?.[0];
+    const pendingRequests = pr.reviewRequests?.totalCount || 0;
+
+    if (lastReview) {
+        switch (lastReview.state) {
+            case 'APPROVED':
+                return '<span class="review-badge review-approved" title="Approved">Approved</span>';
+            case 'CHANGES_REQUESTED':
+                return '<span class="review-badge review-changes" title="Changes Requested">Changes Requested</span>';
+            case 'COMMENTED':
+                return '<span class="review-badge review-commented" title="Reviewed">Reviewed</span>';
+        }
+    }
+    if (pendingRequests > 0) {
+        return '<span class="review-badge review-pending" title="Review Requested">Review Requested</span>';
+    }
+    return '<span class="review-badge review-none" title="No Review">No Review</span>';
+}
+
 function getWorkflowStatusIcon(conclusion) {
     const icons = {
         success: '<span class="ci-status ci-success" title="Success">&#x2705;</span>',
@@ -92,6 +112,14 @@ async function fetchOrgData(orgName) {
                 updatedAt
                 author {
                   login
+                }
+                reviews(last: 1) {
+                  nodes {
+                    state
+                  }
+                }
+                reviewRequests(first: 1) {
+                  totalCount
                 }
               }
             }
@@ -196,6 +224,7 @@ function generateOrgSection(orgName, data) {
                               <a href="${escapeHtml(pr.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(pr.title)}">${escapeHtml(pr.title)}</a>
                               ${pr.author ? `<span class="pr-author">by ${escapeHtml(pr.author.login)}</span>` : ''}
                               <span class="item-age">${formatAge(pr.updatedAt)}</span>
+                              ${getReviewStatusBadge(pr)}
                             </td>
                           </tr>
                         `).join('')}
@@ -509,6 +538,21 @@ function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
           .stale-critical .item-age {
             color: #721c24;
           }
+
+          .review-badge {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.7em;
+            font-weight: 500;
+            margin-left: 0.25rem;
+          }
+
+          .review-approved { background-color: #d4edda; color: #155724; }
+          .review-changes { background-color: #f8d7da; color: #721c24; }
+          .review-commented { background-color: #d1ecf1; color: #0c5460; }
+          .review-pending { background-color: #fff3cd; color: #856404; }
+          .review-none { background-color: #e2e3e5; color: #383d41; }
 
           .pr-author {
             font-size: 0.75em;
