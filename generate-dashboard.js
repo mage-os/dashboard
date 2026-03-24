@@ -13,6 +13,13 @@ function escapeHtml(text) {
         .replace(/'/g, '&#039;');
 }
 
+function isLightColor(hex) {
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return (r * 299 + g * 587 + b * 114) / 1000 > 128;
+}
+
 async function fetchOrgData(orgName) {
     const query = `
     query ($org: String!, $cursor: String) {
@@ -132,6 +139,11 @@ function generateOrgSection(orgName, data) {
                           <tr>
                             <td>
                               <a href="${escapeHtml(issue.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(issue.title)}">${escapeHtml(issue.title)}</a>
+                              ${issue.labels.nodes.length > 0 ? `
+                                <div class="label-list">
+                                  ${issue.labels.nodes.map(label => `<span class="label" style="background-color: #${escapeHtml(label.color)}; color: ${isLightColor(label.color) ? '#000' : '#fff'}">${escapeHtml(label.name)}</span>`).join('')}
+                                </div>
+                              ` : ''}
                             </td>
                           </tr>
                         `).join('')}
