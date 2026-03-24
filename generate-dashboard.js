@@ -3,6 +3,16 @@ import { writeFile, mkdir, readFile } from 'fs/promises';
 const config = JSON.parse(await readFile(new URL('./config.json', import.meta.url), 'utf-8'));
 const GITHUB_ORGS = config.organizations;
 
+function escapeHtml(text) {
+    if (!text) return '';
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 async function fetchOrgData(orgName) {
     const query = `
     query ($org: String!) {
@@ -88,7 +98,7 @@ function generateOrgSection(orgName, data) {
             <div class="col">
               <div class="card h-100">
                 <div class="card-header">
-                  <h2><a href="${repo.url}" class="text-decoration-none" target="_blank">${repo.name}</a></h2>
+                  <h2><a href="${escapeHtml(repo.url)}" class="text-decoration-none" target="_blank">${escapeHtml(repo.name)}</a></h2>
                 </div>
                 <div class="card-body">  
                   ${repo.issues.totalCount > 0 ? `
@@ -98,7 +108,7 @@ function generateOrgSection(orgName, data) {
                         ${repo.issues.nodes.map(issue => `
                           <tr>
                             <td>
-                              <a href="${issue.url}" class="text-decoration-none truncate-text" target="_blank" title="${issue.title}">${issue.title}</a>
+                              <a href="${escapeHtml(issue.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(issue.title)}">${escapeHtml(issue.title)}</a>
                             </td>
                           </tr>
                         `).join('')}
@@ -113,7 +123,7 @@ function generateOrgSection(orgName, data) {
                         ${repo.pullRequests.nodes.map(pr => `
                           <tr>
                             <td>
-                              <a href="${pr.url}" class="text-decoration-none truncate-text" target="_blank" title="${pr.title}">${pr.title}</a>
+                              <a href="${escapeHtml(pr.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(pr.title)}">${escapeHtml(pr.title)}</a>
                             </td>
                           </tr>
                         `).join('')}
@@ -177,7 +187,7 @@ async function generateWorkflowRunsSection(orgDataMap) {
 
         return `
               <tr>
-                <td><a href="${repo.url}" class="text-decoration-none" target="_blank">${repo.name}</a></td>
+                <td><a href="${escapeHtml(repo.url)}" class="text-decoration-none" target="_blank">${escapeHtml(repo.name)}</a></td>
                 <td>${formattedDate}</td>
               </tr>
             `;
@@ -292,7 +302,7 @@ async function generateMissingMirrorsSection(orgDataMap, ignoreList = []) {
 
         return `
               <tr>
-                <td><a href="${repo.html_url}" class="text-decoration-none" target="_blank">${repo.name}</a></td>
+                <td><a href="${escapeHtml(repo.html_url)}" class="text-decoration-none" target="_blank">${escapeHtml(repo.name)}</a></td>
                 <td>${formattedDate}</td>
               </tr>
             `;
