@@ -15,9 +15,13 @@ function escapeHtml(text) {
 
 async function fetchOrgData(orgName) {
     const query = `
-    query ($org: String!) {
+    query ($org: String!, $cursor: String) {
       organization(login: $org) {
-        repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        repositories(first: 100, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
           nodes {
             name
             url
@@ -56,27 +60,46 @@ async function fetchOrgData(orgName) {
     }
   `;
 
-    const response = await fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query, variables: { org: orgName } })
-    });
+    let allRepos = [];
+    let cursor = null;
+    let hasNextPage = true;
 
-    if (!response.ok) {
-        throw new Error(`GitHub API error: ${response.statusText}`);
+    while (hasNextPage) {
+        const response = await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ query, variables: { org: orgName, cursor } })
+        });
+
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        if (result.errors) {
+            return result;
+        }
+
+        const repoData = result.data.organization.repositories;
+        const nonArchived = repoData.nodes.filter(repo => !repo.isArchived);
+        allRepos = allRepos.concat(nonArchived);
+        hasNextPage = repoData.pageInfo.hasNextPage;
+        cursor = repoData.pageInfo.endCursor;
     }
 
-    const result = await response.json();
-    
-    // Filter out archived repositories
-    if (result.data && result.data.organization) {
-        result.data.organization.repositories.nodes = result.data.organization.repositories.nodes.filter(repo => !repo.isArchived);
-    }
-    
-    return result;
+    return {
+        data: {
+            organization: {
+                repositories: {
+                    nodes: allRepos
+                }
+            }
+        }
+    };
 }
 
 function generateOrgSection(orgName, data) {
@@ -92,7 +115,7 @@ function generateOrgSection(orgName, data) {
 
     return `
       <section class="mb-5">
-        <h2 class="display-6 mb-4">${orgName}</h2>
+        <h2 class="display-6 mb-4">${escapeHtml(orgName)}</h2>
         <div class="two-columns">
           ${activeRepos.map(repo => `
             <div class="col">
