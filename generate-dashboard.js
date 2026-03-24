@@ -88,6 +88,16 @@ async function fetchOrgData(orgName) {
             url
             updatedAt
             isArchived
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  committedDate
+                }
+              }
+            }
+            vulnerabilityAlerts(states: OPEN) {
+              totalCount
+            }
             issues(states: OPEN, first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
               totalCount
               nodes {
@@ -273,13 +283,15 @@ async function generateWorkflowRunsSection(orgDataMap) {
 
     return `
     <section class="mb-5">
-      <h2 class="display-6 mb-4">Workflow Runs</h2>
+      <h2 class="display-6 mb-4">Repository Health</h2>
       <table id="workflowRunsTable" class="table table-bordered table-hover sortable" style="width:auto">
         <thead>
           <tr>
             <th>Repository</th>
-            <th>Status</th>
+            <th>CI</th>
             <th>Last Workflow Run</th>
+            <th>Last Commit</th>
+            <th>Security Alerts</th>
           </tr>
         </thead>
         <tbody>
@@ -288,12 +300,22 @@ async function generateWorkflowRunsSection(orgDataMap) {
             ? repo.lastRunDate.toISOString().replace('T', ' ').substring(0, 19)
             : '-';
         const statusIcon = getWorkflowStatusIcon(repo.lastRunConclusion);
+        const lastCommitDate = repo.defaultBranchRef?.target?.committedDate;
+        const formattedCommitDate = lastCommitDate
+            ? new Date(lastCommitDate).toISOString().replace('T', ' ').substring(0, 19)
+            : '-';
+        const alertCount = repo.vulnerabilityAlerts?.totalCount ?? null;
+        const alertDisplay = alertCount === null ? '<span class="text-muted">N/A</span>'
+            : alertCount === 0 ? '<span class="text-success">0</span>'
+            : `<span class="text-danger fw-bold">${alertCount}</span>`;
 
         return `
               <tr>
                 <td><a href="${escapeHtml(repo.url)}" class="text-decoration-none" target="_blank">${escapeHtml(repo.name)}</a></td>
                 <td class="text-center">${statusIcon}</td>
                 <td>${formattedDate}</td>
+                <td>${formattedCommitDate}</td>
+                <td class="text-center">${alertDisplay}</td>
               </tr>
             `;
     }).join('')}
