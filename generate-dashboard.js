@@ -159,6 +159,7 @@ function generateOrgSection(orgName, data) {
                           <tr>
                             <td>
                               <a href="${escapeHtml(pr.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(pr.title)}">${escapeHtml(pr.title)}</a>
+                              ${pr.author ? `<span class="pr-author">by ${escapeHtml(pr.author.login)}</span>` : ''}
                             </td>
                           </tr>
                         `).join('')}
@@ -447,6 +448,16 @@ function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
             margin-block: 1rem 0;
           }
         
+          .pr-author {
+            font-size: 0.75em;
+            color: #6c757d;
+            margin-left: 0.25rem;
+          }
+
+          .label-list {
+            margin-top: 0.15rem;
+          }
+
           .truncate-text {
             white-space: nowrap;
             overflow: hidden;
