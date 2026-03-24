@@ -1,7 +1,7 @@
-import { writeFile } from 'fs/promises';
-import { mkdir } from 'fs/promises';
+import { writeFile, mkdir, readFile } from 'fs/promises';
 
-const GITHUB_ORGS = ['mage-os', 'mage-os-lab'];
+const config = JSON.parse(await readFile(new URL('./config.json', import.meta.url), 'utf-8'));
+const GITHUB_ORGS = config.organizations;
 
 async function fetchOrgData(orgName) {
     const query = `
@@ -461,19 +461,7 @@ async function main() {
             orgSections += generateOrgSection(orgName, data);
         }
 
-        const missingMirrorsIgnoreList = [
-            'adobe-commerce-catalog-service', 'aep-launch', 'app-builder-samples', 'architecture', 'baler',
-            'catalog-storefront', 'community-engineering', 'community-features', 'CssXPath', 'devdocs',
-            'devops-cla-test-public', 'directive-parser', 'Dom', 'ece-tools', 'graphql', 'language-ja_JP',
-            'm2-baler', 'm2-devtools', 'magento-cloud', 'magento-cloud-components', 'magento-cloud-docker',
-            'magento-coding-standard', 'magento-eslint', 'magento-japan-tax', 'magento-vcs-installer',
-            'magento2-jp', 'magento2-phpstorm-plugin', 'magento2-pwa', 'magento2-pwa-commerce',
-            'magento2-upward-connector', 'marketplace-eqp', 'marketplace-subscriptions', 'meta-for-magento2',
-            'module-grpc', 'php-proto-generator', 'pwa-studio', 'pwa-tests', 'storefront-authentication-ce',
-            'storefront-message-broker', 'storefront-pricing-ce', 'storefront-product-reviews-ce',
-            'storefront-search-ce', 'ts-types', 'upward-php'
-        ];
-        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, missingMirrorsIgnoreList);
+        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, config.missingMirrorsIgnoreList);
         const workflowSection = await generateWorkflowRunsSection(orgDataMap);
 
         const html = generateHTML(orgSections, missingMirrorsSection, workflowSection);
