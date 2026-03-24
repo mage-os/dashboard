@@ -674,10 +674,32 @@ function generateHTML(summarySection, orgSections, missingMirrorsSection, workfl
           </header>
           
           ${summarySection}
+
+          <div class="mb-4">
+            <input type="text" id="dashboardSearch" class="form-control" placeholder="Filter by repository, issue, PR, author, or label...">
+          </div>
+
           ${orgSections}
           ${missingMirrorsSection}
           ${workflowSection}
         </div>
+        <script>
+          document.getElementById('dashboardSearch').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+
+            // Filter repo cards in org sections
+            document.querySelectorAll('.two-columns .col').forEach(function(col) {
+              const text = col.textContent.toLowerCase();
+              col.style.display = !query || text.includes(query) ? '' : 'none';
+            });
+
+            // Filter table rows in sortable tables
+            document.querySelectorAll('table.sortable tbody tr').forEach(function(row) {
+              const text = row.textContent.toLowerCase();
+              row.style.display = !query || text.includes(query) ? '' : 'none';
+            });
+          });
+        </script>
       </body>
     </html>
   `;
