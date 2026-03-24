@@ -448,19 +448,23 @@ function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
 
 async function main() {
     try {
-        const orgDataMap = {};
-
-        for (const orgName of GITHUB_ORGS) {
-            console.log(`Fetching data for ${orgName}...`);
-            const data = await fetchOrgData(orgName);
-
-            if (data.errors) {
-                console.error(`Error fetching data for ${orgName}:`, data.errors);
-                continue; // Skip this org but continue with others
-            }
-
-            orgDataMap[orgName] = data;
-        }
+        console.log(`Fetching data for organizations: ${GITHUB_ORGS.join(', ')}...`);
+        const orgResults = await Promise.all(
+            GITHUB_ORGS.map(async (orgName) => {
+                try {
+                    const data = await fetchOrgData(orgName);
+                    if (data.errors) {
+                        console.error(`Error fetching data for ${orgName}:`, data.errors);
+                        return [orgName, null];
+                    }
+                    return [orgName, data];
+                } catch (error) {
+                    console.error(`Error fetching data for ${orgName}:`, error);
+                    return [orgName, null];
+                }
+            })
+        );
+        const orgDataMap = Object.fromEntries(orgResults.filter(([, data]) => data !== null));
 
         if (Object.keys(orgDataMap).length === 0) {
             throw new Error('No organization data was successfully retrieved');
