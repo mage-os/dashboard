@@ -1,17 +1,9 @@
 import { writeFile, mkdir, readFile } from 'fs/promises';
+import escapeHtml from 'escape-html';
+import tinycolor from 'tinycolor2';
 
 const config = JSON.parse(await readFile(new URL('./config.json', import.meta.url), 'utf-8'));
 const GITHUB_ORGS = config.organizations;
-
-function escapeHtml(text) {
-    if (!text) return '';
-    return String(text)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
 
 function getDaysSince(dateString) {
     return Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 60 * 60 * 24));
@@ -68,10 +60,7 @@ function getWorkflowStatusIcon(conclusion) {
 }
 
 function isLightColor(hex) {
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-    return (r * 299 + g * 587 + b * 114) / 1000 > 128;
+    return tinycolor(hex).isLight();
 }
 
 async function fetchOrgData(orgName) {
