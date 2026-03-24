@@ -1,13 +1,52 @@
-name: Deploy
+name: Build & Deploy
 on:
   schedule:
     - cron: '0 */3 * * *'
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Trigger Cloudflare Pages Deploy
-        run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - name: Generate dashboard
+        run: node generate-dashboard.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.DASHBOARD_GITHUB_TOKEN }}
+      - name: Generate report
+        run: node generate-report.js
 
+      # Archive snapshot to data branch
+      - name: Archive snapshot
+        run: |
+          YEAR=$(date -u +%Y)
+          MONTH=$(date -u +%m)
+          TIMESTAMP=$(date -u +%Y-%m-%d-%H)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Save build output before switching branches
+          cp dist/dashboard-data.json /tmp/snapshot.json
+          cp dist/report.md /tmp/report.md
+          git fetch origin data 2>/dev/null && git checkout data || git checkout --orphan data
+          # Clean working tree on orphan branch
+          git rm -rf . 2>/dev/null || true
+          # Restore any existing data branch content
+          git checkout data -- . 2>/dev/null || true
+          mkdir -p "snapshots/${YEAR}/${MONTH}"
+          cp /tmp/snapshot.json "snapshots/${YEAR}/${MONTH}/${TIMESTAMP}.json"
+          cp /tmp/snapshot.json latest.json
+          cp /tmp/report.md latest-report.md
+          git add snapshots/ latest.json latest-report.md
+          git commit -m "Snapshot ${TIMESTAMP}" || echo "No changes to commit"
+          git push origin data
+
+      # Switch back and deploy
+      - uses: actions/checkout@v4
+      - name: Deploy to Cloudflare Pages
+        run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"

@@ -247,37 +247,7 @@ function generateOrgSection(orgName, data) {
     `;
 }
 
-async function generateWorkflowRunsSection(orgDataMap) {
-    // Only get repositories from the mage-os organization
-    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
-
-    // Filter out archived repositories and sort alphabetically
-    const sortedRepos = mageOsRepos
-        .filter(repo => !repo.isArchived)
-        .sort((a, b) => a.name.localeCompare(b.name));
-
-    // Fetch workflow runs for each repository
-    const reposWithRuns = await Promise.all(
-        sortedRepos.map(async (repo) => {
-            try {
-                const runsData = await fetchWorkflowRunsForRepo('mage-os', repo.name);
-                const lastRun = runsData.workflow_runs?.[0];
-                return {
-                    ...repo,
-                    lastRunDate: lastRun ? new Date(lastRun.created_at) : null,
-                    lastRunConclusion: lastRun?.conclusion || lastRun?.status || null
-                };
-            } catch (error) {
-                console.error(`Error fetching workflow runs for ${repo.name}:`, error);
-                return {
-                    ...repo,
-                    lastRunDate: null,
-                    lastRunConclusion: null
-                };
-            }
-        })
-    );
-
+function generateWorkflowRunsSectionFromData(reposWithRuns) {
     return `
     <section class="mb-5">
       <h2 class="display-6 mb-4">
@@ -378,41 +348,7 @@ async function fetchMagentoRepos() {
     return allRepos.filter(repo => !repo.archived);
 }
 
-async function generateMissingMirrorsSection(orgDataMap, ignoreList = []) {
-    // Fetch all non-archived repositories from the Magento organization
-    console.log('Fetching non-archived Magento repositories...');
-    const magentoRepos = await fetchMagentoRepos();
-
-    // Extract all Mage-OS repositories
-    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
-
-    // Create a Map of Magento repos for faster lookups
-    const magentoReposMap = new Map(
-        magentoRepos.map(repo => [repo.name, repo])
-    );
-
-    // Create a Set of mirrored repo names (without the "mirror-" prefix) for faster lookups
-    const mirroredRepoNames = new Set(
-        mageOsRepos
-            .filter(repo => repo.name.startsWith('mirror-'))
-            .map(repo => repo.name.substring(7))
-    );
-
-    // Create a Set of ignored repos for faster lookups
-    const ignoredRepos = new Set(ignoreList);
-
-    // Find repositories that don't have mirrors and aren't in the ignore list
-    const unmirroredRepos = [];
-    for (const [name, repo] of magentoReposMap.entries()) {
-        if (!mirroredRepoNames.has(name) && !ignoredRepos.has(name)) {
-            unmirroredRepos.push(repo);
-        }
-    }
-
-    // Sort only once after filtering
-    unmirroredRepos.sort((a, b) => a.name.localeCompare(b.name));
-
-    // If no repositories need mirroring, return a message
+function generateMissingMirrorsSectionFromData(unmirroredRepos) {
     if (unmirroredRepos.length === 0) {
         return `
         <section class="mb-5">
@@ -495,6 +431,164 @@ function computeStats(orgDataMap) {
     }
 
     return { totalRepos, totalIssues, totalPRs, stalePRs, staleIssues, reposWithAlerts };
+}
+
+function getStaleLevel(dateString) {
+    const days = getDaysSince(dateString);
+    if (days >= config.staleThresholds.criticalDays) return 'critical';
+    if (days >= config.staleThresholds.warningDays) return 'warning';
+    return 'ok';
+}
+
+function getReviewStatus(pr) {
+    const lastReview = pr.reviews?.nodes?.[0];
+    const pendingRequests = pr.reviewRequests?.totalCount || 0;
+    if (lastReview) {
+        switch (lastReview.state) {
+            case 'APPROVED': return 'approved';
+            case 'CHANGES_REQUESTED': return 'changes_requested';
+            case 'COMMENTED': return 'commented';
+        }
+    }
+    if (pendingRequests > 0) return 'review_requested';
+    return 'none';
+}
+
+function computePriorityScore(item, type, repo) {
+    const weights = config.priorityWeights || {
+        age: 25, security: 25, reviewStatus: 20, labels: 15, repoActivity: 15
+    };
+    const factors = { age: 0, security: 0, reviewStatus: 0, labels: 0, repoActivity: 0 };
+
+    // Age factor: linear 0 → max over 0 → 90 days
+    const ageDays = getDaysSince(item.updatedAt);
+    factors.age = Math.min(weights.age, Math.round((ageDays / 90) * weights.age));
+
+    // Security factor: higher if repo has alerts
+    const alertCount = repo.vulnerabilityAlerts?.totalCount || 0;
+    if (alertCount > 0) {
+        factors.security = type === 'pr' ? weights.security : Math.round(weights.security * 0.6);
+    }
+
+    // Review status factor (PRs only)
+    if (type === 'pr') {
+        const reviewStatus = getReviewStatus(item);
+        const reviewScores = {
+            approved: 1.0,       // ready to merge — needs action
+            changes_requested: 0.75,
+            review_requested: 0.5,
+            commented: 0.4,
+            none: 0.25
+        };
+        factors.reviewStatus = Math.round((reviewScores[reviewStatus] || 0) * weights.reviewStatus);
+    }
+
+    // Label signals
+    const labelNames = (item.labels?.nodes || []).map(l => l.name.toLowerCase());
+    if (labelNames.some(l => ['bug', 'security', 'critical', 'urgent', 'hotfix'].includes(l))) {
+        factors.labels = weights.labels;
+    } else if (labelNames.some(l => ['enhancement', 'feature'].includes(l))) {
+        factors.labels = Math.round(weights.labels * 0.67);
+    } else if (labelNames.some(l => ['documentation', 'docs', 'chore'].includes(l))) {
+        factors.labels = Math.round(weights.labels * 0.33);
+    }
+
+    // Repo activity: stale items in active repos are more anomalous
+    const lastCommitDate = repo.defaultBranchRef?.target?.committedDate;
+    if (lastCommitDate && ageDays > config.staleThresholds.warningDays) {
+        const repoAgeDays = getDaysSince(lastCommitDate);
+        // Active repo (committed within 30 days) with stale item = high priority
+        if (repoAgeDays < 30) {
+            factors.repoActivity = weights.repoActivity;
+        } else if (repoAgeDays < 90) {
+            factors.repoActivity = Math.round(weights.repoActivity * 0.5);
+        }
+    }
+
+    const score = Object.values(factors).reduce((sum, v) => sum + v, 0);
+    return { score, factors };
+}
+
+function collectDashboardData(orgDataMap, reposWithRunsMap, missingMirrors) {
+    const stats = computeStats(orgDataMap);
+    const allItems = [];
+
+    const organizations = {};
+    for (const [orgName, data] of Object.entries(orgDataMap)) {
+        const repos = data.data.organization.repositories.nodes;
+        organizations[orgName] = {
+            repositories: repos.map(repo => {
+                const workflowInfo = reposWithRunsMap[`${orgName}/${repo.name}`];
+                const alertCount = repo.vulnerabilityAlerts?.totalCount ?? 0;
+                const lastCommitDate = repo.defaultBranchRef?.target?.committedDate || null;
+
+                const issues = repo.issues.nodes.map(issue => {
+                    const ageDays = getDaysSince(issue.updatedAt);
+                    const priority = computePriorityScore(issue, 'issue', repo);
+                    const item = {
+                        title: issue.title,
+                        url: issue.url,
+                        createdAt: issue.createdAt,
+                        updatedAt: issue.updatedAt,
+                        ageDays,
+                        staleLevel: getStaleLevel(issue.updatedAt),
+                        labels: (issue.labels?.nodes || []).map(l => ({ name: l.name, color: l.color })),
+                        priorityScore: priority.score,
+                        priorityFactors: priority.factors
+                    };
+                    allItems.push({ ...item, type: 'issue', repo: repo.name, org: orgName });
+                    return item;
+                });
+
+                const pullRequests = repo.pullRequests.nodes.map(pr => {
+                    const ageDays = getDaysSince(pr.updatedAt);
+                    const priority = computePriorityScore(pr, 'pr', repo);
+                    const item = {
+                        title: pr.title,
+                        url: pr.url,
+                        createdAt: pr.createdAt,
+                        updatedAt: pr.updatedAt,
+                        ageDays,
+                        staleLevel: getStaleLevel(pr.updatedAt),
+                        author: pr.author?.login || null,
+                        reviewStatus: getReviewStatus(pr),
+                        priorityScore: priority.score,
+                        priorityFactors: priority.factors
+                    };
+                    allItems.push({ ...item, type: 'pr', repo: repo.name, org: orgName });
+                    return item;
+                });
+
+                return {
+                    name: repo.name,
+                    url: repo.url,
+                    lastCommitDate,
+                    securityAlertCount: alertCount,
+                    lastWorkflowRun: workflowInfo
+                        ? { date: workflowInfo.date, conclusion: workflowInfo.conclusion }
+                        : null,
+                    issues,
+                    pullRequests
+                };
+            })
+        };
+    }
+
+    // Top action items sorted by priority score
+    allItems.sort((a, b) => b.priorityScore - a.priorityScore);
+    const actionItems = allItems.slice(0, 20);
+
+    return {
+        generatedAt: new Date().toISOString(),
+        stats,
+        organizations,
+        missingMirrors: missingMirrors.map(repo => ({
+            name: repo.name,
+            url: repo.html_url,
+            lastUpdated: repo.updated_at
+        })),
+        actionItems
+    };
 }
 
 function generateSummarySection(stats) {
@@ -731,6 +825,48 @@ function generateHTML(summarySection, orgSections, missingMirrorsSection, workfl
   `;
 }
 
+async function collectWorkflowRuns(orgDataMap) {
+    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
+    const sortedRepos = mageOsRepos
+        .filter(repo => !repo.isArchived)
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+    const runsMap = {};
+    const reposWithRuns = await Promise.all(
+        sortedRepos.map(async (repo) => {
+            try {
+                const runsData = await fetchWorkflowRunsForRepo('mage-os', repo.name);
+                const lastRun = runsData.workflow_runs?.[0];
+                const info = {
+                    date: lastRun ? new Date(lastRun.created_at).toISOString() : null,
+                    conclusion: lastRun?.conclusion || lastRun?.status || null
+                };
+                runsMap[`mage-os/${repo.name}`] = info;
+                return { ...repo, lastRunDate: lastRun ? new Date(lastRun.created_at) : null, lastRunConclusion: info.conclusion };
+            } catch (error) {
+                console.error(`Error fetching workflow runs for ${repo.name}:`, error);
+                runsMap[`mage-os/${repo.name}`] = { date: null, conclusion: null };
+                return { ...repo, lastRunDate: null, lastRunConclusion: null };
+            }
+        })
+    );
+
+    return { runsMap, reposWithRuns };
+}
+
+async function collectMissingMirrors(orgDataMap, ignoreList = []) {
+    const magentoRepos = await fetchMagentoRepos();
+    const mageOsRepos = orgDataMap['mage-os']?.data?.organization?.repositories?.nodes || [];
+    const mirroredRepoNames = new Set(
+        mageOsRepos.filter(repo => repo.name.startsWith('mirror-')).map(repo => repo.name.substring(7))
+    );
+    const ignoredRepos = new Set(ignoreList);
+
+    return magentoRepos
+        .filter(repo => !mirroredRepoNames.has(repo.name) && !ignoredRepos.has(repo.name))
+        .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 async function main() {
     try {
         console.log(`Fetching data for organizations: ${GITHUB_ORGS.join(', ')}...`);
@@ -755,6 +891,15 @@ async function main() {
             throw new Error('No organization data was successfully retrieved');
         }
 
+        // Collect workflow runs and missing mirrors data
+        console.log('Fetching workflow runs and missing mirrors...');
+        const { runsMap, reposWithRuns } = await collectWorkflowRuns(orgDataMap);
+        const missingMirrors = await collectMissingMirrors(orgDataMap, config.missingMirrorsIgnoreList);
+
+        // Generate structured JSON data
+        const dashboardData = collectDashboardData(orgDataMap, runsMap, missingMirrors);
+
+        // Generate HTML dashboard
         const stats = computeStats(orgDataMap);
         const summarySection = generateSummarySection(stats);
 
@@ -763,14 +908,16 @@ async function main() {
             orgSections += generateOrgSection(orgName, data);
         }
 
-        const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, config.missingMirrorsIgnoreList);
-        const workflowSection = await generateWorkflowRunsSection(orgDataMap);
+        const missingMirrorsSection = generateMissingMirrorsSectionFromData(missingMirrors);
+        const workflowSection = generateWorkflowRunsSectionFromData(reposWithRuns);
 
         const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection);
 
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
+        await writeFile('dist/dashboard-data.json', JSON.stringify(dashboardData, null, 2));
         console.log('Dashboard generated successfully!');
+        console.log(`JSON data written with ${dashboardData.actionItems.length} action items`);
     } catch (error) {
         console.error('Error generating dashboard:', error);
         process.exit(1);

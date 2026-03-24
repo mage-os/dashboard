@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node generate-dashboard.js"
+    "build": "node generate-dashboard.js",
+    "report": "node generate-report.js"
   },
   "engines": {
     "node": ">=18.0.0"
