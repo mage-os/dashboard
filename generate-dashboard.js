@@ -13,6 +13,28 @@ function escapeHtml(text) {
         .replace(/'/g, '&#039;');
 }
 
+function getDaysSince(dateString) {
+    return Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 60 * 60 * 24));
+}
+
+function getStaleClass(dateString) {
+    const days = getDaysSince(dateString);
+    if (days >= config.staleThresholds.criticalDays) return 'stale-critical';
+    if (days >= config.staleThresholds.warningDays) return 'stale-warning';
+    return '';
+}
+
+function formatAge(dateString) {
+    const days = getDaysSince(dateString);
+    if (days < 1) return 'today';
+    if (days === 1) return '1 day ago';
+    if (days < 30) return `${days}d ago`;
+    const months = Math.floor(days / 30);
+    if (months < 12) return `${months}mo ago`;
+    const years = Math.floor(days / 365);
+    return `${years}y ago`;
+}
+
 function isLightColor(hex) {
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
@@ -136,9 +158,10 @@ function generateOrgSection(orgName, data) {
                     <table class="table table-hover">
                       <tbody>
                         ${repo.issues.nodes.map(issue => `
-                          <tr>
+                          <tr class="${getStaleClass(issue.updatedAt)}">
                             <td>
                               <a href="${escapeHtml(issue.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(issue.title)}">${escapeHtml(issue.title)}</a>
+                              <span class="item-age">${formatAge(issue.updatedAt)}</span>
                               ${issue.labels.nodes.length > 0 ? `
                                 <div class="label-list">
                                   ${issue.labels.nodes.map(label => `<span class="label" style="background-color: #${escapeHtml(label.color)}; color: ${isLightColor(label.color) ? '#000' : '#fff'}">${escapeHtml(label.name)}</span>`).join('')}
@@ -156,10 +179,11 @@ function generateOrgSection(orgName, data) {
                     <table class="table table-hover">
                       <tbody>
                         ${repo.pullRequests.nodes.map(pr => `
-                          <tr>
+                          <tr class="${getStaleClass(pr.updatedAt)}">
                             <td>
                               <a href="${escapeHtml(pr.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(pr.title)}">${escapeHtml(pr.title)}</a>
                               ${pr.author ? `<span class="pr-author">by ${escapeHtml(pr.author.login)}</span>` : ''}
+                              <span class="item-age">${formatAge(pr.updatedAt)}</span>
                             </td>
                           </tr>
                         `).join('')}
@@ -448,6 +472,28 @@ function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
             margin-block: 1rem 0;
           }
         
+          .stale-warning {
+            background-color: #fff3cd !important;
+          }
+
+          .stale-critical {
+            background-color: #f8d7da !important;
+          }
+
+          .item-age {
+            font-size: 0.7em;
+            color: #6c757d;
+            white-space: nowrap;
+          }
+
+          .stale-warning .item-age {
+            color: #856404;
+          }
+
+          .stale-critical .item-age {
+            color: #721c24;
+          }
+
           .pr-author {
             font-size: 0.75em;
             color: #6c757d;
