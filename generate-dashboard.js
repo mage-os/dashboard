@@ -456,7 +456,65 @@ async function generateMissingMirrorsSection(orgDataMap, ignoreList = []) {
   `;
 }
 
-function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
+function computeStats(orgDataMap) {
+    let totalRepos = 0;
+    let totalIssues = 0;
+    let totalPRs = 0;
+    let stalePRs = 0;
+    let staleIssues = 0;
+    let reposWithAlerts = 0;
+
+    for (const data of Object.values(orgDataMap)) {
+        const repos = data.data.organization.repositories.nodes;
+        totalRepos += repos.length;
+        for (const repo of repos) {
+            totalIssues += repo.issues.totalCount;
+            totalPRs += repo.pullRequests.totalCount;
+
+            for (const issue of repo.issues.nodes) {
+                if (getDaysSince(issue.updatedAt) >= config.staleThresholds.criticalDays) staleIssues++;
+            }
+            for (const pr of repo.pullRequests.nodes) {
+                if (getDaysSince(pr.updatedAt) >= config.staleThresholds.warningDays) stalePRs++;
+            }
+
+            const alertCount = repo.vulnerabilityAlerts?.totalCount || 0;
+            if (alertCount > 0) reposWithAlerts++;
+        }
+    }
+
+    return { totalRepos, totalIssues, totalPRs, stalePRs, staleIssues, reposWithAlerts };
+}
+
+function generateSummarySection(stats) {
+    const cards = [
+        { label: 'Repositories', value: stats.totalRepos, color: 'primary' },
+        { label: 'Open Issues', value: stats.totalIssues, color: 'info' },
+        { label: 'Open PRs', value: stats.totalPRs, color: 'info' },
+        { label: `Stale PRs (>${config.staleThresholds.warningDays}d)`, value: stats.stalePRs, color: stats.stalePRs > 0 ? 'warning' : 'success' },
+        { label: `Stale Issues (>${config.staleThresholds.criticalDays}d)`, value: stats.staleIssues, color: stats.staleIssues > 0 ? 'danger' : 'success' },
+        { label: 'Repos with Alerts', value: stats.reposWithAlerts, color: stats.reposWithAlerts > 0 ? 'danger' : 'success' },
+    ];
+
+    return `
+      <section class="mb-4">
+        <div class="row g-3">
+          ${cards.map(card => `
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="card text-center border-${card.color}">
+                <div class="card-body summary-card-body">
+                  <div class="fs-2 fw-bold text-${card.color}">${card.value}</div>
+                  <div class="text-muted small">${card.label}</div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+}
+
+function generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection) {
     const lastUpdate = new Date().toISOString();
 
     return `
@@ -487,6 +545,10 @@ function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
             margin: 0.15rem 0.15rem 0.15rem 0;
           }
         
+          .summary-card-body {
+            padding: 0.75rem !important;
+          }
+
           .last-update {
             color: #6c757d;
             font-size: 0.8em;
@@ -611,6 +673,7 @@ function generateHTML(orgSections, missingMirrorsSection, workflowSection) {
             <p class="last-update">Last updated: ${new Date(lastUpdate).toLocaleString()}</p>
           </header>
           
+          ${summarySection}
           ${orgSections}
           ${missingMirrorsSection}
           ${workflowSection}
@@ -644,6 +707,9 @@ async function main() {
             throw new Error('No organization data was successfully retrieved');
         }
 
+        const stats = computeStats(orgDataMap);
+        const summarySection = generateSummarySection(stats);
+
         let orgSections = '';
         for (const [orgName, data] of Object.entries(orgDataMap)) {
             orgSections += generateOrgSection(orgName, data);
@@ -652,7 +718,7 @@ async function main() {
         const missingMirrorsSection = await generateMissingMirrorsSection(orgDataMap, config.missingMirrorsIgnoreList);
         const workflowSection = await generateWorkflowRunsSection(orgDataMap);
 
-        const html = generateHTML(orgSections, missingMirrorsSection, workflowSection);
+        const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection);
 
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
