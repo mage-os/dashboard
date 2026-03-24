@@ -35,6 +35,18 @@ function formatAge(dateString) {
     return `${years}y ago`;
 }
 
+function getWorkflowStatusIcon(conclusion) {
+    const icons = {
+        success: '<span class="ci-status ci-success" title="Success">&#x2705;</span>',
+        failure: '<span class="ci-status ci-failure" title="Failure">&#x274C;</span>',
+        cancelled: '<span class="ci-status ci-cancelled" title="Cancelled">&#x26D4;</span>',
+        skipped: '<span class="ci-status ci-skipped" title="Skipped">&#x23ED;</span>',
+        in_progress: '<span class="ci-status ci-running" title="In Progress">&#x1F504;</span>',
+        queued: '<span class="ci-status ci-running" title="Queued">&#x1F504;</span>',
+    };
+    return icons[conclusion] || '<span class="ci-status" title="No runs">&#x2796;</span>';
+}
+
 function isLightColor(hex) {
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
@@ -213,17 +225,18 @@ async function generateWorkflowRunsSection(orgDataMap) {
         sortedRepos.map(async (repo) => {
             try {
                 const runsData = await fetchWorkflowRunsForRepo('mage-os', repo.name);
+                const lastRun = runsData.workflow_runs?.[0];
                 return {
                     ...repo,
-                    lastRunDate: runsData.workflow_runs && runsData.workflow_runs.length > 0
-                        ? new Date(runsData.workflow_runs[0].created_at)
-                        : null
+                    lastRunDate: lastRun ? new Date(lastRun.created_at) : null,
+                    lastRunConclusion: lastRun?.conclusion || lastRun?.status || null
                 };
             } catch (error) {
                 console.error(`Error fetching workflow runs for ${repo.name}:`, error);
                 return {
                     ...repo,
-                    lastRunDate: null
+                    lastRunDate: null,
+                    lastRunConclusion: null
                 };
             }
         })
@@ -236,6 +249,7 @@ async function generateWorkflowRunsSection(orgDataMap) {
         <thead>
           <tr>
             <th>Repository</th>
+            <th>Status</th>
             <th>Last Workflow Run</th>
           </tr>
         </thead>
@@ -244,10 +258,12 @@ async function generateWorkflowRunsSection(orgDataMap) {
         const formattedDate = repo.lastRunDate
             ? repo.lastRunDate.toISOString().replace('T', ' ').substring(0, 19)
             : '-';
+        const statusIcon = getWorkflowStatusIcon(repo.lastRunConclusion);
 
         return `
               <tr>
                 <td><a href="${escapeHtml(repo.url)}" class="text-decoration-none" target="_blank">${escapeHtml(repo.name)}</a></td>
+                <td class="text-center">${statusIcon}</td>
                 <td>${formattedDate}</td>
               </tr>
             `;
