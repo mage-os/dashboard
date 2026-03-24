@@ -192,9 +192,16 @@ function generateOrgSection(orgName, data) {
         return '';
     }
 
+    const sectionId = `section-${orgName.replace(/[^a-zA-Z0-9]/g, '-')}`;
     return `
       <section class="mb-5">
-        <h2 class="display-6 mb-4">${escapeHtml(orgName)}</h2>
+        <h2 class="display-6 mb-4">
+          <a class="text-decoration-none section-toggle" data-bs-toggle="collapse" href="#${sectionId}" role="button" aria-expanded="true" aria-controls="${sectionId}">
+            ${escapeHtml(orgName)}
+            <span class="collapse-icon"></span>
+          </a>
+        </h2>
+        <div class="collapse show" id="${sectionId}">
         <div class="two-columns">
           ${activeRepos.map(repo => `
             <div class="col">
@@ -246,6 +253,7 @@ function generateOrgSection(orgName, data) {
             </div>
           `).join('')}
         </div>
+        </div>
       </section>
     `;
 }
@@ -283,7 +291,13 @@ async function generateWorkflowRunsSection(orgDataMap) {
 
     return `
     <section class="mb-5">
-      <h2 class="display-6 mb-4">Repository Health</h2>
+      <h2 class="display-6 mb-4">
+        <a class="text-decoration-none section-toggle" data-bs-toggle="collapse" href="#section-repo-health" role="button" aria-expanded="true" aria-controls="section-repo-health">
+          Repository Health
+          <span class="collapse-icon"></span>
+        </a>
+      </h2>
+      <div class="collapse show" id="section-repo-health">
       <table id="workflowRunsTable" class="table table-bordered table-hover sortable" style="width:auto">
         <thead>
           <tr>
@@ -321,6 +335,7 @@ async function generateWorkflowRunsSection(orgDataMap) {
     }).join('')}
         </tbody>
       </table>
+      </div>
     </section>
   `;
 }
@@ -440,7 +455,13 @@ async function generateMissingMirrorsSection(orgDataMap, ignoreList = []) {
 
     return `
     <section class="mb-5">
-      <h2 class="display-6 mb-4">Magento Repositories Without Mage-OS Mirrors</h2>
+      <h2 class="display-6 mb-4">
+        <a class="text-decoration-none section-toggle" data-bs-toggle="collapse" href="#section-missing-mirrors" role="button" aria-expanded="true" aria-controls="section-missing-mirrors">
+          Magento Repositories Without Mage-OS Mirrors
+          <span class="collapse-icon"></span>
+        </a>
+      </h2>
+      <div class="collapse show" id="section-missing-mirrors">
       <table class="table table-bordered table-hover sortable" style="width:auto">
         <thead>
           <tr>
@@ -452,6 +473,7 @@ async function generateMissingMirrorsSection(orgDataMap, ignoreList = []) {
           ${tableRows}
         </tbody>
       </table>
+      </div>
     </section>
   `;
 }
@@ -526,6 +548,7 @@ function generateHTML(summarySection, orgSections, missingMirrorsSection, workfl
         <title>Mage-OS Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/tofsjonas/sortable@latest/sortable.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
         <style>
           body { 
             padding: 1rem;
@@ -655,6 +678,20 @@ function generateHTML(summarySection, orgSections, missingMirrorsSection, workfl
             display: block;
           }
           
+          .section-toggle {
+            color: inherit;
+          }
+
+          .section-toggle .collapse-icon::after {
+            content: " \\25B2";
+            font-size: 0.6em;
+            vertical-align: middle;
+          }
+
+          .section-toggle.collapsed .collapse-icon::after {
+            content: " \\25BC";
+          }
+
           .sortable th {
             cursor: pointer;
           }
