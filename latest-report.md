@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Wed, 25 Mar 2026 04:50:05 GMT
+Generated: Wed, 25 Mar 2026 06:54:37 GMT
 
 ## Summary
 - **38** active repositories across 1 organizations
@@ -36,9 +36,9 @@ Generated: Wed, 25 Mar 2026 04:50:05 GMT
 | [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 174d | rhoerr | none |
 | [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 172d | rhoerr | commented |
 | [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 39d | rhoerr | none |
+| [Add enrichment review, caching, and approval workflow (#28)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/46) | module-catalog-data-ai (mage-os-lab) | 38d | rhoerr | none |
 | [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 38d | rhoerr | none |
 | [Flag enriched product attributes on product edit (#48)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/51) | module-catalog-data-ai (mage-os-lab) | 37d | rhoerr | none |
-| [Add enrichment review, caching, and approval workflow (#28)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/46) | module-catalog-data-ai (mage-os-lab) | 37d | rhoerr | none |
 | [Make enrichment attributes configurable (#27)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/45) | module-catalog-data-ai (mage-os-lab) | 30d | rhoerr | none |
 
 ## Stale Issues (>90 days)
