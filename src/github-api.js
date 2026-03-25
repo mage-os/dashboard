@@ -1,7 +1,7 @@
 const ORG_QUERY = `
     query ($org: String!, $cursor: String) {
       organization(login: $org) {
-        repositories(first: 100, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        repositories(first: 25, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
           pageInfo {
             hasNextPage
             endCursor
@@ -67,13 +67,29 @@ function createGitHubHeaders(token) {
     };
 }
 
+async function fetchWithRetry(url, options, maxRetries = 3) {
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        const response = await fetch(url, options);
+        if (response.ok || response.status < 500) {
+            return response;
+        }
+        if (attempt < maxRetries) {
+            const delay = Math.pow(2, attempt + 1) * 1000;
+            console.warn(`GitHub API returned ${response.status}, retrying in ${delay / 1000}s (attempt ${attempt + 1}/${maxRetries})...`);
+            await new Promise(r => setTimeout(r, delay));
+        } else {
+            return response;
+        }
+    }
+}
+
 export async function fetchOrgData(orgName, token) {
     let allRepos = [];
     let cursor = null;
     let hasNextPage = true;
 
     while (hasNextPage) {
-        const response = await fetch('https://api.github.com/graphql', {
+        const response = await fetchWithRetry('https://api.github.com/graphql', {
             method: 'POST',
             headers: createGitHubHeaders(token),
             body: JSON.stringify({ query: ORG_QUERY, variables: { org: orgName, cursor } })
@@ -108,7 +124,7 @@ export async function fetchOrgData(orgName, token) {
 }
 
 export async function fetchWorkflowRunsForRepo(owner, repo, token) {
-    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/runs?per_page=1`, {
+    const response = await fetchWithRetry(`https://api.github.com/repos/${owner}/${repo}/actions/runs?per_page=1`, {
         method: 'GET',
         headers: createGitHubHeaders(token)
     });
@@ -126,7 +142,7 @@ export async function fetchMagentoRepos(token) {
     let hasMoreRepos = true;
 
     while (hasMoreRepos) {
-        const response = await fetch(`https://api.github.com/orgs/magento/repos?per_page=100&page=${page}`, {
+        const response = await fetchWithRetry(`https://api.github.com/orgs/magento/repos?per_page=100&page=${page}`, {
             method: 'GET',
             headers: createGitHubHeaders(token)
         });
