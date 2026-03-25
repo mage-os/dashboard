@@ -12,17 +12,6 @@ function formatFactors(factors) {
 const { stats, actionItems, organizations, missingMirrors, generatedAt } = data;
 const orgCount = Object.keys(organizations).length;
 
-// Find repos with security alerts
-const securityRepos = [];
-for (const [orgName, org] of Object.entries(organizations)) {
-    for (const repo of org.repositories) {
-        if (repo.securityAlertCount > 0) {
-            const relatedPRs = repo.pullRequests.length;
-            securityRepos.push({ name: repo.name, org: orgName, alerts: repo.securityAlertCount, openPRs: relatedPRs });
-        }
-    }
-}
-
 // Collect stale PRs and issues
 const stalePRs = [];
 const staleIssues = [];
@@ -51,7 +40,6 @@ Generated: ${new Date(generatedAt).toUTCString()}
 - **${stats.totalRepos}** active repositories across ${orgCount} organizations
 - **${stats.totalIssues}** open issues (${stats.staleIssues} stale >90d)
 - **${stats.totalPRs}** open PRs (${stats.stalePRs} stale >30d)
-- **${stats.reposWithAlerts}** repos with security alerts
 `;
 
 // Action items
@@ -63,16 +51,6 @@ if (actionItems.length > 0) {
         const reviewStr = item.reviewStatus ? ` [${item.reviewStatus}]` : '';
         report += `${i + 1}. **[${typeLabel}: ${item.title}](${item.url})** in \`${item.repo}\` (${item.org}) — Score: ${item.priorityScore}/100${authorStr}${reviewStr}\n`;
         report += `   ${formatFactors(item.priorityFactors)}\n`;
-    }
-}
-
-// Security alerts
-if (securityRepos.length > 0) {
-    report += `\n## Security Alerts\n`;
-    report += `| Repository | Org | Alerts | Open PRs |\n`;
-    report += `|------------|-----|--------|----------|\n`;
-    for (const repo of securityRepos) {
-        report += `| ${repo.name} | ${repo.org} | ${repo.alerts} | ${repo.openPRs} |\n`;
     }
 }
 

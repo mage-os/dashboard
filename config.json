@@ -5,11 +5,10 @@
     "criticalDays": 90
   },
   "priorityWeights": {
-    "age": 25,
-    "security": 25,
-    "reviewStatus": 20,
-    "labels": 15,
-    "repoActivity": 15
+    "age": 30,
+    "reviewStatus": 25,
+    "labels": 20,
+    "repoActivity": 25
   },
   "missingMirrorsIgnoreList": [
     "adobe-commerce-catalog-service",
