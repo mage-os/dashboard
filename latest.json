@@ -1,0 +1,1692 @@
+{
+  "generatedAt": "2026-03-25T03:58:05.661Z",
+  "stats": {
+    "totalRepos": 38,
+    "totalIssues": 28,
+    "totalPRs": 12,
+    "stalePRs": 8,
+    "staleIssues": 15,
+    "reposWithAlerts": 0
+  },
+  "organizations": {
+    "mage-os-lab": {
+      "repositories": [
+        {
+          "name": "mage-os-installer",
+          "url": "https://github.com/mage-os-lab/mage-os-installer",
+          "lastCommitDate": "2026-03-24T17:04:18Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "llms.txt",
+          "url": "https://github.com/mage-os-lab/llms.txt",
+          "lastCommitDate": "2026-03-24T12:56:30Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Plan to release a stable version",
+              "url": "https://github.com/mage-os-lab/llms.txt/issues/9",
+              "createdAt": "2025-11-19T20:42:08Z",
+              "updatedAt": "2025-12-02T11:01:55Z",
+              "ageDays": 112,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 40,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 15
+              }
+            },
+            {
+              "title": "Module review",
+              "url": "https://github.com/mage-os-lab/llms.txt/issues/1",
+              "createdAt": "2025-10-17T08:54:24Z",
+              "updatedAt": "2025-10-17T08:54:24Z",
+              "ageDays": 158,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 40,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 15
+              }
+            }
+          ],
+          "pullRequests": []
+        },
+        {
+          "name": "module-passkey-auth",
+          "url": "https://github.com/mage-os-lab/module-passkey-auth",
+          "lastCommitDate": "2026-03-17T03:29:34Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-admin-activity-log",
+          "url": "https://github.com/mage-os-lab/module-admin-activity-log",
+          "lastCommitDate": "2026-03-10T02:59:29Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Improve default columns visibility + order on the activity log grid",
+              "url": "https://github.com/mage-os-lab/module-admin-activity-log/issues/19",
+              "createdAt": "2026-03-20T16:34:51Z",
+              "updatedAt": "2026-03-20T16:34:51Z",
+              "ageDays": 4,
+              "staleLevel": "ok",
+              "labels": [],
+              "priorityScore": 1,
+              "priorityFactors": {
+                "age": 1,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "System-config change links don't go to system config",
+              "url": "https://github.com/mage-os-lab/module-admin-activity-log/issues/18",
+              "createdAt": "2026-03-10T03:04:06Z",
+              "updatedAt": "2026-03-10T03:04:06Z",
+              "ageDays": 15,
+              "staleLevel": "ok",
+              "labels": [],
+              "priorityScore": 4,
+              "priorityFactors": {
+                "age": 4,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Unchanged values sometimes show changed",
+              "url": "https://github.com/mage-os-lab/module-admin-activity-log/issues/17",
+              "createdAt": "2026-03-10T03:02:31Z",
+              "updatedAt": "2026-03-10T03:02:31Z",
+              "ageDays": 15,
+              "staleLevel": "ok",
+              "labels": [],
+              "priorityScore": 4,
+              "priorityFactors": {
+                "age": 4,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ],
+          "pullRequests": [
+            {
+              "title": "Fix system-config links and improve grid defaults (#18, #19)",
+              "url": "https://github.com/mage-os-lab/module-admin-activity-log/pull/21",
+              "createdAt": "2026-03-24T02:39:11Z",
+              "updatedAt": "2026-03-24T02:39:11Z",
+              "ageDays": 1,
+              "staleLevel": "ok",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 5,
+              "priorityFactors": {
+                "age": 0,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "fix: eliminate false-positive change detection (#17)",
+              "url": "https://github.com/mage-os-lab/module-admin-activity-log/pull/20",
+              "createdAt": "2026-03-24T02:29:18Z",
+              "updatedAt": "2026-03-24T02:29:18Z",
+              "ageDays": 1,
+              "staleLevel": "ok",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 5,
+              "priorityFactors": {
+                "age": 0,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "module-blog-hyva",
+          "url": "https://github.com/mage-os-lab/module-blog-hyva",
+          "lastCommitDate": "2025-12-14T10:04:19Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-blog",
+          "url": "https://github.com/mage-os-lab/module-blog",
+          "lastCommitDate": "2025-12-14T09:18:37Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-newsletter-coupon",
+          "url": "https://github.com/mage-os-lab/module-newsletter-coupon",
+          "lastCommitDate": "2026-03-17T05:56:48Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-advanced-widget",
+          "url": "https://github.com/mage-os-lab/module-advanced-widget",
+          "lastCommitDate": "2026-03-13T07:06:07Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Wysiswyg field",
+              "url": "https://github.com/mage-os-lab/module-advanced-widget/issues/2",
+              "createdAt": "2026-01-19T08:17:41Z",
+              "updatedAt": "2026-03-17T15:30:23Z",
+              "ageDays": 7,
+              "staleLevel": "ok",
+              "labels": [
+                {
+                  "name": "enhancement",
+                  "color": "a2eeef"
+                }
+              ],
+              "priorityScore": 12,
+              "priorityFactors": {
+                "age": 2,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 10,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Video field",
+              "url": "https://github.com/mage-os-lab/module-advanced-widget/issues/1",
+              "createdAt": "2026-01-19T08:07:41Z",
+              "updatedAt": "2026-01-19T08:07:41Z",
+              "ageDays": 64,
+              "staleLevel": "warning",
+              "labels": [
+                {
+                  "name": "enhancement",
+                  "color": "a2eeef"
+                }
+              ],
+              "priorityScore": 43,
+              "priorityFactors": {
+                "age": 18,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 10,
+                "repoActivity": 15
+              }
+            }
+          ],
+          "pullRequests": [
+            {
+              "title": "Introduce wysiwyg and colorpicker fields",
+              "url": "https://github.com/mage-os-lab/module-advanced-widget/pull/4",
+              "createdAt": "2026-03-16T16:17:30Z",
+              "updatedAt": "2026-03-16T16:17:30Z",
+              "ageDays": 8,
+              "staleLevel": "ok",
+              "author": "yuriy-boyko",
+              "reviewStatus": "none",
+              "priorityScore": 7,
+              "priorityFactors": {
+                "age": 2,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "module-alpine-messages",
+          "url": "https://github.com/mage-os-lab/module-alpine-messages",
+          "lastCommitDate": "2026-03-11T09:39:37Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-alpine-minicart",
+          "url": "https://github.com/mage-os-lab/module-alpine-minicart",
+          "lastCommitDate": "2026-03-11T09:40:15Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-alpine-local-storage",
+          "url": "https://github.com/mage-os-lab/module-alpine-local-storage",
+          "lastCommitDate": "2026-03-11T09:38:25Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-widgetkit",
+          "url": "https://github.com/mage-os-lab/module-widgetkit",
+          "lastCommitDate": "2026-03-10T10:39:21Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Clicking On Save for Slider or Slideshow Throws Error After Adding One image",
+              "url": "https://github.com/mage-os-lab/module-widgetkit/issues/11",
+              "createdAt": "2026-03-11T18:41:02Z",
+              "updatedAt": "2026-03-13T21:52:02Z",
+              "ageDays": 11,
+              "staleLevel": "ok",
+              "labels": [
+                {
+                  "name": "invalid",
+                  "color": "e4e669"
+                }
+              ],
+              "priorityScore": 3,
+              "priorityFactors": {
+                "age": 3,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ],
+          "pullRequests": []
+        },
+        {
+          "name": "module-rma",
+          "url": "https://github.com/mage-os-lab/module-rma",
+          "lastCommitDate": "2026-03-09T00:20:54Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Code review",
+              "url": "https://github.com/mage-os-lab/module-rma/issues/1",
+              "createdAt": "2026-02-15T20:31:29Z",
+              "updatedAt": "2026-02-15T20:31:29Z",
+              "ageDays": 37,
+              "staleLevel": "warning",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 10,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 15
+              }
+            }
+          ],
+          "pullRequests": []
+        },
+        {
+          "name": "pagebuilder-suite-doc",
+          "url": "https://github.com/mage-os-lab/pagebuilder-suite-doc",
+          "lastCommitDate": "2026-03-08T15:42:49Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "patch-objectmanager-lazy-object",
+          "url": "https://github.com/mage-os-lab/patch-objectmanager-lazy-object",
+          "lastCommitDate": "2025-11-21T12:38:58Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Add exceptions for PHP native classes",
+              "url": "https://github.com/mage-os-lab/patch-objectmanager-lazy-object/issues/2",
+              "createdAt": "2025-11-11T12:29:25Z",
+              "updatedAt": "2025-12-30T03:15:36Z",
+              "ageDays": 85,
+              "staleLevel": "warning",
+              "labels": [],
+              "priorityScore": 24,
+              "priorityFactors": {
+                "age": 24,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ],
+          "pullRequests": []
+        },
+        {
+          "name": "module-require-js-optimizer",
+          "url": "https://github.com/mage-os-lab/module-require-js-optimizer",
+          "lastCommitDate": "2026-02-26T04:50:07Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-catalog-data-ai",
+          "url": "https://github.com/mage-os-lab/module-catalog-data-ai",
+          "lastCommitDate": "2025-10-04T01:40:12Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "suggested unified approach to reduce APi calls and AI cost.",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/44",
+              "createdAt": "2026-01-22T01:47:58Z",
+              "updatedAt": "2026-02-15T04:12:46Z",
+              "ageDays": 37,
+              "staleLevel": "warning",
+              "labels": [],
+              "priorityScore": 10,
+              "priorityFactors": {
+                "age": 10,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Docs: Add a variety of example prompts to the module or wiki",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/47",
+              "createdAt": "2026-02-13T16:51:24Z",
+              "updatedAt": "2026-02-13T16:56:11Z",
+              "ageDays": 39,
+              "staleLevel": "warning",
+              "labels": [],
+              "priorityScore": 11,
+              "priorityFactors": {
+                "age": 11,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Move configurations to the \"AI integration\" section",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/43",
+              "createdAt": "2025-10-09T13:12:53Z",
+              "updatedAt": "2026-02-13T16:56:05Z",
+              "ageDays": 39,
+              "staleLevel": "warning",
+              "labels": [],
+              "priorityScore": 11,
+              "priorityFactors": {
+                "age": 11,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Feat: Flag product attributes that are enriched, on product edit",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/48",
+              "createdAt": "2026-02-13T16:54:13Z",
+              "updatedAt": "2026-02-13T16:54:53Z",
+              "ageDays": 39,
+              "staleLevel": "warning",
+              "labels": [],
+              "priorityScore": 11,
+              "priorityFactors": {
+                "age": 11,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Feature: Make attributes configurable",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/27",
+              "createdAt": "2025-10-01T00:31:21Z",
+              "updatedAt": "2025-10-04T02:07:09Z",
+              "ageDays": 172,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Fix code style issues",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/23",
+              "createdAt": "2025-09-30T23:42:34Z",
+              "updatedAt": "2025-10-02T01:44:16Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Incorrect 'temperature' setting label",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/25",
+              "createdAt": "2025-10-01T00:06:46Z",
+              "updatedAt": "2025-10-02T00:41:52Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Improve composer dependencies",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/22",
+              "createdAt": "2025-09-30T23:39:25Z",
+              "updatedAt": "2025-10-02T00:41:51Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Feature: Prompt rule system",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/32",
+              "createdAt": "2025-10-01T01:03:05Z",
+              "updatedAt": "2025-10-02T00:40:15Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Feature: generated data review and reuse",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/28",
+              "createdAt": "2025-10-01T00:34:19Z",
+              "updatedAt": "2025-10-02T00:40:14Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "[FEATURE] Translate open ai output based on locale of selected store scope",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/12",
+              "createdAt": "2024-05-30T08:37:00Z",
+              "updatedAt": "2025-10-02T00:40:03Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "[FEATURE] Generate structured attribute values based on description",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/7",
+              "createdAt": "2024-05-10T07:33:30Z",
+              "updatedAt": "2025-10-02T00:40:03Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ],
+          "pullRequests": [
+            {
+              "title": "Make enrichment attributes configurable (#27)",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/45",
+              "createdAt": "2026-02-13T04:28:31Z",
+              "updatedAt": "2026-02-23T02:24:22Z",
+              "ageDays": 30,
+              "staleLevel": "warning",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 13,
+              "priorityFactors": {
+                "age": 8,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Flag enriched product attributes on product edit (#48)",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/51",
+              "createdAt": "2026-02-15T17:23:28Z",
+              "updatedAt": "2026-02-15T17:23:28Z",
+              "ageDays": 37,
+              "staleLevel": "warning",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 15,
+              "priorityFactors": {
+                "age": 10,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Add enrichment review, caching, and approval workflow (#28)",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/46",
+              "createdAt": "2026-02-13T16:39:29Z",
+              "updatedAt": "2026-02-15T05:48:18Z",
+              "ageDays": 37,
+              "staleLevel": "warning",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 15,
+              "priorityFactors": {
+                "age": 10,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Unified batch enrichment: single API call per product",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/50",
+              "createdAt": "2026-02-15T04:27:36Z",
+              "updatedAt": "2026-02-15T04:32:17Z",
+              "ageDays": 37,
+              "staleLevel": "warning",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 15,
+              "priorityFactors": {
+                "age": 10,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Add unit tests and CI workflow for enrichment review & reuse",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/49",
+              "createdAt": "2026-02-14T02:43:46Z",
+              "updatedAt": "2026-02-14T04:25:05Z",
+              "ageDays": 38,
+              "staleLevel": "warning",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 16,
+              "priorityFactors": {
+                "age": 11,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Improve advanced setting info",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/38",
+              "createdAt": "2025-10-02T01:07:42Z",
+              "updatedAt": "2025-10-04T01:37:15Z",
+              "ageDays": 172,
+              "staleLevel": "critical",
+              "author": "rhoerr",
+              "reviewStatus": "commented",
+              "priorityScore": 33,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 8,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Updated module dependencies",
+              "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/39",
+              "createdAt": "2025-10-02T01:11:57Z",
+              "updatedAt": "2025-10-02T01:11:57Z",
+              "ageDays": 174,
+              "staleLevel": "critical",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 30,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "module-maxmind-geoip-redirect",
+          "url": "https://github.com/mage-os-lab/module-maxmind-geoip-redirect",
+          "lastCommitDate": "2026-02-12T17:21:18Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-eav-debug-views",
+          "url": "https://github.com/mage-os-lab/module-eav-debug-views",
+          "lastCommitDate": "2025-12-03T13:26:20Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Content Staging support?",
+              "url": "https://github.com/mage-os-lab/module-eav-debug-views/issues/1",
+              "createdAt": "2026-01-05T17:30:17Z",
+              "updatedAt": "2026-03-21T00:59:50Z",
+              "ageDays": 4,
+              "staleLevel": "ok",
+              "labels": [],
+              "priorityScore": 1,
+              "priorityFactors": {
+                "age": 1,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ],
+          "pullRequests": [
+            {
+              "title": "feat(view): update data patch to use metadata link field (entity_id vs row_id)",
+              "url": "https://github.com/mage-os-lab/module-eav-debug-views/pull/2",
+              "createdAt": "2026-03-21T22:39:44Z",
+              "updatedAt": "2026-03-21T22:40:50Z",
+              "ageDays": 3,
+              "staleLevel": "ok",
+              "author": "nfourteen",
+              "reviewStatus": "none",
+              "priorityScore": 6,
+              "priorityFactors": {
+                "age": 1,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "module-alpine-loader",
+          "url": "https://github.com/mage-os-lab/module-alpine-loader",
+          "lastCommitDate": "2026-01-10T13:10:02Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-ai-base",
+          "url": "https://github.com/mage-os-lab/module-ai-base",
+          "lastCommitDate": "2025-12-14T15:01:23Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "migrate-m2-to-mageos",
+          "url": "https://github.com/mage-os-lab/migrate-m2-to-mageos",
+          "lastCommitDate": "2025-12-10T17:28:34Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": ".github",
+          "url": "https://github.com/mage-os-lab/.github",
+          "lastCommitDate": "2025-10-12T21:08:56Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-page-builder-graph-ql",
+          "url": "https://github.com/mage-os-lab/module-page-builder-graph-ql",
+          "lastCommitDate": "2025-12-04T16:17:36Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-vanilla-core",
+          "url": "https://github.com/mage-os-lab/module-vanilla-core",
+          "lastCommitDate": null,
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-alpine-toplinks",
+          "url": "https://github.com/mage-os-lab/module-alpine-toplinks",
+          "lastCommitDate": null,
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "web-installer",
+          "url": "https://github.com/mage-os-lab/web-installer",
+          "lastCommitDate": "2025-08-13T09:45:00Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [
+            {
+              "title": "Can't make it work",
+              "url": "https://github.com/mage-os-lab/web-installer/issues/10",
+              "createdAt": "2025-02-04T16:09:40Z",
+              "updatedAt": "2025-02-11T15:52:01Z",
+              "ageDays": 406,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Cannot instantiate interface Magento\\Store\\Api\\StoreRepositoryInterface",
+              "url": "https://github.com/mage-os-lab/web-installer/issues/9",
+              "createdAt": "2024-11-21T06:21:53Z",
+              "updatedAt": "2024-11-22T07:01:05Z",
+              "ageDays": 487,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Install as require-dev?",
+              "url": "https://github.com/mage-os-lab/web-installer/issues/7",
+              "createdAt": "2024-11-21T03:59:39Z",
+              "updatedAt": "2024-11-21T20:39:00Z",
+              "ageDays": 488,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Angular version",
+              "url": "https://github.com/mage-os-lab/web-installer/issues/5",
+              "createdAt": "2024-11-21T03:52:24Z",
+              "updatedAt": "2024-11-21T10:08:31Z",
+              "ageDays": 488,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            },
+            {
+              "title": "Necessity of stylesheets",
+              "url": "https://github.com/mage-os-lab/web-installer/issues/6",
+              "createdAt": "2024-11-21T03:55:17Z",
+              "updatedAt": "2024-11-21T03:55:34Z",
+              "ageDays": 489,
+              "staleLevel": "critical",
+              "labels": [],
+              "priorityScore": 25,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 0,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ],
+          "pullRequests": [
+            {
+              "title": "chore: remove unmodified core files from web-installer",
+              "url": "https://github.com/mage-os-lab/web-installer/pull/2",
+              "createdAt": "2024-11-21T02:42:26Z",
+              "updatedAt": "2024-11-21T10:06:00Z",
+              "ageDays": 488,
+              "staleLevel": "critical",
+              "author": "rhoerr",
+              "reviewStatus": "none",
+              "priorityScore": 30,
+              "priorityFactors": {
+                "age": 25,
+                "security": 0,
+                "reviewStatus": 5,
+                "labels": 0,
+                "repoActivity": 0
+              }
+            }
+          ]
+        },
+        {
+          "name": "module-hreflang",
+          "url": "https://github.com/mage-os-lab/module-hreflang",
+          "lastCommitDate": null,
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-theme-uikit",
+          "url": "https://github.com/mage-os-lab/module-theme-uikit",
+          "lastCommitDate": "2025-11-02T10:14:13Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "theme-frontend-uikit",
+          "url": "https://github.com/mage-os-lab/theme-frontend-uikit",
+          "lastCommitDate": "2025-11-02T10:25:29Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-js-replacement",
+          "url": "https://github.com/mage-os-lab/module-js-replacement",
+          "lastCommitDate": null,
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-uikit-js-replacement",
+          "url": "https://github.com/mage-os-lab/module-uikit-js-replacement",
+          "lastCommitDate": "2025-11-05T14:15:11Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-uikit-product-page",
+          "url": "https://github.com/mage-os-lab/module-uikit-product-page",
+          "lastCommitDate": "2025-10-24T12:58:19Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-uikit-menu",
+          "url": "https://github.com/mage-os-lab/module-uikit-menu",
+          "lastCommitDate": "2025-10-24T12:56:22Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "demo.mage-os.org",
+          "url": "https://github.com/mage-os-lab/demo.mage-os.org",
+          "lastCommitDate": "2025-10-15T17:35:01Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "module-admin-assistant",
+          "url": "https://github.com/mage-os-lab/module-admin-assistant",
+          "lastCommitDate": "2025-08-21T14:05:05Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "graphql-playground",
+          "url": "https://github.com/mage-os-lab/graphql-playground",
+          "lastCommitDate": "2025-04-14T13:17:48Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "mageos-module-template",
+          "url": "https://github.com/mage-os-lab/mageos-module-template",
+          "lastCommitDate": "2023-12-17T17:48:07Z",
+          "securityAlertCount": 0,
+          "lastWorkflowRun": null,
+          "issues": [],
+          "pullRequests": []
+        }
+      ]
+    }
+  },
+  "missingMirrors": [
+    {
+      "name": "adobe-ims",
+      "url": "https://github.com/magento/adobe-ims",
+      "lastUpdated": "2024-01-02T22:22:00Z"
+    },
+    {
+      "name": "adobe-stock-integration",
+      "url": "https://github.com/magento/adobe-stock-integration",
+      "lastUpdated": "2026-03-24T10:49:40Z"
+    },
+    {
+      "name": "commerce-data-export",
+      "url": "https://github.com/magento/commerce-data-export",
+      "lastUpdated": "2026-03-05T15:02:57Z"
+    },
+    {
+      "name": "composer",
+      "url": "https://github.com/magento/composer",
+      "lastUpdated": "2026-02-20T13:16:08Z"
+    },
+    {
+      "name": "composer-dependency-version-audit-plugin",
+      "url": "https://github.com/magento/composer-dependency-version-audit-plugin",
+      "lastUpdated": "2025-11-21T23:33:45Z"
+    },
+    {
+      "name": "composer-root-update-plugin",
+      "url": "https://github.com/magento/composer-root-update-plugin",
+      "lastUpdated": "2026-01-27T19:22:13Z"
+    },
+    {
+      "name": "data-migration-tool",
+      "url": "https://github.com/magento/data-migration-tool",
+      "lastUpdated": "2025-12-21T17:35:07Z"
+    },
+    {
+      "name": "inventory",
+      "url": "https://github.com/magento/inventory",
+      "lastUpdated": "2026-03-24T10:49:57Z"
+    },
+    {
+      "name": "inventory-composer-installer",
+      "url": "https://github.com/magento/inventory-composer-installer",
+      "lastUpdated": "2024-01-02T22:22:47Z"
+    },
+    {
+      "name": "magento-allure-phpunit",
+      "url": "https://github.com/magento/magento-allure-phpunit",
+      "lastUpdated": "2025-02-26T05:42:43Z"
+    },
+    {
+      "name": "magento-cloud-patches",
+      "url": "https://github.com/magento/magento-cloud-patches",
+      "lastUpdated": "2025-11-03T21:29:59Z"
+    },
+    {
+      "name": "magento-composer-installer",
+      "url": "https://github.com/magento/magento-composer-installer",
+      "lastUpdated": "2024-05-02T15:47:43Z"
+    },
+    {
+      "name": "magento-semver",
+      "url": "https://github.com/magento/magento-semver",
+      "lastUpdated": "2025-12-09T21:31:41Z"
+    },
+    {
+      "name": "magento-zend-cache",
+      "url": "https://github.com/magento/magento-zend-cache",
+      "lastUpdated": "2024-12-18T14:49:28Z"
+    },
+    {
+      "name": "magento-zend-db",
+      "url": "https://github.com/magento/magento-zend-db",
+      "lastUpdated": "2025-12-22T12:05:10Z"
+    },
+    {
+      "name": "magento-zend-exception",
+      "url": "https://github.com/magento/magento-zend-exception",
+      "lastUpdated": "2024-12-18T13:53:06Z"
+    },
+    {
+      "name": "magento-zend-loader",
+      "url": "https://github.com/magento/magento-zend-loader",
+      "lastUpdated": "2024-06-08T10:39:42Z"
+    },
+    {
+      "name": "magento-zend-log",
+      "url": "https://github.com/magento/magento-zend-log",
+      "lastUpdated": "2024-12-18T13:53:08Z"
+    },
+    {
+      "name": "magento-zend-memory",
+      "url": "https://github.com/magento/magento-zend-memory",
+      "lastUpdated": "2025-12-11T10:45:57Z"
+    },
+    {
+      "name": "magento-zend-pdf",
+      "url": "https://github.com/magento/magento-zend-pdf",
+      "lastUpdated": "2025-12-11T10:57:14Z"
+    },
+    {
+      "name": "magento-zf-captcha",
+      "url": "https://github.com/magento/magento-zf-captcha",
+      "lastUpdated": "2026-01-20T07:21:15Z"
+    },
+    {
+      "name": "magento-zf-config",
+      "url": "https://github.com/magento/magento-zf-config",
+      "lastUpdated": "2026-01-20T09:12:28Z"
+    },
+    {
+      "name": "magento-zf-db",
+      "url": "https://github.com/magento/magento-zf-db",
+      "lastUpdated": "2024-01-25T15:23:52Z"
+    },
+    {
+      "name": "magento-zf-di",
+      "url": "https://github.com/magento/magento-zf-di",
+      "lastUpdated": "2026-01-20T07:31:09Z"
+    },
+    {
+      "name": "magento-zf-duo_api_php",
+      "url": "https://github.com/magento/magento-zf-duo_api_php",
+      "lastUpdated": "2026-01-20T09:19:21Z"
+    },
+    {
+      "name": "magento-zf-json",
+      "url": "https://github.com/magento/magento-zf-json",
+      "lastUpdated": "2026-01-20T08:49:51Z"
+    },
+    {
+      "name": "magento-zf-mvc",
+      "url": "https://github.com/magento/magento-zf-mvc",
+      "lastUpdated": "2026-01-30T09:21:00Z"
+    },
+    {
+      "name": "magento-zf-server",
+      "url": "https://github.com/magento/magento-zf-server",
+      "lastUpdated": "2026-01-20T08:42:56Z"
+    },
+    {
+      "name": "magento-zf-soap",
+      "url": "https://github.com/magento/magento-zf-soap",
+      "lastUpdated": "2026-01-20T07:38:57Z"
+    },
+    {
+      "name": "magento-zf-text",
+      "url": "https://github.com/magento/magento-zf-text",
+      "lastUpdated": "2026-01-20T08:52:51Z"
+    },
+    {
+      "name": "magento2",
+      "url": "https://github.com/magento/magento2",
+      "lastUpdated": "2026-03-25T02:55:44Z"
+    },
+    {
+      "name": "magento2-functional-testing-framework",
+      "url": "https://github.com/magento/magento2-functional-testing-framework",
+      "lastUpdated": "2026-03-17T09:07:52Z"
+    },
+    {
+      "name": "magento2-page-builder",
+      "url": "https://github.com/magento/magento2-page-builder",
+      "lastUpdated": "2026-03-11T10:51:18Z"
+    },
+    {
+      "name": "magento2-sample-data",
+      "url": "https://github.com/magento/magento2-sample-data",
+      "lastUpdated": "2026-03-11T10:51:37Z"
+    },
+    {
+      "name": "module-configurable-sample-data-venia",
+      "url": "https://github.com/magento/module-configurable-sample-data-venia",
+      "lastUpdated": "2024-01-02T22:23:05Z"
+    },
+    {
+      "name": "page-builder-types",
+      "url": "https://github.com/magento/page-builder-types",
+      "lastUpdated": "2024-09-22T18:04:03Z"
+    },
+    {
+      "name": "PHPCompatibilityFork",
+      "url": "https://github.com/magento/PHPCompatibilityFork",
+      "lastUpdated": "2025-12-16T21:53:12Z"
+    },
+    {
+      "name": "quality-patches",
+      "url": "https://github.com/magento/quality-patches",
+      "lastUpdated": "2026-03-16T13:05:47Z"
+    },
+    {
+      "name": "security-package",
+      "url": "https://github.com/magento/security-package",
+      "lastUpdated": "2026-03-11T10:52:31Z"
+    },
+    {
+      "name": "zf1",
+      "url": "https://github.com/magento/zf1",
+      "lastUpdated": "2026-02-04T11:34:02Z"
+    }
+  ],
+  "actionItems": [
+    {
+      "title": "Video field",
+      "url": "https://github.com/mage-os-lab/module-advanced-widget/issues/1",
+      "createdAt": "2026-01-19T08:07:41Z",
+      "updatedAt": "2026-01-19T08:07:41Z",
+      "ageDays": 64,
+      "staleLevel": "warning",
+      "labels": [
+        {
+          "name": "enhancement",
+          "color": "a2eeef"
+        }
+      ],
+      "priorityScore": 43,
+      "priorityFactors": {
+        "age": 18,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 10,
+        "repoActivity": 15
+      },
+      "type": "issue",
+      "repo": "module-advanced-widget",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Plan to release a stable version",
+      "url": "https://github.com/mage-os-lab/llms.txt/issues/9",
+      "createdAt": "2025-11-19T20:42:08Z",
+      "updatedAt": "2025-12-02T11:01:55Z",
+      "ageDays": 112,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 40,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 15
+      },
+      "type": "issue",
+      "repo": "llms.txt",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Module review",
+      "url": "https://github.com/mage-os-lab/llms.txt/issues/1",
+      "createdAt": "2025-10-17T08:54:24Z",
+      "updatedAt": "2025-10-17T08:54:24Z",
+      "ageDays": 158,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 40,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 15
+      },
+      "type": "issue",
+      "repo": "llms.txt",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Improve advanced setting info",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/38",
+      "createdAt": "2025-10-02T01:07:42Z",
+      "updatedAt": "2025-10-04T01:37:15Z",
+      "ageDays": 172,
+      "staleLevel": "critical",
+      "author": "rhoerr",
+      "reviewStatus": "commented",
+      "priorityScore": 33,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 8,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "pr",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Updated module dependencies",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/39",
+      "createdAt": "2025-10-02T01:11:57Z",
+      "updatedAt": "2025-10-02T01:11:57Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "author": "rhoerr",
+      "reviewStatus": "none",
+      "priorityScore": 30,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 5,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "pr",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "chore: remove unmodified core files from web-installer",
+      "url": "https://github.com/mage-os-lab/web-installer/pull/2",
+      "createdAt": "2024-11-21T02:42:26Z",
+      "updatedAt": "2024-11-21T10:06:00Z",
+      "ageDays": 488,
+      "staleLevel": "critical",
+      "author": "rhoerr",
+      "reviewStatus": "none",
+      "priorityScore": 30,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 5,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "pr",
+      "repo": "web-installer",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Code review",
+      "url": "https://github.com/mage-os-lab/module-rma/issues/1",
+      "createdAt": "2026-02-15T20:31:29Z",
+      "updatedAt": "2026-02-15T20:31:29Z",
+      "ageDays": 37,
+      "staleLevel": "warning",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 10,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 15
+      },
+      "type": "issue",
+      "repo": "module-rma",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Feature: Make attributes configurable",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/27",
+      "createdAt": "2025-10-01T00:31:21Z",
+      "updatedAt": "2025-10-04T02:07:09Z",
+      "ageDays": 172,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Fix code style issues",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/23",
+      "createdAt": "2025-09-30T23:42:34Z",
+      "updatedAt": "2025-10-02T01:44:16Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Incorrect 'temperature' setting label",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/25",
+      "createdAt": "2025-10-01T00:06:46Z",
+      "updatedAt": "2025-10-02T00:41:52Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Improve composer dependencies",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/22",
+      "createdAt": "2025-09-30T23:39:25Z",
+      "updatedAt": "2025-10-02T00:41:51Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Feature: Prompt rule system",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/32",
+      "createdAt": "2025-10-01T01:03:05Z",
+      "updatedAt": "2025-10-02T00:40:15Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Feature: generated data review and reuse",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/28",
+      "createdAt": "2025-10-01T00:34:19Z",
+      "updatedAt": "2025-10-02T00:40:14Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "[FEATURE] Translate open ai output based on locale of selected store scope",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/12",
+      "createdAt": "2024-05-30T08:37:00Z",
+      "updatedAt": "2025-10-02T00:40:03Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "[FEATURE] Generate structured attribute values based on description",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/7",
+      "createdAt": "2024-05-10T07:33:30Z",
+      "updatedAt": "2025-10-02T00:40:03Z",
+      "ageDays": 174,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "module-catalog-data-ai",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Can't make it work",
+      "url": "https://github.com/mage-os-lab/web-installer/issues/10",
+      "createdAt": "2025-02-04T16:09:40Z",
+      "updatedAt": "2025-02-11T15:52:01Z",
+      "ageDays": 406,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "web-installer",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Cannot instantiate interface Magento\\Store\\Api\\StoreRepositoryInterface",
+      "url": "https://github.com/mage-os-lab/web-installer/issues/9",
+      "createdAt": "2024-11-21T06:21:53Z",
+      "updatedAt": "2024-11-22T07:01:05Z",
+      "ageDays": 487,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "web-installer",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Install as require-dev?",
+      "url": "https://github.com/mage-os-lab/web-installer/issues/7",
+      "createdAt": "2024-11-21T03:59:39Z",
+      "updatedAt": "2024-11-21T20:39:00Z",
+      "ageDays": 488,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "web-installer",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Angular version",
+      "url": "https://github.com/mage-os-lab/web-installer/issues/5",
+      "createdAt": "2024-11-21T03:52:24Z",
+      "updatedAt": "2024-11-21T10:08:31Z",
+      "ageDays": 488,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "web-installer",
+      "org": "mage-os-lab"
+    },
+    {
+      "title": "Necessity of stylesheets",
+      "url": "https://github.com/mage-os-lab/web-installer/issues/6",
+      "createdAt": "2024-11-21T03:55:17Z",
+      "updatedAt": "2024-11-21T03:55:34Z",
+      "ageDays": 489,
+      "staleLevel": "critical",
+      "labels": [],
+      "priorityScore": 25,
+      "priorityFactors": {
+        "age": 25,
+        "security": 0,
+        "reviewStatus": 0,
+        "labels": 0,
+        "repoActivity": 0
+      },
+      "type": "issue",
+      "repo": "web-installer",
+      "org": "mage-os-lab"
+    }
+  ]
+}
