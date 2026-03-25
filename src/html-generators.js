@@ -127,7 +127,6 @@ export function generateWorkflowRunsSectionFromData(reposWithRuns) {
             <th>CI</th>
             <th>Last Workflow Run</th>
             <th>Last Commit</th>
-            <th>Security Alerts</th>
           </tr>
         </thead>
         <tbody>
@@ -138,10 +137,6 @@ export function generateWorkflowRunsSectionFromData(reposWithRuns) {
         const statusIcon = getWorkflowStatusIcon(repo.lastRunConclusion);
         const lastCommitDate = repo.defaultBranchRef?.target?.committedDate;
         const formattedCommitDate = formatDateUTC(lastCommitDate);
-        const alertCount = repo.vulnerabilityAlerts?.totalCount ?? null;
-        const alertDisplay = alertCount === null ? '<span class="text-muted">N/A</span>'
-            : alertCount === 0 ? '<span class="text-success">0</span>'
-            : `<span class="text-danger fw-bold">${alertCount}</span>`;
 
         return `
               <tr>
@@ -149,7 +144,6 @@ export function generateWorkflowRunsSectionFromData(reposWithRuns) {
                 <td class="text-center">${statusIcon}</td>
                 <td>${formattedDate}</td>
                 <td>${formattedCommitDate}</td>
-                <td class="text-center">${alertDisplay}</td>
               </tr>
             `;
     }).join('')}
@@ -217,7 +211,6 @@ export function generateSummarySection(stats, config) {
         { label: 'Open PRs', value: stats.totalPRs, color: 'info' },
         { label: `Stale PRs (>${config.staleThresholds.warningDays}d)`, value: stats.stalePRs, color: stats.stalePRs > 0 ? 'warning' : 'success' },
         { label: `Stale Issues (>${config.staleThresholds.criticalDays}d)`, value: stats.staleIssues, color: stats.staleIssues > 0 ? 'danger' : 'success' },
-        { label: 'Repos with Alerts', value: stats.reposWithAlerts, color: stats.reposWithAlerts > 0 ? 'danger' : 'success' },
     ];
 
     return `

@@ -6,7 +6,6 @@ function makeRepo(overrides = {}) {
         url: 'https://github.com/test/test-repo',
         isArchived: false,
         defaultBranchRef: { target: { committedDate: '2025-03-10T12:00:00Z' } },
-        vulnerabilityAlerts: { totalCount: 0 },
         issues: { totalCount: 0, nodes: [] },
         pullRequests: { totalCount: 0, nodes: [] },
         ...overrides
@@ -70,32 +69,11 @@ describe('computeStats', () => {
         expect(stats.staleIssues).toBe(1);
         expect(stats.stalePRs).toBe(1);
     });
-
-    test('counts repos with security alerts', () => {
-        const orgDataMap = makeOrgDataMap({
-            'org-a': [
-                makeRepo({ vulnerabilityAlerts: { totalCount: 3 } }),
-                makeRepo({ vulnerabilityAlerts: { totalCount: 0 } }),
-            ]
-        });
-
-        const stats = computeStats(orgDataMap, thresholds);
-        expect(stats.reposWithAlerts).toBe(1);
-    });
-
-    test('handles null vulnerabilityAlerts', () => {
-        const orgDataMap = makeOrgDataMap({
-            'org-a': [makeRepo({ vulnerabilityAlerts: null })]
-        });
-
-        const stats = computeStats(orgDataMap, thresholds);
-        expect(stats.reposWithAlerts).toBe(0);
-    });
 });
 
 describe('computePriorityScore', () => {
     const config = {
-        priorityWeights: { age: 25, security: 25, reviewStatus: 20, labels: 15, repoActivity: 15 },
+        priorityWeights: { age: 30, reviewStatus: 25, labels: 20, repoActivity: 25 },
         staleThresholds: { warningDays: 30, criticalDays: 90 }
     };
 
@@ -108,26 +86,7 @@ describe('computePriorityScore', () => {
         const oldScore = computePriorityScore(oldItem, 'issue', repo, config);
 
         expect(recentScore.factors.age).toBe(0);
-        expect(oldScore.factors.age).toBe(25);
-    });
-
-    test('security factor applies for repos with alerts', () => {
-        const repoWithAlerts = makeRepo({ vulnerabilityAlerts: { totalCount: 5 } });
-        const item = { updatedAt: new Date().toISOString(), labels: { nodes: [] } };
-
-        const prScore = computePriorityScore(item, 'pr', repoWithAlerts, config);
-        const issueScore = computePriorityScore(item, 'issue', repoWithAlerts, config);
-
-        expect(prScore.factors.security).toBe(25);
-        expect(issueScore.factors.security).toBe(15);
-    });
-
-    test('security factor is 0 without alerts', () => {
-        const repo = makeRepo();
-        const item = { updatedAt: new Date().toISOString(), labels: { nodes: [] } };
-
-        const result = computePriorityScore(item, 'pr', repo, config);
-        expect(result.factors.security).toBe(0);
+        expect(oldScore.factors.age).toBe(30);
     });
 
     test('review status factor for PRs', () => {
@@ -140,7 +99,7 @@ describe('computePriorityScore', () => {
         };
 
         const result = computePriorityScore(approvedPR, 'pr', repo, config);
-        expect(result.factors.reviewStatus).toBe(20);
+        expect(result.factors.reviewStatus).toBe(25);
     });
 
     test('review status factor is 0 for issues', () => {
@@ -159,7 +118,7 @@ describe('computePriorityScore', () => {
         };
 
         const result = computePriorityScore(item, 'issue', repo, config);
-        expect(result.factors.labels).toBe(15);
+        expect(result.factors.labels).toBe(20);
     });
 
     test('enhancement label gives partial label score', () => {
@@ -170,7 +129,7 @@ describe('computePriorityScore', () => {
         };
 
         const result = computePriorityScore(item, 'issue', repo, config);
-        expect(result.factors.labels).toBe(10);
+        expect(result.factors.labels).toBe(13);
     });
 
     test('docs label gives lowest label score', () => {
@@ -181,11 +140,11 @@ describe('computePriorityScore', () => {
         };
 
         const result = computePriorityScore(item, 'issue', repo, config);
-        expect(result.factors.labels).toBe(5);
+        expect(result.factors.labels).toBe(7);
     });
 
     test('score is sum of all factors', () => {
-        const repo = makeRepo({ vulnerabilityAlerts: { totalCount: 1 } });
+        const repo = makeRepo();
         const item = {
             updatedAt: new Date().toISOString(),
             labels: { nodes: [{ name: 'bug', color: 'ff0000' }] },

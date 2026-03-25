@@ -1,68 +1,4 @@
-const FULL_QUERY = `
-    query ($org: String!, $cursor: String) {
-      organization(login: $org) {
-        repositories(first: 100, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
-          pageInfo {
-            hasNextPage
-            endCursor
-          }
-          nodes {
-            name
-            url
-            updatedAt
-            isArchived
-            defaultBranchRef {
-              target {
-                ... on Commit {
-                  committedDate
-                }
-              }
-            }
-            vulnerabilityAlerts(states: OPEN) {
-              totalCount
-            }
-            issues(states: OPEN, first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-              totalCount
-              nodes {
-                title
-                url
-                createdAt
-                updatedAt
-                labels(first: 5) {
-                  nodes {
-                    name
-                    color
-                  }
-                }
-              }
-            }
-            pullRequests(states: OPEN, first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-              totalCount
-              nodes {
-                title
-                url
-                createdAt
-                updatedAt
-                author {
-                  login
-                }
-                reviews(last: 1) {
-                  nodes {
-                    state
-                  }
-                }
-                reviewRequests(first: 1) {
-                  totalCount
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-`;
-
-const QUERY_WITHOUT_VULN_ALERTS = `
+const ORG_QUERY = `
     query ($org: String!, $cursor: String) {
       organization(login: $org) {
         repositories(first: 100, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
@@ -131,7 +67,7 @@ function createGitHubHeaders(token) {
     };
 }
 
-async function fetchOrgDataWithQuery(orgName, token, query) {
+export async function fetchOrgData(orgName, token) {
     let allRepos = [];
     let cursor = null;
     let hasNextPage = true;
@@ -140,7 +76,7 @@ async function fetchOrgDataWithQuery(orgName, token, query) {
         const response = await fetch('https://api.github.com/graphql', {
             method: 'POST',
             headers: createGitHubHeaders(token),
-            body: JSON.stringify({ query, variables: { org: orgName, cursor } })
+            body: JSON.stringify({ query: ORG_QUERY, variables: { org: orgName, cursor } })
         });
 
         if (!response.ok) {
@@ -169,24 +105,6 @@ async function fetchOrgDataWithQuery(orgName, token, query) {
             }
         }
     };
-}
-
-export async function fetchOrgData(orgName, token) {
-    const result = await fetchOrgDataWithQuery(orgName, token, FULL_QUERY);
-
-    if (result.errors) {
-        console.warn(`Warning: Full query failed for ${orgName}, retrying without vulnerabilityAlerts...`);
-        const fallbackResult = await fetchOrgDataWithQuery(orgName, token, QUERY_WITHOUT_VULN_ALERTS);
-        if (!fallbackResult.errors) {
-            for (const repo of fallbackResult.data.organization.repositories.nodes) {
-                repo.vulnerabilityAlerts = null;
-            }
-            return fallbackResult;
-        }
-        return fallbackResult;
-    }
-
-    return result;
 }
 
 export async function fetchWorkflowRunsForRepo(owner, repo, token) {

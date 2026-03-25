@@ -6,7 +6,6 @@ export function computeStats(orgDataMap, thresholds) {
     let totalPRs = 0;
     let stalePRs = 0;
     let staleIssues = 0;
-    let reposWithAlerts = 0;
 
     for (const data of Object.values(orgDataMap)) {
         const repos = data.data.organization.repositories.nodes;
@@ -21,28 +20,20 @@ export function computeStats(orgDataMap, thresholds) {
             for (const pr of repo.pullRequests.nodes) {
                 if (getDaysSince(pr.updatedAt) >= thresholds.warningDays) stalePRs++;
             }
-
-            const alertCount = repo.vulnerabilityAlerts?.totalCount || 0;
-            if (alertCount > 0) reposWithAlerts++;
         }
     }
 
-    return { totalRepos, totalIssues, totalPRs, stalePRs, staleIssues, reposWithAlerts };
+    return { totalRepos, totalIssues, totalPRs, stalePRs, staleIssues };
 }
 
 export function computePriorityScore(item, type, repo, config) {
     const weights = config.priorityWeights || {
-        age: 25, security: 25, reviewStatus: 20, labels: 15, repoActivity: 15
+        age: 30, reviewStatus: 25, labels: 20, repoActivity: 25
     };
-    const factors = { age: 0, security: 0, reviewStatus: 0, labels: 0, repoActivity: 0 };
+    const factors = { age: 0, reviewStatus: 0, labels: 0, repoActivity: 0 };
 
     const ageDays = getDaysSince(item.updatedAt);
     factors.age = Math.min(weights.age, Math.round((ageDays / 90) * weights.age));
-
-    const alertCount = repo.vulnerabilityAlerts?.totalCount || 0;
-    if (alertCount > 0) {
-        factors.security = type === 'pr' ? weights.security : Math.round(weights.security * 0.6);
-    }
 
     if (type === 'pr') {
         const reviewStatus = getReviewStatus(item);
@@ -89,7 +80,6 @@ export function collectDashboardData(orgDataMap, reposWithRunsMap, missingMirror
         organizations[orgName] = {
             repositories: repos.map(repo => {
                 const workflowInfo = reposWithRunsMap[`${orgName}/${repo.name}`];
-                const alertCount = repo.vulnerabilityAlerts?.totalCount ?? 0;
                 const lastCommitDate = repo.defaultBranchRef?.target?.committedDate || null;
 
                 const issues = repo.issues.nodes.map(issue => {
@@ -133,7 +123,6 @@ export function collectDashboardData(orgDataMap, reposWithRunsMap, missingMirror
                     name: repo.name,
                     url: repo.url,
                     lastCommitDate,
-                    securityAlertCount: alertCount,
                     lastWorkflowRun: workflowInfo
                         ? { date: workflowInfo.date, conclusion: workflowInfo.conclusion }
                         : null,
