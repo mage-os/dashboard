@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Wed, 25 Mar 2026 18:46:32 GMT
+Generated: Wed, 25 Mar 2026 21:32:05 GMT
 
 ## Summary
 - **133** active repositories across 2 organizations
@@ -31,11 +31,11 @@ Generated: Wed, 25 Mar 2026 18:46:32 GMT
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
-| [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1048d | antonkril | review_requested |
+| [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1049d | antonkril | review_requested |
 | [VCL_recv rework based on closed Magento 2 PR](https://github.com/mage-os/mageos-magento2/pull/62) | mageos-magento2 (mage-os) | 840d | toonvd | review_requested |
-| [Feature/improve vcl deliver](https://github.com/mage-os/mageos-magento2/pull/71) | mageos-magento2 (mage-os) | 836d | toonvd | review_requested |
-| [Feature/improve vcl backend response](https://github.com/mage-os/mageos-magento2/pull/70) | mageos-magento2 (mage-os) | 836d | toonvd | review_requested |
-| [Feature/improve vcl hash](https://github.com/mage-os/mageos-magento2/pull/69) | mageos-magento2 (mage-os) | 836d | toonvd | review_requested |
+| [Feature/improve vcl deliver](https://github.com/mage-os/mageos-magento2/pull/71) | mageos-magento2 (mage-os) | 837d | toonvd | review_requested |
+| [Feature/improve vcl backend response](https://github.com/mage-os/mageos-magento2/pull/70) | mageos-magento2 (mage-os) | 837d | toonvd | review_requested |
+| [Feature/improve vcl hash](https://github.com/mage-os/mageos-magento2/pull/69) | mageos-magento2 (mage-os) | 837d | toonvd | review_requested |
 | [Feature/remove vcl hit](https://github.com/mage-os/mageos-magento2/pull/72) | mageos-magento2 (mage-os) | 835d | toonvd | commented |
 | [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 489d | rhoerr | none |
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 442d | DavidLambauer | commented |
@@ -43,9 +43,9 @@ Generated: Wed, 25 Mar 2026 18:46:32 GMT
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 199d | Hawksama | none |
 | [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 174d | rhoerr | none |
 | [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 172d | rhoerr | commented |
-| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 160d | GrimLink | none |
-| [Removed ext-ftp dependency and deprecated the class related to the FTP](https://github.com/mage-os/mageos-magento2/pull/190) | mageos-magento2 (mage-os) | 100d | konarshankar07 | review_requested |
-| [Added custom admin logo functionality](https://github.com/mage-os/mageos-magento2/pull/187) | mageos-magento2 (mage-os) | 100d | konarshankar07 | review_requested |
+| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 161d | GrimLink | none |
+| [Removed ext-ftp dependency and deprecated the class related to the FTP](https://github.com/mage-os/mageos-magento2/pull/190) | mageos-magento2 (mage-os) | 101d | konarshankar07 | review_requested |
+| [Added custom admin logo functionality](https://github.com/mage-os/mageos-magento2/pull/187) | mageos-magento2 (mage-os) | 101d | konarshankar07 | review_requested |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 100d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 100d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 68d | angelvilaplana | review_requested |
@@ -57,13 +57,13 @@ Generated: Wed, 25 Mar 2026 18:46:32 GMT
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
 |-------|------------|-----|
+| [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1244d |
+| [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1244d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1243d |
-| [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1243d |
-| [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1243d |
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1239d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 975d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 928d |
-| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 925d |
+| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 926d |
 | [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 925d |
 | [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 925d |
 | [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 925d |
