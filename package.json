@@ -8,5 +8,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "tinycolor2": "^1.6.0"
   }
 }
