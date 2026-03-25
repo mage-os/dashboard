@@ -1,33 +1,32 @@
 # Mage-OS Project Health Report
-Generated: Wed, 25 Mar 2026 12:51:57 GMT
+Generated: Wed, 25 Mar 2026 14:45:05 GMT
 
 ## Summary
 - **38** active repositories across 1 organizations
 - **27** open issues (14 stale >90d)
 - **12** open PRs (8 stale >30d)
-- **0** repos with security alerts
 
 ## Top Action Items
-1. **[Issue: Video field](https://github.com/mage-os-lab/module-advanced-widget/issues/1)** in `module-advanced-widget` (mage-os-lab) — Score: 43/100
-   age: 18 | labels: 10 | repoActivity: 15
-2. **[Issue: Module review](https://github.com/mage-os-lab/llms.txt/issues/1)** in `llms.txt` (mage-os-lab) — Score: 40/100
-   age: 25 | repoActivity: 15
-3. **[PR: Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38)** in `module-catalog-data-ai` (mage-os-lab) — Score: 33/100 by rhoerr [commented]
-   age: 25 | reviewStatus: 8
-4. **[PR: Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39)** in `module-catalog-data-ai` (mage-os-lab) — Score: 30/100 by rhoerr [none]
-   age: 25 | reviewStatus: 5
-5. **[PR: chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2)** in `web-installer` (mage-os-lab) — Score: 30/100 by rhoerr [none]
-   age: 25 | reviewStatus: 5
-6. **[Issue: Code review](https://github.com/mage-os-lab/module-rma/issues/1)** in `module-rma` (mage-os-lab) — Score: 25/100
-   age: 10 | repoActivity: 15
-7. **[Issue: Feature: Make attributes configurable](https://github.com/mage-os-lab/module-catalog-data-ai/issues/27)** in `module-catalog-data-ai` (mage-os-lab) — Score: 25/100
-   age: 25
-8. **[Issue: Fix code style issues](https://github.com/mage-os-lab/module-catalog-data-ai/issues/23)** in `module-catalog-data-ai` (mage-os-lab) — Score: 25/100
-   age: 25
-9. **[Issue: Incorrect 'temperature' setting label](https://github.com/mage-os-lab/module-catalog-data-ai/issues/25)** in `module-catalog-data-ai` (mage-os-lab) — Score: 25/100
-   age: 25
-10. **[Issue: Improve composer dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/issues/22)** in `module-catalog-data-ai` (mage-os-lab) — Score: 25/100
-   age: 25
+1. **[Issue: Video field](https://github.com/mage-os-lab/module-advanced-widget/issues/1)** in `module-advanced-widget` (mage-os-lab) — Score: 60/100
+   age: 22 | labels: 13 | repoActivity: 25
+2. **[Issue: Module review](https://github.com/mage-os-lab/llms.txt/issues/1)** in `llms.txt` (mage-os-lab) — Score: 55/100
+   age: 30 | repoActivity: 25
+3. **[PR: Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38)** in `module-catalog-data-ai` (mage-os-lab) — Score: 40/100 by rhoerr [commented]
+   age: 30 | reviewStatus: 10
+4. **[Issue: Code review](https://github.com/mage-os-lab/module-rma/issues/1)** in `module-rma` (mage-os-lab) — Score: 37/100
+   age: 12 | repoActivity: 25
+5. **[PR: Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39)** in `module-catalog-data-ai` (mage-os-lab) — Score: 36/100 by rhoerr [none]
+   age: 30 | reviewStatus: 6
+6. **[PR: chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2)** in `web-installer` (mage-os-lab) — Score: 36/100 by rhoerr [none]
+   age: 30 | reviewStatus: 6
+7. **[Issue: Feature: Make attributes configurable](https://github.com/mage-os-lab/module-catalog-data-ai/issues/27)** in `module-catalog-data-ai` (mage-os-lab) — Score: 30/100
+   age: 30
+8. **[Issue: Fix code style issues](https://github.com/mage-os-lab/module-catalog-data-ai/issues/23)** in `module-catalog-data-ai` (mage-os-lab) — Score: 30/100
+   age: 30
+9. **[Issue: Incorrect 'temperature' setting label](https://github.com/mage-os-lab/module-catalog-data-ai/issues/25)** in `module-catalog-data-ai` (mage-os-lab) — Score: 30/100
+   age: 30
+10. **[Issue: Improve composer dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/issues/22)** in `module-catalog-data-ai` (mage-os-lab) — Score: 30/100
+   age: 30
 
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
