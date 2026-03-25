@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Wed, 25 Mar 2026 09:45:28 GMT
+Generated: Wed, 25 Mar 2026 12:51:57 GMT
 
 ## Summary
 - **38** active repositories across 1 organizations
@@ -32,7 +32,7 @@ Generated: Wed, 25 Mar 2026 09:45:28 GMT
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
-| [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 488d | rhoerr | none |
+| [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 489d | rhoerr | none |
 | [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 174d | rhoerr | none |
 | [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 172d | rhoerr | commented |
 | [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 39d | rhoerr | none |
@@ -44,10 +44,10 @@ Generated: Wed, 25 Mar 2026 09:45:28 GMT
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
 |-------|------------|-----|
+| [Angular version](https://github.com/mage-os-lab/web-installer/issues/5) | web-installer (mage-os-lab) | 489d |
 | [Necessity of stylesheets](https://github.com/mage-os-lab/web-installer/issues/6) | web-installer (mage-os-lab) | 489d |
 | [Cannot instantiate interface Magento\Store\Api\StoreRepositoryInterface](https://github.com/mage-os-lab/web-installer/issues/9) | web-installer (mage-os-lab) | 488d |
 | [Install as require-dev?](https://github.com/mage-os-lab/web-installer/issues/7) | web-installer (mage-os-lab) | 488d |
-| [Angular version](https://github.com/mage-os-lab/web-installer/issues/5) | web-installer (mage-os-lab) | 488d |
 | [Can't make it work](https://github.com/mage-os-lab/web-installer/issues/10) | web-installer (mage-os-lab) | 406d |
 | [Fix code style issues](https://github.com/mage-os-lab/module-catalog-data-ai/issues/23) | module-catalog-data-ai (mage-os-lab) | 174d |
 | [Incorrect 'temperature' setting label](https://github.com/mage-os-lab/module-catalog-data-ai/issues/25) | module-catalog-data-ai (mage-os-lab) | 174d |
