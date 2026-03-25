@@ -4,6 +4,13 @@
     "warningDays": 30,
     "criticalDays": 90
   },
+  "priorityWeights": {
+    "age": 25,
+    "security": 25,
+    "reviewStatus": 20,
+    "labels": 15,
+    "repoActivity": 15
+  },
   "missingMirrorsIgnoreList": [
     "adobe-commerce-catalog-service",
     "aep-launch",
