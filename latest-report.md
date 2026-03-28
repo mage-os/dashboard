@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Sat, 28 Mar 2026 01:25:28 GMT
+Generated: Sat, 28 Mar 2026 04:48:58 GMT
 
 ## Summary
 - **134** active repositories across 2 organizations
@@ -42,15 +42,15 @@ Generated: Sat, 28 Mar 2026 01:25:28 GMT
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 374d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 201d | Hawksama | none |
 | [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 177d | rhoerr | none |
-| [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 174d | rhoerr | commented |
+| [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 175d | rhoerr | commented |
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 163d | GrimLink | none |
 | [Removed ext-ftp dependency and deprecated the class related to the FTP](https://github.com/mage-os/mageos-magento2/pull/190) | mageos-magento2 (mage-os) | 103d | konarshankar07 | review_requested |
 | [Added custom admin logo functionality](https://github.com/mage-os/mageos-magento2/pull/187) | mageos-magento2 (mage-os) | 103d | konarshankar07 | review_requested |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 102d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 102d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 71d | angelvilaplana | review_requested |
-| [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 41d | rhoerr | none |
-| [Flag enriched product attributes on product edit (#48)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/51) | module-catalog-data-ai (mage-os-lab) | 40d | rhoerr | none |
+| [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 42d | rhoerr | none |
+| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 41d | rhoerr | none |
 
 *...and 4 more stale PRs*
 
@@ -60,7 +60,7 @@ Generated: Sat, 28 Mar 2026 01:25:28 GMT
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1246d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1246d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1245d |
-| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1241d |
+| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1242d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 977d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 930d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 928d |
