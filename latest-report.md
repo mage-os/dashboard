@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Fri, 03 Apr 2026 04:59:57 GMT
+Generated: Fri, 03 Apr 2026 07:00:15 GMT
 
 ## Summary
 - **135** active repositories across 2 organizations
@@ -49,8 +49,8 @@ Generated: Fri, 03 Apr 2026 04:59:57 GMT
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 108d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 77d | angelvilaplana | review_requested |
 | [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 48d | rhoerr | none |
+| [Add enrichment review, caching, and approval workflow (#28)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/46) | module-catalog-data-ai (mage-os-lab) | 47d | rhoerr | none |
 | [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 47d | rhoerr | none |
-| [Flag enriched product attributes on product edit (#48)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/51) | module-catalog-data-ai (mage-os-lab) | 46d | rhoerr | none |
 
 *...and 3 more stale PRs*
 
