@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Sat, 04 Apr 2026 09:30:57 GMT
+Generated: Sat, 04 Apr 2026 12:37:51 GMT
 
 ## Summary
 - **135** active repositories across 2 organizations
@@ -32,15 +32,15 @@ Generated: Sat, 04 Apr 2026 09:30:57 GMT
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
 | [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1058d | antonkril | review_requested |
-| [VCL_recv rework based on closed Magento 2 PR](https://github.com/mage-os/mageos-magento2/pull/62) | mageos-magento2 (mage-os) | 849d | toonvd | review_requested |
+| [VCL_recv rework based on closed Magento 2 PR](https://github.com/mage-os/mageos-magento2/pull/62) | mageos-magento2 (mage-os) | 850d | toonvd | review_requested |
 | [Feature/improve vcl deliver](https://github.com/mage-os/mageos-magento2/pull/71) | mageos-magento2 (mage-os) | 846d | toonvd | review_requested |
 | [Feature/improve vcl backend response](https://github.com/mage-os/mageos-magento2/pull/70) | mageos-magento2 (mage-os) | 846d | toonvd | review_requested |
 | [Feature/improve vcl hash](https://github.com/mage-os/mageos-magento2/pull/69) | mageos-magento2 (mage-os) | 846d | toonvd | review_requested |
-| [Feature/remove vcl hit](https://github.com/mage-os/mageos-magento2/pull/72) | mageos-magento2 (mage-os) | 844d | toonvd | commented |
-| [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 498d | rhoerr | none |
+| [Feature/remove vcl hit](https://github.com/mage-os/mageos-magento2/pull/72) | mageos-magento2 (mage-os) | 845d | toonvd | commented |
+| [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 499d | rhoerr | none |
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 451d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 382d | DavidLambauer | commented |
-| [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 208d | Hawksama | none |
+| [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 209d | Hawksama | none |
 | [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 184d | rhoerr | none |
 | [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 182d | rhoerr | commented |
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 170d | GrimLink | none |
@@ -61,7 +61,7 @@ Generated: Sat, 04 Apr 2026 09:30:57 GMT
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1253d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1252d |
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1249d |
-| [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 984d |
+| [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 985d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 937d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 935d |
 | [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 934d |
@@ -75,8 +75,8 @@ Generated: Sat, 04 Apr 2026 09:30:57 GMT
 | [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 931d |
 | [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 931d |
 | [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 931d |
-| [Topic: AMPQ Queues and Bulk API](https://github.com/mage-os/devdocs/issues/66) | devdocs (mage-os) | 926d |
-| [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 925d |
+| [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 926d |
+| [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 926d |
 
 *...and 71 more stale issues*
 
