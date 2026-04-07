@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Tue, 07 Apr 2026 01:47:42 GMT
+Generated: Tue, 07 Apr 2026 05:04:24 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
 - **152** open issues (91 stale >90d)
-- **42** open PRs (23 stale >30d)
+- **38** open PRs (17 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
@@ -17,26 +17,21 @@ Generated: Tue, 07 Apr 2026 01:47:42 GMT
    age: 30 | labels: 13 | repoActivity: 25
 5. **[Issue: Introduce deptrac](https://github.com/mage-os/mageos-magento2/issues/17)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-6. **[PR: Feature/improve vcl deliver](https://github.com/mage-os/mageos-magento2/pull/71)** in `mageos-magento2` (mage-os) — Score: 68/100 by toonvd [review_requested]
+6. **[PR: [Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26)** in `mageos-magento2` (mage-os) — Score: 68/100 by antonkril [review_requested]
    age: 30 | reviewStatus: 13 | repoActivity: 25
-7. **[PR: Feature/improve vcl backend response](https://github.com/mage-os/mageos-magento2/pull/70)** in `mageos-magento2` (mage-os) — Score: 68/100 by toonvd [review_requested]
-   age: 30 | reviewStatus: 13 | repoActivity: 25
-8. **[PR: Feature/improve vcl hash](https://github.com/mage-os/mageos-magento2/pull/69)** in `mageos-magento2` (mage-os) — Score: 68/100 by toonvd [review_requested]
-   age: 30 | reviewStatus: 13 | repoActivity: 25
-9. **[PR: VCL_recv rework based on closed Magento 2 PR](https://github.com/mage-os/mageos-magento2/pull/62)** in `mageos-magento2` (mage-os) — Score: 68/100 by toonvd [review_requested]
-   age: 30 | reviewStatus: 13 | repoActivity: 25
-10. **[PR: [Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26)** in `mageos-magento2` (mage-os) — Score: 68/100 by antonkril [review_requested]
-   age: 30 | reviewStatus: 13 | repoActivity: 25
+7. **[Issue: Commands to translate all products, categories and attributes.](https://github.com/mage-os/module-automatic-translation/issues/11)** in `module-automatic-translation` (mage-os) — Score: 68/100
+   age: 30 | labels: 13 | repoActivity: 25
+8. **[PR: :construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163)** in `github-actions` (mage-os) — Score: 65/100 by DavidLambauer [commented]
+   age: 30 | reviewStatus: 10 | repoActivity: 25
+9. **[Issue: Video field](https://github.com/mage-os-lab/module-advanced-widget/issues/1)** in `module-advanced-widget` (mage-os-lab) — Score: 64/100
+   age: 26 | labels: 13 | repoActivity: 25
+10. **[Issue: Introduce PHPStan](https://github.com/mage-os/mageos-magento2/issues/18)** in `mageos-magento2` (mage-os) — Score: 63/100
+   age: 25 | labels: 13 | repoActivity: 25
 
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
 | [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1061d | antonkril | review_requested |
-| [VCL_recv rework based on closed Magento 2 PR](https://github.com/mage-os/mageos-magento2/pull/62) | mageos-magento2 (mage-os) | 852d | toonvd | review_requested |
-| [Feature/improve vcl deliver](https://github.com/mage-os/mageos-magento2/pull/71) | mageos-magento2 (mage-os) | 849d | toonvd | review_requested |
-| [Feature/improve vcl backend response](https://github.com/mage-os/mageos-magento2/pull/70) | mageos-magento2 (mage-os) | 849d | toonvd | review_requested |
-| [Feature/improve vcl hash](https://github.com/mage-os/mageos-magento2/pull/69) | mageos-magento2 (mage-os) | 849d | toonvd | review_requested |
-| [Feature/remove vcl hit](https://github.com/mage-os/mageos-magento2/pull/72) | mageos-magento2 (mage-os) | 847d | toonvd | commented |
 | [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 501d | rhoerr | none |
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 454d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 384d | DavidLambauer | commented |
@@ -47,12 +42,12 @@ Generated: Tue, 07 Apr 2026 01:47:42 GMT
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 112d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 112d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 81d | angelvilaplana | review_requested |
-| [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 51d | rhoerr | none |
+| [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 52d | rhoerr | none |
+| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 51d | rhoerr | none |
 | [Flag enriched product attributes on product edit (#48)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/51) | module-catalog-data-ai (mage-os-lab) | 50d | rhoerr | none |
 | [Add enrichment review, caching, and approval workflow (#28)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/46) | module-catalog-data-ai (mage-os-lab) | 50d | rhoerr | none |
-| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 50d | rhoerr | none |
-
-*...and 3 more stale PRs*
+| [Make enrichment attributes configurable (#27)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/45) | module-catalog-data-ai (mage-os-lab) | 43d | rhoerr | none |
+| [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 31d | rhoerr | review_requested |
 
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
@@ -60,7 +55,7 @@ Generated: Tue, 07 Apr 2026 01:47:42 GMT
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1256d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1256d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1255d |
-| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1251d |
+| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1252d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 987d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 940d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 938d |
