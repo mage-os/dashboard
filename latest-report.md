@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Tue, 07 Apr 2026 21:36:43 GMT
+Generated: Wed, 08 Apr 2026 01:47:59 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
-- **146** open issues (91 stale >90d)
-- **42** open PRs (17 stale >30d)
+- **145** open issues (91 stale >90d)
+- **41** open PRs (17 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
@@ -36,12 +36,12 @@ Generated: Tue, 07 Apr 2026 21:36:43 GMT
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 455d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 385d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 212d | Hawksama | none |
-| [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 187d | rhoerr | none |
-| [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 185d | rhoerr | commented |
+| [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 188d | rhoerr | none |
+| [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 186d | rhoerr | commented |
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 174d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 113d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 113d | GrimLink | none |
-| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 81d | angelvilaplana | review_requested |
+| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 82d | angelvilaplana | review_requested |
 | [Add unit tests and CI workflow for enrichment review & reuse](https://github.com/mage-os-lab/module-catalog-data-ai/pull/49) | module-catalog-data-ai (mage-os-lab) | 52d | rhoerr | none |
 | [Flag enriched product attributes on product edit (#48)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/51) | module-catalog-data-ai (mage-os-lab) | 51d | rhoerr | none |
 | [Add enrichment review, caching, and approval workflow (#28)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/46) | module-catalog-data-ai (mage-os-lab) | 51d | rhoerr | none |
