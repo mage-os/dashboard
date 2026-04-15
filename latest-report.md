@@ -1,9 +1,9 @@
 # Mage-OS Project Health Report
-Generated: Wed, 15 Apr 2026 07:53:08 GMT
+Generated: Wed, 15 Apr 2026 13:45:09 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
-- **133** open issues (91 stale >90d)
+- **133** open issues (92 stale >90d)
 - **53** open PRs (18 stale >30d)
 
 ## Top Action Items
@@ -13,14 +13,14 @@ Generated: Wed, 15 Apr 2026 07:53:08 GMT
    age: 30 | labels: 20 | repoActivity: 25
 3. **[PR: Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138)** in `github-actions` (mage-os) — Score: 74/100 by gowrizrh [changes_requested]
    age: 30 | reviewStatus: 19 | repoActivity: 25
-4. **[Issue: Commands to translate all products, categories and attributes.](https://github.com/mage-os/module-automatic-translation/issues/11)** in `module-automatic-translation` (mage-os) — Score: 68/100
+4. **[Issue: Introduce Dependency Checker](https://github.com/mage-os/mageos-magento2/issues/20)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-5. **[Issue: Introduce Dependency Checker](https://github.com/mage-os/mageos-magento2/issues/20)** in `mageos-magento2` (mage-os) — Score: 68/100
+5. **[Issue: Introduce deptrac](https://github.com/mage-os/mageos-magento2/issues/17)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-6. **[Issue: Introduce deptrac](https://github.com/mage-os/mageos-magento2/issues/17)** in `mageos-magento2` (mage-os) — Score: 68/100
-   age: 30 | labels: 13 | repoActivity: 25
-7. **[PR: [Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26)** in `mageos-magento2` (mage-os) — Score: 68/100 by antonkril [review_requested]
+6. **[PR: [Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26)** in `mageos-magento2` (mage-os) — Score: 68/100 by antonkril [review_requested]
    age: 30 | reviewStatus: 13 | repoActivity: 25
+7. **[Issue: Commands to translate all products, categories and attributes.](https://github.com/mage-os/module-automatic-translation/issues/11)** in `module-automatic-translation` (mage-os) — Score: 68/100
+   age: 30 | labels: 13 | repoActivity: 25
 8. **[Issue: Introduce PHPStan](https://github.com/mage-os/mageos-magento2/issues/18)** in `mageos-magento2` (mage-os) — Score: 66/100
    age: 28 | labels: 13 | repoActivity: 25
 9. **[PR: :construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163)** in `github-actions` (mage-os) — Score: 65/100 by DavidLambauer [commented]
@@ -32,10 +32,10 @@ Generated: Wed, 15 Apr 2026 07:53:08 GMT
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
 | [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1069d | antonkril | review_requested |
-| [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 509d | rhoerr | none |
+| [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 510d | rhoerr | none |
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 462d | DavidLambauer | commented |
-| [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 392d | DavidLambauer | commented |
-| [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 219d | Hawksama | none |
+| [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 393d | DavidLambauer | commented |
+| [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 220d | Hawksama | none |
 | [Updated module dependencies](https://github.com/mage-os-lab/module-catalog-data-ai/pull/39) | module-catalog-data-ai (mage-os-lab) | 195d | rhoerr | none |
 | [Improve advanced setting info](https://github.com/mage-os-lab/module-catalog-data-ai/pull/38) | module-catalog-data-ai (mage-os-lab) | 193d | rhoerr | commented |
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 181d | GrimLink | none |
@@ -53,28 +53,28 @@ Generated: Wed, 15 Apr 2026 07:53:08 GMT
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
 |-------|------------|-----|
+| [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1264d |
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1264d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1264d |
-| [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1263d |
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1260d |
-| [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 995d |
+| [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 996d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 948d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 946d |
+| [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 946d |
 | [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 945d |
 | [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 945d |
 | [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 945d |
 | [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 945d |
-| [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 945d |
 | [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 943d |
+| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 943d |
 | [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 942d |
 | [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 942d |
 | [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 942d |
 | [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 942d |
-| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 942d |
-| [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 936d |
-| [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 936d |
+| [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 937d |
+| [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 937d |
 
-*...and 71 more stale issues*
+*...and 72 more stale issues*
 
 ## Missing Mirrors
 7 Magento repositories without Mage-OS mirrors.
