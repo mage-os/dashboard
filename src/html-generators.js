@@ -33,6 +33,35 @@ export function getWorkflowStatusIcon(conclusion) {
     return icons[conclusion] || '<span class="ci-status" title="No runs">&#x2796;</span>';
 }
 
+function generateIssueRow(issue, config) {
+    return `
+      <tr class="${getStaleClass(issue.updatedAt, config.staleThresholds)}">
+        <td>
+          <a href="${escapeHtml(issue.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(issue.title)}">${escapeHtml(issue.title)}</a>
+          <span class="item-age">${formatAge(issue.updatedAt)}</span>
+          ${issue.labels.nodes.length > 0 ? `
+            <div class="label-list">
+              ${issue.labels.nodes.map(label => `<span class="label" style="background-color: #${escapeHtml(label.color)}; color: ${isLightColor(label.color) ? '#000' : '#fff'}">${escapeHtml(label.name)}</span>`).join('')}
+            </div>
+          ` : ''}
+        </td>
+      </tr>
+    `;
+}
+
+function generatePullRequestRow(pr, config) {
+    return `
+      <tr class="${getStaleClass(pr.updatedAt, config.staleThresholds)}">
+        <td>
+          <a href="${escapeHtml(pr.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(pr.title)}">${escapeHtml(pr.title)}</a>
+          ${pr.author ? `<span class="pr-author">by ${escapeHtml(pr.author.login)}</span>` : ''}
+          <span class="item-age">${formatAge(pr.updatedAt)}</span>
+          ${getReviewStatusBadge(pr)}
+        </td>
+      </tr>
+    `;
+}
+
 export function generateOrgSection(orgName, data, config) {
     const repos = data.data.organization.repositories.nodes;
 
@@ -54,57 +83,111 @@ export function generateOrgSection(orgName, data, config) {
           </a>
         </h2>
         <div class="collapse show" id="${sectionId}">
-        <div class="two-columns">
           ${activeRepos.map(repo => `
-            <div class="col">
-              <div class="card h-100">
+            <div class="repo-card">
+              <div class="card mb-3">
                 <div class="card-header">
                   <h2><a href="${escapeHtml(repo.url)}" class="text-decoration-none" target="_blank">${escapeHtml(repo.name)}</a></h2>
                 </div>
                 <div class="card-body">
-                  ${repo.issues.totalCount > 0 ? `
-                    <h3 class="h6 table-title">Issues</h3>
-                    <table class="table table-hover">
-                      <tbody>
-                        ${repo.issues.nodes.map(issue => `
-                          <tr class="${getStaleClass(issue.updatedAt, config.staleThresholds)}">
-                            <td>
-                              <a href="${escapeHtml(issue.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(issue.title)}">${escapeHtml(issue.title)}</a>
-                              <span class="item-age">${formatAge(issue.updatedAt)}</span>
-                              ${issue.labels.nodes.length > 0 ? `
-                                <div class="label-list">
-                                  ${issue.labels.nodes.map(label => `<span class="label" style="background-color: #${escapeHtml(label.color)}; color: ${isLightColor(label.color) ? '#000' : '#fff'}">${escapeHtml(label.name)}</span>`).join('')}
-                                </div>
-                              ` : ''}
-                            </td>
-                          </tr>
-                        `).join('')}
-                      </tbody>
-                    </table>
-                  ` : ''}
-
-                  ${repo.pullRequests.totalCount > 0 ? `
-                    <h3 class="h6 table-title">Pull Requests</h3>
-                    <table class="table table-hover">
-                      <tbody>
-                        ${repo.pullRequests.nodes.map(pr => `
-                          <tr class="${getStaleClass(pr.updatedAt, config.staleThresholds)}">
-                            <td>
-                              <a href="${escapeHtml(pr.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(pr.title)}">${escapeHtml(pr.title)}</a>
-                              ${pr.author ? `<span class="pr-author">by ${escapeHtml(pr.author.login)}</span>` : ''}
-                              <span class="item-age">${formatAge(pr.updatedAt)}</span>
-                              ${getReviewStatusBadge(pr)}
-                            </td>
-                          </tr>
-                        `).join('')}
-                      </tbody>
-                    </table>
-                  ` : ''}
+                  <div class="row g-0 repo-split">
+                    <div class="col-lg-6 repo-col repo-col-issues">
+                      ${repo.issues.totalCount > 0 ? `
+                        <h3 class="h6 table-title">Issues</h3>
+                        <table class="table table-hover">
+                          <tbody>
+                            ${repo.issues.nodes.map(issue => generateIssueRow(issue, config)).join('')}
+                          </tbody>
+                        </table>
+                      ` : '<div class="empty-col text-muted small">No open issues</div>'}
+                    </div>
+                    <div class="col-lg-6 repo-col repo-col-prs">
+                      ${repo.pullRequests.totalCount > 0 ? `
+                        <h3 class="h6 table-title">Pull Requests</h3>
+                        <table class="table table-hover">
+                          <tbody>
+                            ${repo.pullRequests.nodes.map(pr => generatePullRequestRow(pr, config)).join('')}
+                          </tbody>
+                        </table>
+                      ` : '<div class="empty-col text-muted small">No open pull requests</div>'}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           `).join('')}
         </div>
+      </section>
+    `;
+}
+
+export function generateRecentActivitySection(orgDataMap, limit = 15) {
+    const items = [];
+    for (const [orgName, data] of Object.entries(orgDataMap)) {
+        const repos = data.data.organization.repositories.nodes;
+        for (const repo of repos) {
+            for (const issue of repo.issues.nodes) {
+                items.push({
+                    type: 'issue',
+                    title: issue.title,
+                    url: issue.url,
+                    updatedAt: issue.updatedAt,
+                    repo: repo.name,
+                    org: orgName,
+                    author: null
+                });
+            }
+            for (const pr of repo.pullRequests.nodes) {
+                items.push({
+                    type: 'pr',
+                    title: pr.title,
+                    url: pr.url,
+                    updatedAt: pr.updatedAt,
+                    repo: repo.name,
+                    org: orgName,
+                    author: pr.author?.login || null
+                });
+            }
+        }
+    }
+
+    items.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+    const recent = items.slice(0, limit);
+
+    if (recent.length === 0) {
+        return '';
+    }
+
+    const rows = recent.map(item => {
+        const typeBadge = item.type === 'pr'
+            ? '<span class="activity-type activity-type-pr">PR</span>'
+            : '<span class="activity-type activity-type-issue">Issue</span>';
+        const author = item.author ? `<span class="pr-author">by ${escapeHtml(item.author)}</span>` : '';
+        return `
+          <tr>
+            <td class="activity-type-cell">${typeBadge}</td>
+            <td class="activity-repo">${escapeHtml(item.org)}/${escapeHtml(item.repo)}</td>
+            <td>
+              <a href="${escapeHtml(item.url)}" class="text-decoration-none truncate-text" target="_blank" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</a>
+              ${author}
+            </td>
+            <td class="activity-age"><span class="item-age">${formatAge(item.updatedAt)}</span></td>
+          </tr>
+        `;
+    }).join('');
+
+    return `
+      <section class="mb-5">
+        <h2 class="display-6 mb-4">
+          <a class="text-decoration-none section-toggle" data-bs-toggle="collapse" href="#section-recent-activity" role="button" aria-expanded="true" aria-controls="section-recent-activity">
+            Recent Activity
+            <span class="collapse-icon"></span>
+          </a>
+        </h2>
+        <div class="collapse show" id="section-recent-activity">
+          <table class="table table-hover recent-activity-table">
+            <tbody>${rows}</tbody>
+          </table>
         </div>
       </section>
     `;
@@ -231,7 +314,7 @@ export function generateSummarySection(stats, config) {
     `;
 }
 
-export function generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection) {
+export function generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection = '') {
     const lastUpdate = formatDateUTC(new Date().toISOString());
 
     return `
@@ -249,10 +332,61 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
             padding: 1rem;
           }
 
-          .two-columns {
+          .repo-card {
             max-width: 1400px;
-            columns: 2;
-            column-gap: 1.5rem;
+          }
+
+          .repo-split > .repo-col + .repo-col {
+            border-top: 1px solid rgba(0, 0, 0, 0.125);
+          }
+
+          @media (min-width: 992px) {
+            .repo-split > .repo-col + .repo-col {
+              border-top: none;
+              border-left: 1px solid rgba(0, 0, 0, 0.125);
+            }
+          }
+
+          .repo-col .table-title {
+            background-color: rgba(0, 0, 0, 0.02);
+          }
+
+          .empty-col {
+            padding: 1rem;
+            font-style: italic;
+          }
+
+          .activity-type {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.7em;
+            font-weight: 500;
+            min-width: 2.5rem;
+            text-align: center;
+          }
+          .activity-type-issue { background-color: #d1ecf1; color: #0c5460; }
+          .activity-type-pr { background-color: #e2d9f3; color: #3d2a6c; }
+
+          .recent-activity-table {
+            max-width: 1400px;
+            font-size: 0.9rem;
+          }
+          .recent-activity-table td {
+            vertical-align: middle;
+          }
+          .recent-activity-table .activity-type-cell {
+            width: 3.5rem;
+          }
+          .recent-activity-table .activity-repo {
+            white-space: nowrap;
+            font-family: monospace;
+            font-size: 0.85em;
+            color: #495057;
+          }
+          .recent-activity-table .activity-age {
+            white-space: nowrap;
+            width: 1%;
           }
 
           .label {
@@ -407,6 +541,8 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
 
           ${summarySection}
 
+          ${recentActivitySection}
+
           <div class="mb-4">
             <input type="text" id="dashboardSearch" class="form-control" placeholder="Filter by repository, issue, PR, author, or label...">
           </div>
@@ -420,9 +556,9 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
             const query = e.target.value.toLowerCase().trim();
 
             // Filter repo cards in org sections
-            document.querySelectorAll('.two-columns .col').forEach(function(col) {
-              const text = col.textContent.toLowerCase();
-              col.style.display = !query || text.includes(query) ? '' : 'none';
+            document.querySelectorAll('.repo-card').forEach(function(card) {
+              const text = card.textContent.toLowerCase();
+              card.style.display = !query || text.includes(query) ? '' : 'none';
             });
 
             // Filter table rows in sortable tables
