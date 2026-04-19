@@ -7,6 +7,7 @@ import {
     generateWorkflowRunsSectionFromData,
     generateMissingMirrorsSectionFromData,
     generateSummarySection,
+    generateRecentActivitySection,
     generateHTML
 } from './src/html-generators.js';
 
@@ -51,6 +52,7 @@ async function main() {
 
         const stats = computeStats(orgDataMap, config.staleThresholds);
         const summarySection = generateSummarySection(stats, config);
+        const recentActivitySection = generateRecentActivitySection(orgDataMap);
 
         let orgSections = '';
         for (const [orgName, data] of Object.entries(orgDataMap)) {
@@ -60,7 +62,7 @@ async function main() {
         const missingMirrorsSection = generateMissingMirrorsSectionFromData(missingMirrors);
         const workflowSection = generateWorkflowRunsSectionFromData(reposWithRuns);
 
-        const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection);
+        const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection);
 
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
