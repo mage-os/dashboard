@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Sun, 19 Apr 2026 20:22:05 GMT
+Generated: Mon, 20 Apr 2026 02:58:13 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
-- **126** open issues (90 stale >90d)
-- **47** open PRs (13 stale >30d)
+- **120** open issues (88 stale >90d)
+- **38** open PRs (12 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
@@ -39,8 +39,7 @@ Generated: Sun, 19 Apr 2026 20:22:05 GMT
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 186d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 125d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 125d | GrimLink | none |
-| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 93d | angelvilaplana | review_requested |
-| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 63d | rhoerr | none |
+| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 94d | angelvilaplana | review_requested |
 | [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 43d | rhoerr | review_requested |
 | [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 41d | rhoerr | review_requested |
 | [Remove HTML escaping for repeatable items](https://github.com/mage-os/module-page-builder-widget/pull/18) | module-page-builder-widget (mage-os) | 34d | yuriy-boyko | review_requested |
@@ -69,7 +68,7 @@ Generated: Sun, 19 Apr 2026 20:22:05 GMT
 | [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 941d |
 | [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 941d |
 
-*...and 70 more stale issues*
+*...and 68 more stale issues*
 
 ## Missing Mirrors
 7 Magento repositories without Mage-OS mirrors.
