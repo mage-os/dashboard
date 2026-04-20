@@ -1,9 +1,9 @@
 # Mage-OS Project Health Report
-Generated: Mon, 20 Apr 2026 13:49:37 GMT
+Generated: Mon, 20 Apr 2026 19:10:53 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
-- **122** open issues (88 stale >90d)
+- **122** open issues (91 stale >90d)
 - **39** open PRs (12 stale >30d)
 
 ## Top Action Items
@@ -33,16 +33,16 @@ Generated: Mon, 20 Apr 2026 13:49:37 GMT
 |----|------------|-----|--------|---------------|
 | [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1074d | antonkril | review_requested |
 | [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 515d | rhoerr | none |
-| [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 467d | DavidLambauer | commented |
+| [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 468d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 398d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 225d | Hawksama | none |
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 186d | GrimLink | none |
-| [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 125d | gowrizrh | changes_requested |
-| [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 125d | GrimLink | none |
+| [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 126d | gowrizrh | changes_requested |
+| [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 126d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 94d | angelvilaplana | review_requested |
 | [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 44d | rhoerr | review_requested |
 | [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 42d | rhoerr | review_requested |
-| [Remove HTML escaping for repeatable items](https://github.com/mage-os/module-page-builder-widget/pull/18) | module-page-builder-widget (mage-os) | 34d | yuriy-boyko | review_requested |
+| [Remove HTML escaping for repeatable items](https://github.com/mage-os/module-page-builder-widget/pull/18) | module-page-builder-widget (mage-os) | 35d | yuriy-boyko | review_requested |
 
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
@@ -52,23 +52,23 @@ Generated: Mon, 20 Apr 2026 13:49:37 GMT
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1269d |
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1265d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1001d |
-| [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 953d |
+| [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 954d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 951d |
 | [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 951d |
 | [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 951d |
 | [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 951d |
 | [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 951d |
 | [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 951d |
-| [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 948d |
+| [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 949d |
+| [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 948d |
+| [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 948d |
+| [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 948d |
+| [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 948d |
 | [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 948d |
-| [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 947d |
-| [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 947d |
-| [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 947d |
-| [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 947d |
 | [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 942d |
 | [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 942d |
 
-*...and 68 more stale issues*
+*...and 71 more stale issues*
 
 ## Missing Mirrors
 7 Magento repositories without Mage-OS mirrors.
