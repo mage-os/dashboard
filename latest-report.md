@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Thu, 30 Apr 2026 03:30:52 GMT
+Generated: Thu, 30 Apr 2026 08:26:39 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
@@ -40,8 +40,8 @@ Generated: Thu, 30 Apr 2026 03:30:52 GMT
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 135d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 135d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 104d | angelvilaplana | review_requested |
-| [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 53d | rhoerr | review_requested |
-| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 51d | rhoerr | review_requested |
+| [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 54d | rhoerr | review_requested |
+| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 52d | rhoerr | review_requested |
 | [Remove HTML escaping for repeatable items](https://github.com/mage-os/module-page-builder-widget/pull/18) | module-page-builder-widget (mage-os) | 44d | yuriy-boyko | review_requested |
 | [[BUGFIX] CMS object getter fix](https://github.com/mage-os/mageos-common-async-events/pull/28) | mageos-common-async-events (mage-os) | 34d | mautz-et-tong | review_requested |
 
@@ -61,11 +61,11 @@ Generated: Thu, 30 Apr 2026 03:30:52 GMT
 | [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 960d |
 | [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 960d |
 | [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 958d |
+| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 958d |
 | [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 957d |
 | [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 957d |
 | [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 957d |
 | [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 957d |
-| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 957d |
 | [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 951d |
 | [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 951d |
 
