@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Tue, 05 May 2026 02:57:44 GMT
+Generated: Tue, 05 May 2026 08:15:33 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
@@ -40,8 +40,8 @@ Generated: Tue, 05 May 2026 02:57:44 GMT
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 140d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 140d | GrimLink | none |
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 109d | angelvilaplana | review_requested |
-| [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 58d | rhoerr | review_requested |
-| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 56d | rhoerr | review_requested |
+| [Add mirror repos for zf-captcha and zf-soap](https://github.com/mage-os/terraform/pull/136) | terraform (mage-os) | 59d | rhoerr | review_requested |
+| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 57d | rhoerr | review_requested |
 | [Remove HTML escaping for repeatable items](https://github.com/mage-os/module-page-builder-widget/pull/18) | module-page-builder-widget (mage-os) | 49d | yuriy-boyko | review_requested |
 | [[BUGFIX] CMS object getter fix](https://github.com/mage-os/mageos-common-async-events/pull/28) | mageos-common-async-events (mage-os) | 39d | mautz-et-tong | review_requested |
 | [Introduce wysiwyg and colorpicker fields](https://github.com/mage-os-lab/module-advanced-widget/pull/4) | module-advanced-widget (mage-os-lab) | 33d | yuriy-boyko | none |
@@ -52,7 +52,7 @@ Generated: Tue, 05 May 2026 02:57:44 GMT
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1284d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1284d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1283d |
-| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1279d |
+| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1280d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1015d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 968d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 966d |
