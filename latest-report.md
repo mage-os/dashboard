@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Fri, 15 May 2026 19:42:23 GMT
+Generated: Sat, 16 May 2026 03:28:40 GMT
 
 ## Summary
 - **136** active repositories across 2 organizations
 - **129** open issues (87 stale >90d)
-- **36** open PRs (13 stale >30d)
+- **46** open PRs (13 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
@@ -31,19 +31,19 @@ Generated: Fri, 15 May 2026 19:42:23 GMT
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
-| [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1099d | antonkril | review_requested |
+| [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1100d | antonkril | review_requested |
 | [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 540d | rhoerr | none |
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 493d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 423d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 250d | Hawksama | none |
-| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 211d | GrimLink | none |
+| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 212d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 151d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 151d | GrimLink | none |
-| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 119d | angelvilaplana | review_requested |
+| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 120d | angelvilaplana | review_requested |
 | [[BUGFIX] CMS object getter fix](https://github.com/mage-os/mageos-common-async-events/pull/28) | mageos-common-async-events (mage-os) | 50d | mautz-et-tong | review_requested |
 | [Introduce wysiwyg and colorpicker fields](https://github.com/mage-os-lab/module-advanced-widget/pull/4) | module-advanced-widget (mage-os-lab) | 44d | yuriy-boyko | none |
+| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 39d | digitalrisedorset | commented |
 | [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 39d | rhoerr | none |
-| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 38d | digitalrisedorset | commented |
 
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
@@ -54,7 +54,7 @@ Generated: Fri, 15 May 2026 19:42:23 GMT
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1290d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1026d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 979d |
-| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 976d |
+| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 977d |
 | [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 976d |
 | [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 976d |
 | [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 976d |
