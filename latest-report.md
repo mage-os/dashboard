@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Thu, 21 May 2026 04:01:13 GMT
+Generated: Thu, 21 May 2026 09:48:32 GMT
 
 ## Summary
 - **137** active repositories across 2 organizations
@@ -34,7 +34,7 @@ Generated: Thu, 21 May 2026 04:01:13 GMT
 | [[Proposal] Application config compilation](https://github.com/mage-os/mageos-magento2/pull/26) | mageos-magento2 (mage-os) | 1105d | antonkril | review_requested |
 | [chore: remove unmodified core files from web-installer](https://github.com/mage-os-lab/web-installer/pull/2) | web-installer (mage-os-lab) | 545d | rhoerr | none |
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 498d | DavidLambauer | commented |
-| [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 428d | DavidLambauer | commented |
+| [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 429d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 255d | Hawksama | none |
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 217d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 156d | gowrizrh | changes_requested |
@@ -42,13 +42,13 @@ Generated: Thu, 21 May 2026 04:01:13 GMT
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 125d | angelvilaplana | review_requested |
 | [[BUGFIX] CMS object getter fix](https://github.com/mage-os/mageos-common-async-events/pull/28) | mageos-common-async-events (mage-os) | 55d | mautz-et-tong | review_requested |
 | [Introduce wysiwyg and colorpicker fields](https://github.com/mage-os-lab/module-advanced-widget/pull/4) | module-advanced-widget (mage-os-lab) | 49d | yuriy-boyko | none |
+| [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 45d | rhoerr | none |
 | [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 44d | digitalrisedorset | commented |
-| [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 44d | rhoerr | none |
+| [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 31d | DavidLambauer | review_requested |
 | [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 31d | rhoerr | none |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | none |
-| [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | review_requested |
 
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
@@ -66,13 +66,13 @@ Generated: Thu, 21 May 2026 04:01:13 GMT
 | [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 981d |
 | [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 981d |
 | [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 979d |
+| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 979d |
 | [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 978d |
 | [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 978d |
 | [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 978d |
 | [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 978d |
-| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 978d |
+| [Topic: AMPQ Queues and Bulk API](https://github.com/mage-os/devdocs/issues/66) | devdocs (mage-os) | 973d |
 | [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 972d |
-| [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 972d |
 
 *...and 69 more stale issues*
 
