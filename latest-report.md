@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Wed, 20 May 2026 20:21:41 GMT
+Generated: Thu, 21 May 2026 04:01:13 GMT
 
 ## Summary
 - **137** active repositories across 2 organizations
 - **134** open issues (89 stale >90d)
-- **41** open PRs (18 stale >30d)
+- **40** open PRs (18 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
@@ -39,16 +39,16 @@ Generated: Wed, 20 May 2026 20:21:41 GMT
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 217d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 156d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 156d | GrimLink | none |
-| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 124d | angelvilaplana | review_requested |
+| [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 125d | angelvilaplana | review_requested |
 | [[BUGFIX] CMS object getter fix](https://github.com/mage-os/mageos-common-async-events/pull/28) | mageos-common-async-events (mage-os) | 55d | mautz-et-tong | review_requested |
 | [Introduce wysiwyg and colorpicker fields](https://github.com/mage-os-lab/module-advanced-widget/pull/4) | module-advanced-widget (mage-os-lab) | 49d | yuriy-boyko | none |
+| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 44d | digitalrisedorset | commented |
 | [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 44d | rhoerr | none |
-| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 43d | digitalrisedorset | commented |
+| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 31d | rhoerr | none |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | none |
 | [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 30d | DavidLambauer | review_requested |
-| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 30d | rhoerr | none |
 
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
@@ -56,7 +56,7 @@ Generated: Wed, 20 May 2026 20:21:41 GMT
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1300d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1300d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1299d |
-| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1295d |
+| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1296d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1031d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 984d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 982d |
