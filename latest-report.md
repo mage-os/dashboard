@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Sun, 24 May 2026 03:55:10 GMT
+Generated: Sun, 24 May 2026 08:33:07 GMT
 
 ## Summary
 - **138** active repositories across 2 organizations
@@ -42,8 +42,8 @@ Generated: Sun, 24 May 2026 03:55:10 GMT
 | [Fix error when loading env.php with class references](https://github.com/mage-os/magento-cache-clean/pull/7) | magento-cache-clean (mage-os) | 128d | angelvilaplana | review_requested |
 | [[BUGFIX] CMS object getter fix](https://github.com/mage-os/mageos-common-async-events/pull/28) | mageos-common-async-events (mage-os) | 58d | mautz-et-tong | review_requested |
 | [Introduce wysiwyg and colorpicker fields](https://github.com/mage-os-lab/module-advanced-widget/pull/4) | module-advanced-widget (mage-os-lab) | 52d | yuriy-boyko | none |
+| [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 48d | rhoerr | none |
 | [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 47d | digitalrisedorset | commented |
-| [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 47d | rhoerr | none |
 | [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 34d | rhoerr | none |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 33d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 33d | DavidLambauer | none |
@@ -67,9 +67,9 @@ Generated: Sun, 24 May 2026 03:55:10 GMT
 | [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 984d |
 | [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 984d |
 | [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 984d |
+| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 982d |
 | [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 982d |
 | [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 981d |
-| [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 981d |
 | [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 981d |
 | [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 981d |
 | [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 981d |
