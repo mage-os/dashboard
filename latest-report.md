@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Sat, 25 Jul 2026 02:50:30 GMT
+Generated: Sat, 25 Jul 2026 08:09:23 GMT
 
 ## Summary
 - **141** active repositories across 2 organizations
@@ -38,18 +38,18 @@ Generated: Sat, 25 Jul 2026 02:50:30 GMT
 | [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 282d | GrimLink | none |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 221d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 221d | gowrizrh | changes_requested |
-| [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 109d | rhoerr | none |
+| [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 110d | rhoerr | none |
 | [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 96d | rhoerr | none |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 95d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 95d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 95d | DavidLambauer | none |
 | [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 95d | DavidLambauer | review_requested |
 | [Add passkey 2FA providers for TwoFactorAuth](https://github.com/mage-os-lab/module-passkey-auth/pull/3) | module-passkey-auth (mage-os-lab) | 86d | rhoerr | none |
-| [ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346) | github-actions (mage-os) | 80d | digitalrisedorset | review_requested |
+| [ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346) | github-actions (mage-os) | 81d | digitalrisedorset | review_requested |
 | [ci(e2e): add Playwright-based E2E workflow for Mage-OS](https://github.com/mage-os/github-actions/pull/313) | github-actions (mage-os) | 79d | digitalrisedorset | commented |
 | [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 74d | rhoerr | review_requested |
 | [refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360) | github-actions (mage-os) | 73d | digitalrisedorset | review_requested |
-| [fix(supported-version): model MariaDB as a separate service from MySQL](https://github.com/mage-os/github-actions/pull/370) | github-actions (mage-os) | 69d | rhoerr | review_requested |
+| [fix(supported-version): model MariaDB as a separate service from MySQL](https://github.com/mage-os/github-actions/pull/370) | github-actions (mage-os) | 70d | rhoerr | review_requested |
 | [Updated Alpine CSP to 3.15.12](https://github.com/mage-os-lab/module-alpine-loader/pull/2) | module-alpine-loader (mage-os-lab) | 62d | JeroenBoersma | none |
 
 *...and 3 more stale PRs*
@@ -60,7 +60,7 @@ Generated: Sat, 25 Jul 2026 02:50:30 GMT
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1365d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1365d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1364d |
-| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1360d |
+| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1361d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1096d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 1049d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 1047d |
