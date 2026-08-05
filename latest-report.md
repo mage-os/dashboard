@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Tue, 04 Aug 2026 19:40:08 GMT
+Generated: Wed, 05 Aug 2026 02:43:09 GMT
 
 ## Summary
 - **143** active repositories across 2 organizations
-- **134** open issues (104 stale >90d)
-- **44** open PRs (22 stale >30d)
+- **132** open issues (103 stale >90d)
+- **39** open PRs (22 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
@@ -19,14 +19,14 @@ Generated: Tue, 04 Aug 2026 19:40:08 GMT
    age: 30 | labels: 13 | repoActivity: 25
 6. **[Issue: Introduce deptrac](https://github.com/mage-os/mageos-magento2/issues/17)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-7. **[PR: Preserve root exception when bulk scheduling fails in BulkManagement/MassSchedule](https://github.com/mage-os/mageos-magento2/pull/270)** in `mageos-magento2` (mage-os) — Score: 68/100 by ddevallan [approved]
-   age: 18 | reviewStatus: 25 | repoActivity: 25
-8. **[PR: ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346)** in `github-actions` (mage-os) — Score: 68/100 by digitalrisedorset [review_requested]
+7. **[PR: ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346)** in `github-actions` (mage-os) — Score: 68/100 by digitalrisedorset [review_requested]
    age: 30 | reviewStatus: 13 | repoActivity: 25
-9. **[Issue: Commands to translate all products, categories and attributes.](https://github.com/mage-os/module-automatic-translation/issues/11)** in `module-automatic-translation` (mage-os) — Score: 68/100
+8. **[Issue: Commands to translate all products, categories and attributes.](https://github.com/mage-os/module-automatic-translation/issues/11)** in `module-automatic-translation` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-10. **[Issue: Video field](https://github.com/mage-os-lab/module-advanced-widget/issues/1)** in `module-advanced-widget` (mage-os-lab) — Score: 68/100
+9. **[Issue: Video field](https://github.com/mage-os-lab/module-advanced-widget/issues/1)** in `module-advanced-widget` (mage-os-lab) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
+10. **[Issue: Implement AbstractExtensibleModel](https://github.com/mage-os/module-rma/issues/20)** in `module-rma` (mage-os) — Score: 67/100
+   age: 29 | labels: 13 | repoActivity: 25
 
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
@@ -34,20 +34,20 @@ Generated: Tue, 04 Aug 2026 19:40:08 GMT
 | [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 574d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 504d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 331d | Hawksama | none |
-| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 292d | GrimLink | none |
+| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 293d | GrimLink | none |
 | [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 232d | gowrizrh | changes_requested |
 | [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 232d | GrimLink | none |
 | [Add Hyva theme support with Alpine.js components](https://github.com/mage-os-lab/module-passkey-auth/pull/2) | module-passkey-auth (mage-os-lab) | 120d | rhoerr | none |
+| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 107d | rhoerr | none |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 106d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 106d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 106d | DavidLambauer | none |
 | [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 106d | DavidLambauer | review_requested |
-| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 106d | rhoerr | none |
-| [Add passkey 2FA providers for TwoFactorAuth](https://github.com/mage-os-lab/module-passkey-auth/pull/3) | module-passkey-auth (mage-os-lab) | 96d | rhoerr | none |
+| [Add passkey 2FA providers for TwoFactorAuth](https://github.com/mage-os-lab/module-passkey-auth/pull/3) | module-passkey-auth (mage-os-lab) | 97d | rhoerr | none |
 | [ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346) | github-actions (mage-os) | 91d | digitalrisedorset | review_requested |
 | [ci(e2e): add Playwright-based E2E workflow for Mage-OS](https://github.com/mage-os/github-actions/pull/313) | github-actions (mage-os) | 90d | digitalrisedorset | commented |
+| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 85d | rhoerr | review_requested |
 | [refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360) | github-actions (mage-os) | 84d | digitalrisedorset | review_requested |
-| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 84d | rhoerr | review_requested |
 | [fix(supported-version): model MariaDB as a separate service from MySQL](https://github.com/mage-os/github-actions/pull/370) | github-actions (mage-os) | 80d | rhoerr | review_requested |
 | [Include tier prices in catalog rule indexer to prevent rule from raising effective price](https://github.com/mage-os/mageos-magento2/pull/272) | mageos-magento2 (mage-os) | 63d | ddevallan | review_requested |
 | [Force reload parent product in LinkManagement::addChild() to avoid stale cache](https://github.com/mage-os/mageos-magento2/pull/269) | mageos-magento2 (mage-os) | 57d | ddevallan | changes_requested |
@@ -63,7 +63,7 @@ Generated: Tue, 04 Aug 2026 19:40:08 GMT
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1371d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1107d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 1060d |
-| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 1057d |
+| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 1058d |
 | [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 1057d |
 | [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 1057d |
 | [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 1057d |
@@ -78,7 +78,7 @@ Generated: Tue, 04 Aug 2026 19:40:08 GMT
 | [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 1048d |
 | [[FEAT] Use `composer.lock` to find installed Magento version in `store` mode of `get-magento-version`](https://github.com/mage-os/github-actions/issues/129) | github-actions (mage-os) | 1048d |
 
-*...and 84 more stale issues*
+*...and 83 more stale issues*
 
 ## Missing Mirrors
 7 Magento repositories without Mage-OS mirrors.
