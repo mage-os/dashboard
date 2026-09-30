@@ -1,10 +1,10 @@
 # Mage-OS Project Health Report
-Generated: Tue, 29 Sep 2026 22:01:03 GMT
+Generated: Wed, 30 Sep 2026 04:39:11 GMT
 
 ## Summary
 - **159** active repositories across 2 organizations
-- **153** open issues (113 stale >90d)
-- **66** open PRs (21 stale >30d)
+- **154** open issues (113 stale >90d)
+- **65** open PRs (21 stale >30d)
 
 ## Top Action Items
 1. **[Issue: [BUG] sansec ecomscan workflow should be removed from this repo](https://github.com/mage-os/github-actions/issues/359)** in `github-actions` (mage-os) — Score: 75/100
@@ -42,15 +42,15 @@ Generated: Tue, 29 Sep 2026 22:01:03 GMT
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 162d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 162d | DavidLambauer | none |
 | [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 162d | DavidLambauer | review_requested |
-| [ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346) | github-actions (mage-os) | 147d | digitalrisedorset | review_requested |
+| [ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346) | github-actions (mage-os) | 148d | digitalrisedorset | review_requested |
 | [ci(e2e): add Playwright-based E2E workflow for Mage-OS](https://github.com/mage-os/github-actions/pull/313) | github-actions (mage-os) | 146d | digitalrisedorset | commented |
+| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 141d | rhoerr | review_requested |
 | [refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360) | github-actions (mage-os) | 140d | digitalrisedorset | review_requested |
-| [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 140d | rhoerr | review_requested |
-| [Force reload parent product in LinkManagement::addChild() to avoid stale cache](https://github.com/mage-os/mageos-magento2/pull/269) | mageos-magento2 (mage-os) | 113d | ddevallan | changes_requested |
+| [Force reload parent product in LinkManagement::addChild() to avoid stale cache](https://github.com/mage-os/mageos-magento2/pull/269) | mageos-magento2 (mage-os) | 114d | ddevallan | changes_requested |
 | [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 91d | digitalrisedorset | commented |
-| [Add Lapce editor support documentation](https://github.com/mage-os-lab/magento2-lsp/pull/2) | magento2-lsp (mage-os-lab) | 85d | ProxiBlue | review_requested |
-| [ci: add check-extension](https://github.com/mage-os/module-rma/pull/45) | module-rma (mage-os) | 69d | damienwebdev | review_requested |
-| [Preserve root exception when bulk scheduling fails in BulkManagement/MassSchedule](https://github.com/mage-os/mageos-magento2/pull/270) | mageos-magento2 (mage-os) | 43d | ddevallan | changes_requested |
+| [Add Lapce editor support documentation](https://github.com/mage-os-lab/magento2-lsp/pull/2) | magento2-lsp (mage-os-lab) | 86d | ProxiBlue | review_requested |
+| [ci: add check-extension](https://github.com/mage-os/module-rma/pull/45) | module-rma (mage-os) | 70d | damienwebdev | review_requested |
+| [Preserve root exception when bulk scheduling fails in BulkManagement/MassSchedule](https://github.com/mage-os/mageos-magento2/pull/270) | mageos-magento2 (mage-os) | 44d | ddevallan | changes_requested |
 
 *...and 1 more stale PRs*
 
@@ -60,7 +60,7 @@ Generated: Tue, 29 Sep 2026 22:01:03 GMT
 | [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1432d |
 | [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1432d |
 | [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1431d |
-| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1427d |
+| [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1428d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1163d |
 | [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 1116d |
 | [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 1114d |
