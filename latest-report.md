@@ -1,80 +1,80 @@
 # Mage-OS Project Health Report
-Generated: Thu, 08 Oct 2026 13:01:50 GMT
+Generated: Thu, 08 Oct 2026 23:04:26 GMT
 
 ## Summary
 - **160** active repositories across 2 organizations
-- **201** open issues (114 stale >90d)
-- **66** open PRs (27 stale >30d)
+- **204** open issues (114 stale >90d)
+- **68** open PRs (29 stale >30d)
 
 ## Top Action Items
-1. **[Issue: [BUG] sansec ecomscan workflow should be removed from this repo](https://github.com/mage-os/github-actions/issues/359)** in `github-actions` (mage-os) — Score: 75/100
-   age: 30 | labels: 20 | repoActivity: 25
-2. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 75/100
-   age: 30 | labels: 20 | repoActivity: 25
-3. **[PR: Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138)** in `github-actions` (mage-os) — Score: 74/100 by gowrizrh [changes_requested]
-   age: 30 | reviewStatus: 19 | repoActivity: 25
-4. **[Issue: Introduce PHPStan](https://github.com/mage-os/mageos-magento2/issues/18)** in `mageos-magento2` (mage-os) — Score: 68/100
+1. **[Issue: Introduce PHPStan](https://github.com/mage-os/mageos-magento2/issues/18)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-5. **[Issue: Introduce Dependency Checker](https://github.com/mage-os/mageos-magento2/issues/20)** in `mageos-magento2` (mage-os) — Score: 68/100
+2. **[Issue: Introduce Dependency Checker](https://github.com/mage-os/mageos-magento2/issues/20)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-6. **[Issue: Introduce deptrac](https://github.com/mage-os/mageos-magento2/issues/17)** in `mageos-magento2` (mage-os) — Score: 68/100
+3. **[Issue: Introduce deptrac](https://github.com/mage-os/mageos-magento2/issues/17)** in `mageos-magento2` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-7. **[Issue: Implement AbstractExtensibleModel](https://github.com/mage-os/module-rma/issues/20)** in `module-rma` (mage-os) — Score: 68/100
+4. **[Issue: Implement AbstractExtensibleModel](https://github.com/mage-os/module-rma/issues/20)** in `module-rma` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-8. **[Issue: No customer-facing REST API endpoints](https://github.com/mage-os/module-rma/issues/17)** in `module-rma` (mage-os) — Score: 68/100
+5. **[Issue: No customer-facing REST API endpoints](https://github.com/mage-os/module-rma/issues/17)** in `module-rma` (mage-os) — Score: 68/100
    age: 30 | labels: 13 | repoActivity: 25
-9. **[PR: refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360)** in `github-actions` (mage-os) — Score: 68/100 by digitalrisedorset [review_requested]
-   age: 30 | reviewStatus: 13 | repoActivity: 25
-10. **[PR: ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346)** in `github-actions` (mage-os) — Score: 68/100 by digitalrisedorset [review_requested]
-   age: 30 | reviewStatus: 13 | repoActivity: 25
+6. **[PR: :pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70)** in `devdocs` (mage-os) — Score: 65/100 by DavidLambauer [commented]
+   age: 30 | reviewStatus: 10 | repoActivity: 25
+7. **[PR: tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199)** in `mageos-magento2` (mage-os) — Score: 65/100 by digitalrisedorset [commented]
+   age: 30 | reviewStatus: 10 | repoActivity: 25
+8. **[PR: ci: add check-extension](https://github.com/mage-os/module-rma/pull/45)** in `module-rma` (mage-os) — Score: 64/100 by damienwebdev [review_requested]
+   age: 26 | reviewStatus: 13 | repoActivity: 25
+9. **[Issue: [BUG] sansec ecomscan workflow should be removed from this repo](https://github.com/mage-os/github-actions/issues/359)** in `github-actions` (mage-os) — Score: 63/100
+   age: 30 | labels: 20 | repoActivity: 13
+10. **[Issue: [BUG] Various automatic changelog generation and release generation aspects are not working ](https://github.com/mage-os/github-actions/issues/124)** in `github-actions` (mage-os) — Score: 63/100
+   age: 30 | labels: 20 | repoActivity: 13
 
 ## Stale PRs (>30 days)
 | PR | Repository | Age | Author | Review Status |
 |----|------------|-----|--------|---------------|
-| [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 638d | DavidLambauer | commented |
+| [:construction_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 639d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 569d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 396d | Hawksama | none |
-| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 357d | GrimLink | none |
-| [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 296d | GrimLink | none |
-| [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 296d | gowrizrh | changes_requested |
+| [Added border to messages for a bit more contrast](https://github.com/mage-os/theme-adminhtml-m137/pull/38) | theme-adminhtml-m137 (mage-os) | 358d | GrimLink | none |
+| [Fix missing panel styles for spectrum wrapper, as seen trough the rest of the admin](https://github.com/mage-os/theme-adminhtml-m137/pull/40) | theme-adminhtml-m137 (mage-os) | 297d | GrimLink | none |
+| [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 297d | gowrizrh | changes_requested |
+| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 172d | rhoerr | none |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 171d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 171d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 171d | DavidLambauer | none |
 | [feat: ship default prompts for common SEO attributes](https://github.com/mage-os-lab/module-catalog-data-ai/pull/60) | module-catalog-data-ai (mage-os-lab) | 171d | DavidLambauer | review_requested |
-| [Unified batch enrichment: single API call per product](https://github.com/mage-os-lab/module-catalog-data-ai/pull/50) | module-catalog-data-ai (mage-os-lab) | 171d | rhoerr | none |
 | [ci: expose nginx port via warden override for e2e access](https://github.com/mage-os/github-actions/pull/346) | github-actions (mage-os) | 156d | digitalrisedorset | review_requested |
-| [ci(e2e): add Playwright-based E2E workflow for Mage-OS](https://github.com/mage-os/github-actions/pull/313) | github-actions (mage-os) | 154d | digitalrisedorset | commented |
+| [ci(e2e): add Playwright-based E2E workflow for Mage-OS](https://github.com/mage-os/github-actions/pull/313) | github-actions (mage-os) | 155d | digitalrisedorset | commented |
+| [refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360) | github-actions (mage-os) | 149d | digitalrisedorset | review_requested |
 | [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 149d | rhoerr | review_requested |
-| [refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360) | github-actions (mage-os) | 148d | digitalrisedorset | review_requested |
-| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 99d | digitalrisedorset | commented |
+| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 100d | digitalrisedorset | commented |
 | [Add Lapce editor support documentation](https://github.com/mage-os-lab/magento2-lsp/pull/2) | magento2-lsp (mage-os-lab) | 94d | ProxiBlue | review_requested |
 | [ci: add check-extension](https://github.com/mage-os/module-rma/pull/45) | module-rma (mage-os) | 78d | damienwebdev | review_requested |
-| [Add release-mageos orchestration skill](https://github.com/mage-os/generate-mirror-repo-js/pull/351) | generate-mirror-repo-js (mage-os) | 40d | marcelmtz | commented |
-| [fix issue #27: serialize the widget form the way a browser would](https://github.com/mage-os/module-page-builder-widget/pull/28) | module-page-builder-widget (mage-os) | 37d | lucafuser | review_requested |
+| [Add release-mageos orchestration skill](https://github.com/mage-os/generate-mirror-repo-js/pull/351) | generate-mirror-repo-js (mage-os) | 41d | marcelmtz | commented |
+| [fix issue #27: serialize the widget form the way a browser would](https://github.com/mage-os/module-page-builder-widget/pull/28) | module-page-builder-widget (mage-os) | 38d | lucafuser | review_requested |
 
-*...and 7 more stale PRs*
+*...and 9 more stale PRs*
 
 ## Stale Issues (>90 days)
 | Issue | Repository | Age |
 |-------|------------|-----|
-| [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1440d |
-| [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1440d |
-| [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1439d |
+| [Write a Github Action that runs the MFTF tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/functional-testing-framework/cicd/](https://github.com/mage-os/mageos-magento2/issues/7) | mageos-magento2 (mage-os) | 1441d |
+| [Write a Github Action that runs the integration tests of Magento 2 as described here https://developer.adobe.com/commerce/testing/guide/integration/](https://github.com/mage-os/mageos-magento2/issues/3) | mageos-magento2 (mage-os) | 1441d |
+| [Write a Github Actions that runs the Jasmine tests for the frontend https://developer.adobe.com/commerce/testing/guide/js/](https://github.com/mage-os/mageos-magento2/issues/6) | mageos-magento2 (mage-os) | 1440d |
 | [Write a Github Action that runs the the semantic version checker as defined by https://developer.adobe.com/commerce/testing/guide/svc/](https://github.com/mage-os/mageos-magento2/issues/5) | mageos-magento2 (mage-os) | 1436d |
 | [Add Smoke Tests as a Post-Deploy-Action](https://github.com/mage-os/devdocs/issues/36) | devdocs (mage-os) | 1172d |
-| [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 1124d |
-| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 1122d |
-| [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 1121d |
-| [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 1121d |
-| [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 1121d |
-| [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 1121d |
-| [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 1121d |
+| [Host the Swagger API ](https://github.com/mage-os/devdocs-website/issues/15) | devdocs-website (mage-os) | 1125d |
+| [Workflows On Inactive Repositories Should Remain Enabled](https://github.com/mage-os/terraform/issues/73) | terraform (mage-os) | 1123d |
+| [Topic: Explain how to add your own payment provider that uses the vault](https://github.com/mage-os/devdocs/issues/58) | devdocs (mage-os) | 1122d |
+| [Topic: Explain how to add your own 2FA Provider](https://github.com/mage-os/devdocs/issues/56) | devdocs (mage-os) | 1122d |
+| [Topic: Explain how to add your own authorization provider](https://github.com/mage-os/devdocs/issues/55) | devdocs (mage-os) | 1122d |
+| [Topic: Explain how to add your own server-side analytics provider](https://github.com/mage-os/devdocs/issues/54) | devdocs (mage-os) | 1122d |
+| [Topic: How to integrate your own search engine](https://github.com/mage-os/devdocs/issues/51) | devdocs (mage-os) | 1122d |
+| [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 1120d |
+| [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 1119d |
 | [Topic: Explain the different possibilities to CLEANLY import/export data! ](https://github.com/mage-os/devdocs/issues/60) | devdocs (mage-os) | 1119d |
-| [[FEAT] As a developer, I want to see these actions listed on the Github Marketplace. ](https://github.com/mage-os/github-actions/issues/131) | github-actions (mage-os) | 1119d |
-| [Topic: Explain how to create custom product types](https://github.com/mage-os/devdocs/issues/53) | devdocs (mage-os) | 1118d |
-| [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 1118d |
-| [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 1118d |
-| [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 1118d |
+| [[FEAT] Support Static Tests](https://github.com/mage-os/github-actions/issues/22) | github-actions (mage-os) | 1119d |
+| [[FEAT] Create an action that works with the MageOS nightlies to determine whats going to break between your current Magento version and the next.](https://github.com/mage-os/github-actions/issues/15) | github-actions (mage-os) | 1119d |
+| [[FEAT] Support API and GraphQL tests](https://github.com/mage-os/github-actions/issues/97) | github-actions (mage-os) | 1119d |
 | [Topic: AMPQ Queues and Bulk API](https://github.com/mage-os/devdocs/issues/66) | devdocs (mage-os) | 1113d |
 | [[FEAT] Add support for `magento/magento-cloud-metapackage` in `get-magento-version`](https://github.com/mage-os/github-actions/issues/126) | github-actions (mage-os) | 1113d |
 
