@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T03:46:10.606Z",
+  "generatedAt": "2026-10-15T11:02:35.701Z",
   "stats": {
     "totalRepos": 161,
     "totalIssues": 168,
@@ -58,7 +58,7 @@
               "url": "https://github.com/mage-os/mage-os-org/pull/94",
               "createdAt": "2026-09-09T19:17:49Z",
               "updatedAt": "2026-10-08T08:11:47Z",
-              "ageDays": 6,
+              "ageDays": 7,
               "staleLevel": "ok",
               "author": "michielgerritsen",
               "reviewStatus": "review_requested",
@@ -399,7 +399,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/issues/280",
               "createdAt": "2026-06-24T08:38:47Z",
               "updatedAt": "2026-10-06T10:24:10Z",
-              "ageDays": 8,
+              "ageDays": 9,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 3,
@@ -415,7 +415,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/issues/353",
               "createdAt": "2026-10-06T10:23:57Z",
               "updatedAt": "2026-10-06T10:23:57Z",
-              "ageDays": 8,
+              "ageDays": 9,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 3,
@@ -463,7 +463,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/issues/343",
               "createdAt": "2026-09-15T08:27:53Z",
               "updatedAt": "2026-09-24T05:50:58Z",
-              "ageDays": 20,
+              "ageDays": 21,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 7,
@@ -527,7 +527,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/issues/324",
               "createdAt": "2026-08-25T10:38:32Z",
               "updatedAt": "2026-08-25T10:38:32Z",
-              "ageDays": 50,
+              "ageDays": 51,
               "staleLevel": "warning",
               "labels": [],
               "priorityScore": 42,
@@ -675,7 +675,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/issues/76",
               "createdAt": "2024-01-24T18:37:32Z",
               "updatedAt": "2025-05-06T03:57:29Z",
-              "ageDays": 526,
+              "ageDays": 527,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -691,7 +691,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/issues/4",
               "createdAt": "2022-10-28T19:14:15Z",
               "updatedAt": "2025-03-18T10:32:25Z",
-              "ageDays": 575,
+              "ageDays": 576,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -821,7 +821,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/pull/366",
               "createdAt": "2026-10-14T08:28:16Z",
               "updatedAt": "2026-10-14T08:28:17Z",
-              "ageDays": 0,
+              "ageDays": 1,
               "staleLevel": "ok",
               "author": "ImanuelBertrand",
               "reviewStatus": "review_requested",
@@ -838,7 +838,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/pull/321",
               "createdAt": "2026-08-18T05:50:16Z",
               "updatedAt": "2026-10-14T07:42:56Z",
-              "ageDays": 0,
+              "ageDays": 1,
               "staleLevel": "ok",
               "author": "Genaker",
               "reviewStatus": "changes_requested",
@@ -872,13 +872,13 @@
               "url": "https://github.com/mage-os/mageos-magento2/pull/364",
               "createdAt": "2026-10-12T03:43:37Z",
               "updatedAt": "2026-10-13T09:42:18Z",
-              "ageDays": 1,
+              "ageDays": 2,
               "staleLevel": "ok",
               "author": "ajith107",
               "reviewStatus": "review_requested",
-              "priorityScore": 13,
+              "priorityScore": 14,
               "priorityFactors": {
-                "age": 0,
+                "age": 1,
                 "reviewStatus": 13,
                 "labels": 0,
                 "repoActivity": 0
@@ -974,7 +974,7 @@
               "url": "https://github.com/mage-os/mageos-magento2/pull/319",
               "createdAt": "2026-08-09T17:47:38Z",
               "updatedAt": "2026-10-08T05:23:54Z",
-              "ageDays": 6,
+              "ageDays": 7,
               "staleLevel": "ok",
               "author": "jeanmarcos-dev",
               "reviewStatus": "commented",
@@ -991,13 +991,13 @@
               "url": "https://github.com/mage-os/mageos-magento2/pull/354",
               "createdAt": "2026-10-06T10:53:59Z",
               "updatedAt": "2026-10-07T09:29:47Z",
-              "ageDays": 7,
+              "ageDays": 8,
               "staleLevel": "ok",
               "author": "max-dernovyi",
               "reviewStatus": "review_requested",
-              "priorityScore": 15,
+              "priorityScore": 16,
               "priorityFactors": {
-                "age": 2,
+                "age": 3,
                 "reviewStatus": 13,
                 "labels": 0,
                 "repoActivity": 0
@@ -1086,7 +1086,7 @@
               "url": "https://github.com/mage-os/github-actions/issues/359",
               "createdAt": "2026-05-12T13:24:23Z",
               "updatedAt": "2026-05-22T08:43:33Z",
-              "ageDays": 145,
+              "ageDays": 146,
               "staleLevel": "critical",
               "labels": [
                 {
@@ -1308,7 +1308,7 @@
               "url": "https://github.com/mage-os/github-actions/issues/314",
               "createdAt": "2026-03-02T04:07:26Z",
               "updatedAt": "2026-03-02T04:07:26Z",
-              "ageDays": 226,
+              "ageDays": 227,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -1907,7 +1907,7 @@
               "url": "https://github.com/mage-os/devdocs/issues/35",
               "createdAt": "2023-07-24T10:36:16Z",
               "updatedAt": "2023-10-21T06:45:07Z",
-              "ageDays": 1089,
+              "ageDays": 1090,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -1923,7 +1923,7 @@
               "url": "https://github.com/mage-os/devdocs/issues/74",
               "createdAt": "2023-10-10T13:35:01Z",
               "updatedAt": "2023-10-19T07:30:33Z",
-              "ageDays": 1091,
+              "ageDays": 1092,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -1939,7 +1939,7 @@
               "url": "https://github.com/mage-os/devdocs/issues/66",
               "createdAt": "2023-09-21T08:50:56Z",
               "updatedAt": "2023-09-21T08:50:56Z",
-              "ageDays": 1119,
+              "ageDays": 1120,
               "staleLevel": "critical",
               "labels": [
                 {
@@ -1981,7 +1981,7 @@
               "url": "https://github.com/mage-os/devdocs/issues/60",
               "createdAt": "2023-09-14T10:33:06Z",
               "updatedAt": "2023-09-15T08:17:55Z",
-              "ageDays": 1125,
+              "ageDays": 1126,
               "staleLevel": "critical",
               "labels": [
                 {
@@ -2107,7 +2107,7 @@
               "url": "https://github.com/mage-os/devdocs/issues/36",
               "createdAt": "2023-07-24T10:36:38Z",
               "updatedAt": "2023-07-24T10:36:38Z",
-              "ageDays": 1178,
+              "ageDays": 1179,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -2125,7 +2125,7 @@
               "url": "https://github.com/mage-os/devdocs/pull/70",
               "createdAt": "2023-09-26T10:09:34Z",
               "updatedAt": "2025-03-18T08:54:04Z",
-              "ageDays": 575,
+              "ageDays": 576,
               "staleLevel": "critical",
               "author": "DavidLambauer",
               "reviewStatus": "commented",
@@ -2169,7 +2169,7 @@
               "url": "https://github.com/mage-os/magento-cache-clean/issues/6",
               "createdAt": "2025-11-24T09:09:57Z",
               "updatedAt": "2025-11-24T09:10:16Z",
-              "ageDays": 324,
+              "ageDays": 325,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 43,
@@ -2187,13 +2187,13 @@
               "url": "https://github.com/mage-os/magento-cache-clean/pull/11",
               "createdAt": "2026-09-25T05:58:46Z",
               "updatedAt": "2026-09-25T08:58:35Z",
-              "ageDays": 19,
+              "ageDays": 20,
               "staleLevel": "ok",
               "author": "TuVanDev",
               "reviewStatus": "review_requested",
-              "priorityScore": 19,
+              "priorityScore": 20,
               "priorityFactors": {
-                "age": 6,
+                "age": 7,
                 "reviewStatus": 13,
                 "labels": 0,
                 "repoActivity": 0
@@ -2215,7 +2215,7 @@
               "url": "https://github.com/mage-os/module-rma/issues/56",
               "createdAt": "2026-10-11T08:29:32Z",
               "updatedAt": "2026-10-11T08:29:32Z",
-              "ageDays": 3,
+              "ageDays": 4,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 1,
@@ -2263,7 +2263,7 @@
               "url": "https://github.com/mage-os/module-rma/issues/41",
               "createdAt": "2026-06-17T14:30:37Z",
               "updatedAt": "2026-06-19T04:46:08Z",
-              "ageDays": 117,
+              "ageDays": 118,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 55,
@@ -2363,7 +2363,7 @@
               "url": "https://github.com/mage-os/module-rma/pull/55",
               "createdAt": "2026-10-02T07:35:30Z",
               "updatedAt": "2026-10-02T07:45:44Z",
-              "ageDays": 12,
+              "ageDays": 13,
               "staleLevel": "ok",
               "author": "SamueleMartini",
               "reviewStatus": "review_requested",
@@ -2470,12 +2470,12 @@
               "url": "https://github.com/mage-os/theme-adminhtml-m137/issues/53",
               "createdAt": "2026-10-01T07:48:52Z",
               "updatedAt": "2026-10-01T07:48:52Z",
-              "ageDays": 13,
+              "ageDays": 14,
               "staleLevel": "ok",
               "labels": [],
-              "priorityScore": 4,
+              "priorityScore": 5,
               "priorityFactors": {
-                "age": 4,
+                "age": 5,
                 "reviewStatus": 0,
                 "labels": 0,
                 "repoActivity": 0
@@ -2502,7 +2502,7 @@
               "url": "https://github.com/mage-os/theme-adminhtml-m137/issues/42",
               "createdAt": "2025-10-13T12:52:40Z",
               "updatedAt": "2026-03-15T03:48:48Z",
-              "ageDays": 213,
+              "ageDays": 214,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 43,
@@ -2518,7 +2518,7 @@
               "url": "https://github.com/mage-os/theme-adminhtml-m137/issues/51",
               "createdAt": "2026-03-03T17:02:30Z",
               "updatedAt": "2026-03-05T10:00:20Z",
-              "ageDays": 223,
+              "ageDays": 224,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 43,
@@ -2587,7 +2587,7 @@
               "url": "https://github.com/mage-os/theme-adminhtml-m137/issues/10",
               "createdAt": "2025-04-22T13:26:19Z",
               "updatedAt": "2025-09-15T09:39:56Z",
-              "ageDays": 394,
+              "ageDays": 395,
               "staleLevel": "critical",
               "labels": [
                 {
@@ -2673,13 +2673,13 @@
               "url": "https://github.com/mage-os/theme-adminhtml-m137/pull/54",
               "createdAt": "2026-10-01T08:01:50Z",
               "updatedAt": "2026-10-01T08:01:51Z",
-              "ageDays": 13,
+              "ageDays": 14,
               "staleLevel": "ok",
               "author": "GrimLink",
               "reviewStatus": "review_requested",
-              "priorityScore": 17,
+              "priorityScore": 18,
               "priorityFactors": {
-                "age": 4,
+                "age": 5,
                 "reviewStatus": 13,
                 "labels": 0,
                 "repoActivity": 0
@@ -2724,7 +2724,7 @@
               "url": "https://github.com/mage-os/theme-adminhtml-m137/pull/24",
               "createdAt": "2025-09-07T10:08:52Z",
               "updatedAt": "2025-09-07T10:21:09Z",
-              "ageDays": 402,
+              "ageDays": 403,
               "staleLevel": "critical",
               "author": "Hawksama",
               "reviewStatus": "none",
@@ -2887,7 +2887,7 @@
               "url": "https://github.com/mage-os/module-automatic-translation/pull/76",
               "createdAt": "2026-10-08T07:50:27Z",
               "updatedAt": "2026-10-12T08:02:22Z",
-              "ageDays": 2,
+              "ageDays": 3,
               "staleLevel": "ok",
               "author": "boldbart",
               "reviewStatus": "review_requested",
@@ -3104,7 +3104,7 @@
               "url": "https://github.com/mage-os/infrastructure/issues/48",
               "createdAt": "2026-07-28T11:10:46Z",
               "updatedAt": "2026-07-29T07:00:41Z",
-              "ageDays": 77,
+              "ageDays": 78,
               "staleLevel": "warning",
               "labels": [],
               "priorityScore": 39,
@@ -3154,7 +3154,7 @@
               "url": "https://github.com/mage-os/devdocs-website/issues/18",
               "createdAt": "2023-08-01T19:28:57Z",
               "updatedAt": "2025-03-09T10:08:54Z",
-              "ageDays": 584,
+              "ageDays": 585,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 43,
@@ -3186,7 +3186,7 @@
               "url": "https://github.com/mage-os/devdocs-website/issues/51",
               "createdAt": "2023-10-13T11:41:38Z",
               "updatedAt": "2023-11-27T08:20:03Z",
-              "ageDays": 1052,
+              "ageDays": 1053,
               "staleLevel": "critical",
               "labels": [
                 {
@@ -3286,12 +3286,12 @@
               "url": "https://github.com/mage-os/module-pagebuilder-template-import-export/issues/22",
               "createdAt": "2026-08-11T08:47:43Z",
               "updatedAt": "2026-08-11T08:47:43Z",
-              "ageDays": 64,
+              "ageDays": 65,
               "staleLevel": "warning",
               "labels": [],
-              "priorityScore": 34,
+              "priorityScore": 35,
               "priorityFactors": {
-                "age": 21,
+                "age": 22,
                 "reviewStatus": 0,
                 "labels": 0,
                 "repoActivity": 13
@@ -3362,13 +3362,13 @@
               "url": "https://github.com/mage-os/module-pagebuilder-template-import-export/pull/23",
               "createdAt": "2026-09-16T10:32:05Z",
               "updatedAt": "2026-09-16T10:32:06Z",
-              "ageDays": 28,
+              "ageDays": 29,
               "staleLevel": "ok",
               "author": "dadolun95",
               "reviewStatus": "review_requested",
-              "priorityScore": 22,
+              "priorityScore": 23,
               "priorityFactors": {
-                "age": 9,
+                "age": 10,
                 "reviewStatus": 13,
                 "labels": 0,
                 "repoActivity": 0
@@ -3557,7 +3557,7 @@
           "url": "https://github.com/mage-os/dashboard",
           "lastCommitDate": "2026-08-10T13:35:57Z",
           "lastWorkflowRun": {
-            "date": "2026-10-15T03:45:39.000Z",
+            "date": "2026-10-15T11:01:56.000Z",
             "conclusion": "in_progress"
           },
           "issues": [],
@@ -3609,7 +3609,7 @@
               "url": "https://github.com/mage-os/terraform/issues/14",
               "createdAt": "2022-11-02T10:53:00Z",
               "updatedAt": "2025-03-18T11:00:14Z",
-              "ageDays": 575,
+              "ageDays": 576,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 43,
@@ -3796,12 +3796,12 @@
               "url": "https://github.com/mage-os/module-theme-optimization/issues/28",
               "createdAt": "2026-10-01T09:27:16Z",
               "updatedAt": "2026-10-01T09:27:16Z",
-              "ageDays": 13,
+              "ageDays": 14,
               "staleLevel": "ok",
               "labels": [],
-              "priorityScore": 4,
+              "priorityScore": 5,
               "priorityFactors": {
-                "age": 4,
+                "age": 5,
                 "reviewStatus": 0,
                 "labels": 0,
                 "repoActivity": 0
@@ -3869,13 +3869,13 @@
               "url": "https://github.com/mage-os/module-theme-optimization/pull/29",
               "createdAt": "2026-10-01T09:27:26Z",
               "updatedAt": "2026-10-01T09:27:27Z",
-              "ageDays": 13,
+              "ageDays": 14,
               "staleLevel": "ok",
               "author": "GrimLink",
               "reviewStatus": "review_requested",
-              "priorityScore": 17,
+              "priorityScore": 18,
               "priorityFactors": {
-                "age": 4,
+                "age": 5,
                 "reviewStatus": 13,
                 "labels": 0,
                 "repoActivity": 0
@@ -4372,6 +4372,28 @@
     "mage-os-lab": {
       "repositories": [
         {
+          "name": "module-ai-shopping-assistant",
+          "url": "https://github.com/mage-os-lab/module-ai-shopping-assistant",
+          "lastCommitDate": "2026-10-15T09:17:16Z",
+          "lastWorkflowRun": {
+            "date": null,
+            "conclusion": null
+          },
+          "issues": [],
+          "pullRequests": []
+        },
+        {
+          "name": "migrate-m2-to-mageos",
+          "url": "https://github.com/mage-os-lab/migrate-m2-to-mageos",
+          "lastCommitDate": "2026-10-15T08:57:11Z",
+          "lastWorkflowRun": {
+            "date": "2026-10-15T08:57:15.000Z",
+            "conclusion": "success"
+          },
+          "issues": [],
+          "pullRequests": []
+        },
+        {
           "name": "module-worker-mode",
           "url": "https://github.com/mage-os-lab/module-worker-mode",
           "lastCommitDate": "2026-07-13T14:35:29Z",
@@ -4399,17 +4421,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "module-ai-shopping-assistant",
-          "url": "https://github.com/mage-os-lab/module-ai-shopping-assistant",
-          "lastCommitDate": "2026-10-14T11:39:12Z",
-          "lastWorkflowRun": {
-            "date": null,
-            "conclusion": null
-          },
-          "issues": [],
-          "pullRequests": []
         },
         {
           "name": "module-digital-signature",
@@ -4458,7 +4469,7 @@
               "url": "https://github.com/mage-os-lab/module-blog/issues/36",
               "createdAt": "2026-10-12T09:29:53Z",
               "updatedAt": "2026-10-12T09:29:53Z",
-              "ageDays": 2,
+              "ageDays": 3,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 1,
@@ -4474,7 +4485,7 @@
               "url": "https://github.com/mage-os-lab/module-blog/issues/33",
               "createdAt": "2026-10-06T07:40:02Z",
               "updatedAt": "2026-10-06T07:40:02Z",
-              "ageDays": 8,
+              "ageDays": 9,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 3,
@@ -4543,7 +4554,7 @@
               "url": "https://github.com/mage-os-lab/module-blog/issues/23",
               "createdAt": "2026-08-26T10:50:37Z",
               "updatedAt": "2026-08-26T10:55:20Z",
-              "ageDays": 49,
+              "ageDays": 50,
               "staleLevel": "warning",
               "labels": [
                 {
@@ -4551,9 +4562,9 @@
                   "color": "a2eeef"
                 }
               ],
-              "priorityScore": 54,
+              "priorityScore": 55,
               "priorityFactors": {
-                "age": 16,
+                "age": 17,
                 "reviewStatus": 0,
                 "labels": 13,
                 "repoActivity": 25
@@ -4672,7 +4683,7 @@
               "url": "https://github.com/mage-os-lab/module-ai-base/pull/66",
               "createdAt": "2026-10-09T08:02:26Z",
               "updatedAt": "2026-10-09T08:03:21Z",
-              "ageDays": 5,
+              "ageDays": 6,
               "staleLevel": "ok",
               "author": "cmuench",
               "reviewStatus": "none",
@@ -4884,7 +4895,7 @@
               "url": "https://github.com/mage-os-lab/module-passkey-auth/issues/22",
               "createdAt": "2026-10-12T08:32:07Z",
               "updatedAt": "2026-10-12T08:32:07Z",
-              "ageDays": 2,
+              "ageDays": 3,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 1,
@@ -4900,7 +4911,7 @@
               "url": "https://github.com/mage-os-lab/module-passkey-auth/issues/20",
               "createdAt": "2026-09-30T09:27:05Z",
               "updatedAt": "2026-09-30T09:27:05Z",
-              "ageDays": 14,
+              "ageDays": 15,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 5,
@@ -4916,7 +4927,7 @@
               "url": "https://github.com/mage-os-lab/module-passkey-auth/issues/19",
               "createdAt": "2026-09-30T08:24:42Z",
               "updatedAt": "2026-09-30T09:00:23Z",
-              "ageDays": 14,
+              "ageDays": 15,
               "staleLevel": "ok",
               "labels": [],
               "priorityScore": 5,
@@ -4934,7 +4945,7 @@
               "url": "https://github.com/mage-os-lab/module-passkey-auth/pull/21",
               "createdAt": "2026-10-01T18:22:39Z",
               "updatedAt": "2026-10-02T06:17:45Z",
-              "ageDays": 12,
+              "ageDays": 13,
               "staleLevel": "ok",
               "author": "brosenberger",
               "reviewStatus": "none",
@@ -4964,7 +4975,7 @@
           "url": "https://github.com/mage-os-lab/directory",
           "lastCommitDate": "2026-09-27T02:11:45Z",
           "lastWorkflowRun": {
-            "date": "2026-10-14T10:18:38.000Z",
+            "date": "2026-10-15T10:02:48.000Z",
             "conclusion": "success"
           },
           "issues": [
@@ -5162,7 +5173,7 @@
               "url": "https://github.com/mage-os-lab/magento-workflows/issues/9",
               "createdAt": "2026-07-07T04:50:08Z",
               "updatedAt": "2026-07-29T04:47:57Z",
-              "ageDays": 77,
+              "ageDays": 78,
               "staleLevel": "warning",
               "labels": [],
               "priorityScore": 51,
@@ -5178,7 +5189,7 @@
               "url": "https://github.com/mage-os-lab/magento-workflows/issues/17",
               "createdAt": "2026-07-07T15:00:32Z",
               "updatedAt": "2026-07-29T04:45:18Z",
-              "ageDays": 77,
+              "ageDays": 78,
               "staleLevel": "warning",
               "labels": [],
               "priorityScore": 51,
@@ -5211,12 +5222,12 @@
               "staleLevel": "warning",
               "author": "mattmacrocket",
               "reviewStatus": "none",
-              "priorityScore": 42,
+              "priorityScore": 30,
               "priorityFactors": {
                 "age": 11,
                 "reviewStatus": 6,
                 "labels": 0,
-                "repoActivity": 25
+                "repoActivity": 13
               }
             }
           ]
@@ -5284,17 +5295,6 @@
           "lastCommitDate": "2026-09-09T18:26:18Z",
           "lastWorkflowRun": {
             "date": "2026-09-09T18:26:49.000Z",
-            "conclusion": "success"
-          },
-          "issues": [],
-          "pullRequests": []
-        },
-        {
-          "name": "migrate-m2-to-mageos",
-          "url": "https://github.com/mage-os-lab/migrate-m2-to-mageos",
-          "lastCommitDate": "2026-09-09T10:32:56Z",
-          "lastWorkflowRun": {
-            "date": "2026-10-14T09:15:49.000Z",
             "conclusion": "success"
           },
           "issues": [],
@@ -5388,13 +5388,13 @@
               "url": "https://github.com/mage-os-lab/module-blog-hyva/pull/2",
               "createdAt": "2026-09-01T07:09:09Z",
               "updatedAt": "2026-09-01T07:09:09Z",
-              "ageDays": 43,
+              "ageDays": 44,
               "staleLevel": "warning",
               "author": "Sental",
               "reviewStatus": "none",
-              "priorityScore": 33,
+              "priorityScore": 34,
               "priorityFactors": {
-                "age": 14,
+                "age": 15,
                 "reviewStatus": 6,
                 "labels": 0,
                 "repoActivity": 13
@@ -5460,7 +5460,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/64",
               "createdAt": "2026-04-20T10:09:31Z",
               "updatedAt": "2026-04-20T10:09:31Z",
-              "ageDays": 177,
+              "ageDays": 178,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 30,
@@ -5476,7 +5476,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/61",
               "createdAt": "2026-04-20T09:43:23Z",
               "updatedAt": "2026-04-20T09:44:00Z",
-              "ageDays": 177,
+              "ageDays": 178,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 30,
@@ -5508,7 +5508,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/issues/44",
               "createdAt": "2026-01-22T01:47:58Z",
               "updatedAt": "2026-02-15T04:12:46Z",
-              "ageDays": 241,
+              "ageDays": 242,
               "staleLevel": "critical",
               "labels": [],
               "priorityScore": 30,
@@ -5607,7 +5607,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/65",
               "createdAt": "2026-04-20T10:20:06Z",
               "updatedAt": "2026-04-20T10:20:06Z",
-              "ageDays": 177,
+              "ageDays": 178,
               "staleLevel": "critical",
               "author": "DavidLambauer",
               "reviewStatus": "none",
@@ -5624,7 +5624,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/63",
               "createdAt": "2026-04-20T10:09:10Z",
               "updatedAt": "2026-04-20T10:09:10Z",
-              "ageDays": 177,
+              "ageDays": 178,
               "staleLevel": "critical",
               "author": "DavidLambauer",
               "reviewStatus": "none",
@@ -5641,7 +5641,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/62",
               "createdAt": "2026-04-20T09:54:00Z",
               "updatedAt": "2026-04-20T09:54:00Z",
-              "ageDays": 177,
+              "ageDays": 178,
               "staleLevel": "critical",
               "author": "DavidLambauer",
               "reviewStatus": "none",
@@ -5658,7 +5658,7 @@
               "url": "https://github.com/mage-os-lab/module-catalog-data-ai/pull/60",
               "createdAt": "2026-04-20T09:43:01Z",
               "updatedAt": "2026-04-20T09:43:38Z",
-              "ageDays": 177,
+              "ageDays": 178,
               "staleLevel": "critical",
               "author": "DavidLambauer",
               "reviewStatus": "review_requested",
@@ -5769,7 +5769,7 @@
               "url": "https://github.com/mage-os-lab/module-advanced-widget/issues/1",
               "createdAt": "2026-01-19T08:07:41Z",
               "updatedAt": "2026-01-19T08:07:41Z",
-              "ageDays": 268,
+              "ageDays": 269,
               "staleLevel": "critical",
               "labels": [
                 {
@@ -6038,7 +6038,7 @@
       "url": "https://github.com/mage-os/github-actions/issues/359",
       "createdAt": "2026-05-12T13:24:23Z",
       "updatedAt": "2026-05-22T08:43:33Z",
-      "ageDays": 145,
+      "ageDays": 146,
       "staleLevel": "critical",
       "labels": [
         {
@@ -6354,7 +6354,7 @@
       "url": "https://github.com/mage-os/devdocs/pull/70",
       "createdAt": "2023-09-26T10:09:34Z",
       "updatedAt": "2025-03-18T08:54:04Z",
-      "ageDays": 575,
+      "ageDays": 576,
       "staleLevel": "critical",
       "author": "DavidLambauer",
       "reviewStatus": "commented",
@@ -6374,7 +6374,7 @@
       "url": "https://github.com/mage-os/theme-adminhtml-m137/issues/10",
       "createdAt": "2025-04-22T13:26:19Z",
       "updatedAt": "2025-09-15T09:39:56Z",
-      "ageDays": 394,
+      "ageDays": 395,
       "staleLevel": "critical",
       "labels": [
         {
