@@ -1,5 +1,20 @@
 import escapeHtml from 'escape-html';
 import { getStaleClass, formatAge, formatDateUTC, isLightColor } from './utils.js';
+import { SITE_RESOURCES, DATA_BRANCH_URL } from './agent-resources.js';
+
+export function generateAgentHeadLinks() {
+    return SITE_RESOURCES
+        .filter(r => r.type !== 'text/plain')
+        .map(r => `<link rel="alternate" type="${r.type}" href="${escapeHtml(r.path)}" title="${escapeHtml(r.title)}">`)
+        .join('\n        ');
+}
+
+export function generateAgentNotice() {
+    const links = SITE_RESOURCES
+        .map(r => `<a href="${escapeHtml(r.path)}" title="${escapeHtml(r.description)}">${escapeHtml(r.title)}</a>`)
+        .concat(`<a href="${escapeHtml(DATA_BRANCH_URL)}" title="Historical JSON snapshots and reports">History (data branch)</a>`);
+    return `<p class="agent-notice small text-muted">For AI agents and scripts: ${links.join(' &middot; ')}</p>`;
+}
 
 export function getReviewStatusBadge(pr) {
     const lastReview = pr.reviews?.nodes?.[0];
@@ -324,6 +339,8 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mage-OS Dashboard</title>
+        <meta name="description" content="Open issues, pull requests, CI health, and mirror coverage for the Mage-OS GitHub organizations. Machine-readable versions: /index.md, /dashboard-data.json, /llms.txt.">
+        ${generateAgentHeadLinks()}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/tofsjonas/sortable@latest/sortable.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -537,6 +554,7 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
           <header class="mb-4">
             <h1 class="display-5">Mage-OS Dashboard</h1>
             <p class="last-update">Last updated: ${lastUpdate}</p>
+            ${generateAgentNotice()}
           </header>
 
           ${summarySection}

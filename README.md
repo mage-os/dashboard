@@ -11,6 +11,7 @@ A dashboard showing an overview of all Mage-OS repositories, open issues, and pu
 - **Staleness tracking** — visual indicators for stale issues (>90d) and PRs (>30d)
 - **Client-side search** — filter across all sections by repository, issue, PR, author, or label
 - **Structured data output** — JSON snapshot and markdown report for downstream consumption
+- **Agent-friendly copies** — full Markdown version (`/index.md`), `/llms.txt`, `Link` headers, and `Accept: text/markdown` negotiation on `/`
 
 ## Project Structure
 
@@ -24,6 +25,13 @@ src/
   github-api.js          # GitHub GraphQL and REST API fetchers
   data-processing.js     # Stats computation, priority scoring, data collection
   html-generators.js     # HTML section generators (org cards, health table, summary)
+  report.js              # Condensed markdown report
+  agent-docs.js          # Markdown dashboard, llms.txt, Cloudflare _headers
+  agent-resources.js     # URLs of agent-facing resources and the data branch archive
+  content-negotiation.js # Accept-header parsing for the Pages Function
+  markdown-utils.js      # Markdown escaping helpers
+functions/
+  index.js               # Cloudflare Pages Function: serves index.md on / for Accept: text/markdown
 tests/
   utils.test.js          # Tests for utility functions
   data-processing.test.js # Tests for stats, priority scoring, workflow/mirror collection
@@ -49,8 +57,12 @@ GITHUB_TOKEN=ghp_... node generate-dashboard.js
 This produces:
 - `dist/index.html` — the static HTML dashboard
 - `dist/dashboard-data.json` — structured JSON snapshot
+- `dist/index.md` — the full dashboard as Markdown, for agents
+- `dist/report.md` — condensed markdown report
+- `dist/llms.txt` — index of agent-friendly resources
+- `dist/_headers` — Cloudflare Pages response headers
 
-Then generate the markdown report from the JSON:
+To regenerate just the markdown report from an existing JSON file:
 
 ```sh
 node generate-report.js

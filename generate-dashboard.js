@@ -10,6 +10,8 @@ import {
     generateRecentActivitySection,
     generateHTML
 } from './src/html-generators.js';
+import { generateMarkdownDashboard, generateLlmsTxt, generateHeadersFile } from './src/agent-docs.js';
+import { generateReport } from './src/report.js';
 
 const token = process.env.GITHUB_TOKEN;
 
@@ -67,6 +69,12 @@ async function main() {
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
         await writeFile('dist/dashboard-data.json', JSON.stringify(dashboardData, null, 2));
+        // Agent-facing copies, written here so they ship with every build
+        // regardless of which build command the deploy target runs.
+        await writeFile('dist/index.md', generateMarkdownDashboard(dashboardData, config));
+        await writeFile('dist/report.md', generateReport(dashboardData));
+        await writeFile('dist/llms.txt', generateLlmsTxt(dashboardData, config));
+        await writeFile('dist/_headers', generateHeadersFile());
         console.log('Dashboard generated successfully!');
         console.log(`JSON data written with ${dashboardData.actionItems.length} action items`);
     } catch (error) {
