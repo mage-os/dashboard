@@ -1,6 +1,7 @@
 import { escapeMarkdown, markdownLink, formatAgeDays, formatPriorityFactors } from './markdown-utils.js';
 import { formatDateUTC } from './utils.js';
 import { SITE_RESOURCES, HISTORY_RESOURCES, SOURCE_REPO_URL } from './agent-resources.js';
+import { APPROVAL_STATUSES, collectReviewQueue, getReviewQueueOrgs } from './review-queue.js';
 
 const CI_LABELS = {
     success: 'success',
@@ -27,6 +28,28 @@ function generateActionItemsTable(actionItems) {
     md += '|---|------|------|------------|-------|---------|---------|--------|--------|\n';
     for (const [i, item] of actionItems.entries()) {
         md += `| ${i + 1} | ${item.type === 'pr' ? 'PR' : 'Issue'} | ${markdownLink(item.title, item.url)} | ${item.org}/${item.repo} | ${item.priorityScore} | ${formatPriorityFactors(item.priorityFactors, ', ')} | ${formatAgeDays(item.ageDays)} ago | ${escapeMarkdown(item.author) || '-'} | ${item.reviewStatus || '-'} |\n`;
+    }
+    return md;
+}
+
+function formatSize(pr) {
+    if (pr.size === null || pr.size === undefined) return '-';
+    const files = pr.changedFiles === null ? '' : `, ${pr.changedFiles} files`;
+    return `${pr.size} (+${pr.additions}/-${pr.deletions}${files})`;
+}
+
+function generateReviewQueueTable(organizations, config) {
+    const orgNames = getReviewQueueOrgs(config, Object.keys(organizations));
+    const { items } = collectReviewQueue(organizations, orgNames);
+    if (items.length === 0) return 'No open pull requests.\n';
+
+    let md = 'These pull requests will go into a future release of Mage-OS and need as many eyes as possible. Any review is appreciated: read the code, test it, or leave a comment. An approval from the distribution team is required to merge. If you want to help Mage-OS, this is the best place to start.\n\n';
+    md += `Open pull requests in ${orgNames.map(escapeMarkdown).join(', ')}, sorted by last update, newest first. "Open" is days since the PR was created.\n\n`;
+    md += '| # | Pull request | Repository | Author | Open | Updated | Comments | Size | Approval |\n';
+    md += '|---|--------------|------------|--------|------|---------|----------|------|----------|\n';
+    for (const [i, pr] of items.entries()) {
+        const approval = (APPROVAL_STATUSES[pr.approvalStatus] || APPROVAL_STATUSES.unknown).label;
+        md += `| ${i + 1} | ${markdownLink(pr.title, pr.url)} | ${pr.org}/${pr.repo} | ${escapeMarkdown(pr.author) || '-'} | ${formatAgeDays(pr.openDays)} | ${formatAgeDays(pr.ageDays)} ago | ${pr.commentCount ?? '-'} | ${formatSize(pr)} | ${approval} |\n`;
     }
     return md;
 }
@@ -135,6 +158,9 @@ ${history.join('\n')}
 | Stale PRs (no update >${warningDays}d) | ${stats.stalePRs} |
 | Stale issues (no update >${criticalDays}d) | ${stats.staleIssues} |
 
+## PR Review Queue
+
+${generateReviewQueueTable(organizations, config)}
 ## Top Action Items
 
 Ranked by priority score (0-100) combining age, review status, labels, and repository activity. Ages are time since last update.
@@ -169,6 +195,7 @@ Notes for interpreting the data:
 - "Age" / \`ageDays\` is days since the item was last updated, not since it was created (\`createdAt\` is in the JSON).
 - \`staleLevel\` is \`warning\` after ${warningDays} days without updates and \`critical\` after ${criticalDays}.
 - \`priorityScore\` (0-100) sums \`priorityFactors\`: age, reviewStatus (PRs only), labels (bug/security weigh most), repoActivity (stale item in a recently active repo).
+- \`approvalStatus\` on PRs follows branch protection (GitHub \`reviewDecision\`): \`review_required\`, \`approved\`, \`changes_requested\`, \`not_required\`, \`draft\`, or \`unknown\` (older snapshots). \`size\` is XS/S/M/L/XL by lines changed (\`additions\` + \`deletions\`); \`commentCount\` is comments plus inline review threads.
 - \`actionItems\` holds the top 20 items by priority score across all organizations.
 - All timestamps are UTC ISO 8601.
 

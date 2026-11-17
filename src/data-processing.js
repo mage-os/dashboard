@@ -1,4 +1,5 @@
 import { getDaysSince, getStaleLevel, getReviewStatus } from './utils.js';
+import { getApprovalStatus, getPrSizeLabel, countComments } from './review-queue.js';
 
 export function computeStats(orgDataMap, thresholds) {
     let totalRepos = 0;
@@ -112,6 +113,13 @@ export function collectDashboardData(orgDataMap, reposWithRunsMap, missingMirror
                         staleLevel: getStaleLevel(pr.updatedAt, config.staleThresholds),
                         author: pr.author?.login || null,
                         reviewStatus: getReviewStatus(pr),
+                        isDraft: pr.isDraft ?? false,
+                        approvalStatus: getApprovalStatus(pr),
+                        additions: pr.additions ?? null,
+                        deletions: pr.deletions ?? null,
+                        changedFiles: pr.changedFiles ?? null,
+                        size: getPrSizeLabel(pr.additions, pr.deletions),
+                        commentCount: countComments(pr),
                         priorityScore: priority.score,
                         priorityFactors: priority.factors
                     };

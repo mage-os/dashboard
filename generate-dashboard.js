@@ -8,6 +8,9 @@ import {
     generateMissingMirrorsSectionFromData,
     generateSummarySection,
     generateRecentActivitySection,
+    generateReviewQueueSection,
+    generateReviewQueueTeaser,
+    generateReviewQueuePage,
     generateHTML
 } from './src/html-generators.js';
 import { generateMarkdownDashboard, generateLlmsTxt, generateHeadersFile } from './src/agent-docs.js';
@@ -64,10 +67,14 @@ async function main() {
         const missingMirrorsSection = generateMissingMirrorsSectionFromData(missingMirrors);
         const workflowSection = generateWorkflowRunsSectionFromData(reposWithRuns);
 
-        const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection);
+        const reviewQueueTeaser = generateReviewQueueTeaser(dashboardData, config);
+
+        const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection, reviewQueueTeaser);
 
         await mkdir('dist', { recursive: true });
         await writeFile('dist/index.html', html);
+        await mkdir('dist/reviews', { recursive: true });
+        await writeFile('dist/reviews/index.html', generateReviewQueuePage(generateReviewQueueSection(dashboardData, config)));
         await writeFile('dist/dashboard-data.json', JSON.stringify(dashboardData, null, 2));
         // Agent-facing copies, written here so they ship with every build
         // regardless of which build command the deploy target runs.

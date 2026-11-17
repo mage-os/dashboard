@@ -4,6 +4,7 @@ A dashboard showing an overview of all Mage-OS repositories, open issues, and pu
 
 ## Features
 
+- **PR review queue** (`/reviews/`): every open PR in the mage-os organization with age, comments, size and approval status, filterable by status and searchable; the overview links to it with counts per status
 - **Organization overview** — open issues and PRs for all configured GitHub organizations
 - **Repository health** — CI status, last workflow run, and last commit date for each repo
 - **Missing mirrors** — Magento repositories not yet mirrored in Mage-OS
@@ -18,13 +19,17 @@ A dashboard showing an overview of all Mage-OS repositories, open issues, and pu
 ```
 generate-dashboard.js    # Entry point — orchestrates fetching, processing, and HTML generation
 generate-report.js       # Reads JSON output and generates a markdown report
+generate-dashboard-from-snapshot.js # Builds the site from an archived snapshot, no token needed
 config.json              # Organizations, thresholds, priority weights, ignore lists
 src/
   config.js              # Loads and exports config
   utils.js               # Pure utility functions (date formatting, staleness, review status)
   github-api.js          # GitHub GraphQL and REST API fetchers
   data-processing.js     # Stats computation, priority scoring, data collection
-  html-generators.js     # HTML section generators (org cards, health table, summary)
+  html-generators.js     # HTML section generators (org cards, health table, summary) and the page shell
+  review-queue.js        # PR review queue: approval status, size buckets, ordering
+  review-queue-html.js   # PR review queue page, overview card, styles and filter script
+  snapshot-adapter.js    # Converts an archived JSON snapshot back into generator input
   report.js              # Condensed markdown report
   agent-docs.js          # Markdown dashboard, llms.txt, Cloudflare _headers
   agent-resources.js     # URLs of agent-facing resources and the data branch archive
@@ -36,6 +41,7 @@ tests/
   utils.test.js          # Tests for utility functions
   data-processing.test.js # Tests for stats, priority scoring, workflow/mirror collection
   html-generators.test.js # Tests for badge and icon helpers
+  review-queue.test.js   # Tests for the PR review queue, its pages and navigation
 ```
 
 ## Setup
@@ -56,11 +62,21 @@ GITHUB_TOKEN=ghp_... node generate-dashboard.js
 
 This produces:
 - `dist/index.html` — the static HTML dashboard
+- `dist/reviews/index.html`: the PR review queue page
 - `dist/dashboard-data.json` — structured JSON snapshot
 - `dist/index.md` — the full dashboard as Markdown, for agents
 - `dist/report.md` — condensed markdown report
 - `dist/llms.txt` — index of agent-friendly resources
 - `dist/_headers` — Cloudflare Pages response headers
+
+To preview the site locally without a token, build it from the latest snapshot on the `data` branch and serve it:
+
+```sh
+npm run build:snapshot   # or: node generate-dashboard-from-snapshot.js path/to/snapshot.json
+npm run serve            # http://localhost:3000
+```
+
+Snapshots taken before a field was added show `-` or `Unknown` for it.
 
 To regenerate just the markdown report from an existing JSON file:
 
@@ -84,6 +100,7 @@ Runs Jest with ESM support. Tests cover utility functions, data processing logic
 Edit `config.json`:
 
 - **`organizations`** — GitHub org names to track
+- **`reviewQueue.organizations`**: organizations shown in the PR review queue (defaults to all)
 - **`staleThresholds`** — days before issues/PRs are flagged as warning (30) or critical (90)
 - **`priorityWeights`** — weights for priority scoring factors (age, reviewStatus, labels, repoActivity)
 - **`missingMirrorsIgnoreList`** — Magento repo names to exclude from the missing mirrors report

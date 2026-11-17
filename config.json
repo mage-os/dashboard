@@ -1,5 +1,8 @@
 {
   "organizations": ["mage-os", "mage-os-lab"],
+  "reviewQueue": {
+    "organizations": ["mage-os"]
+  },
   "staleThresholds": {
     "warningDays": 30,
     "criticalDays": 90

@@ -1,6 +1,18 @@
 import escapeHtml from 'escape-html';
 import { getStaleClass, formatAge, formatDateUTC, isLightColor } from './utils.js';
-import { SITE_RESOURCES, DATA_BRANCH_URL } from './agent-resources.js';
+import { SITE_RESOURCES, DATA_BRANCH_URL, SOURCE_REPO_URL } from './agent-resources.js';
+import { generateReviewQueueSection, generateReviewQueueTeaser, generateReviewQueueStyles, generateReviewQueueScript } from './review-queue-html.js';
+
+export { generateReviewQueueSection, generateReviewQueueTeaser };
+
+const GITHUB_MARK_PATH = 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z';
+
+export function generateSourceLink() {
+    return `<a href="${escapeHtml(SOURCE_REPO_URL)}" class="btn btn-outline-dark btn-sm source-link" target="_blank" rel="noopener" title="Source code of this dashboard">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="${GITHUB_MARK_PATH}"></path></svg>
+              mage-os/dashboard
+            </a>`;
+}
 
 export function generateAgentHeadLinks() {
     return SITE_RESOURCES
@@ -329,7 +341,23 @@ export function generateSummarySection(stats, config) {
     `;
 }
 
-export function generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection = '') {
+const PAGES = {
+    overview: { path: '/', label: 'Overview' },
+    reviews: { path: '/reviews/', label: 'PR Review Queue' }
+};
+
+const OVERVIEW_DESCRIPTION = 'Open issues, pull requests, CI health, and mirror coverage for the Mage-OS GitHub organizations. Machine-readable versions: /index.md, /dashboard-data.json, /llms.txt.';
+const REVIEWS_DESCRIPTION = 'Open pull requests in the Mage-OS GitHub organization with age, comments, size and approval status. Machine-readable versions: /index.md, /dashboard-data.json, /llms.txt.';
+
+export function generateNav(activePage) {
+    const items = Object.entries(PAGES).map(([page, { path, label }]) => {
+        const isActive = page === activePage;
+        return `<li class="nav-item"><a class="nav-link${isActive ? ' active' : ''}" href="${path}"${isActive ? ' aria-current="page"' : ''}>${label}</a></li>`;
+    });
+    return `<nav aria-label="Dashboard pages"><ul class="nav nav-pills mb-3">${items.join('')}</ul></nav>`;
+}
+
+function generatePage({ title, description, activePage, content }) {
     const lastUpdate = formatDateUTC(new Date().toISOString());
 
     return `
@@ -338,8 +366,8 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mage-OS Dashboard</title>
-        <meta name="description" content="Open issues, pull requests, CI health, and mirror coverage for the Mage-OS GitHub organizations. Machine-readable versions: /index.md, /dashboard-data.json, /llms.txt.">
+        <title>${escapeHtml(title)}</title>
+        <meta name="description" content="${escapeHtml(description)}">
         ${generateAgentHeadLinks()}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/tofsjonas/sortable@latest/sortable.min.js" defer></script>
@@ -348,7 +376,7 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
           body {
             padding: 1rem;
           }
-
+          ${generateReviewQueueStyles()}
           .repo-card {
             max-width: 1400px;
           }
@@ -404,6 +432,11 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
           .recent-activity-table .activity-age {
             white-space: nowrap;
             width: 1%;
+          }
+
+          .source-link svg {
+            vertical-align: -2px;
+            margin-right: 0.25rem;
           }
 
           .label {
@@ -541,6 +574,10 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
           .sortable th {
             cursor: pointer;
           }
+          .sortable th:focus-visible {
+            outline: 2px solid #0d6efd;
+            outline-offset: -2px;
+          }
           .sortable th[aria-sort=ascending]::after {
             content: " ▲";
           }
@@ -551,13 +588,64 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
       </head>
       <body>
         <div class="container">
-          <header class="mb-4">
-            <h1 class="display-5">Mage-OS Dashboard</h1>
+          <header class="mb-3">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+              <h1 class="display-5 mb-0">Mage-OS Dashboard</h1>
+              ${generateSourceLink()}
+            </div>
             <p class="last-update">Last updated: ${lastUpdate}</p>
             ${generateAgentNotice()}
           </header>
+          ${generateNav(activePage)}
 
+          ${content}
+        </div>
+        <script>
+          ${generateReviewQueueScript()}
+
+          window.addEventListener('load', function () {
+            document.querySelectorAll('table.sortable th').forEach(function (th) {
+              th.tabIndex = 0;
+              th.addEventListener('keydown', function (e) {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                e.preventDefault();
+                th.click();
+              });
+            });
+          });
+
+          (function () {
+            var dashboardSearch = document.getElementById('dashboardSearch');
+            if (!dashboardSearch) return;
+            dashboardSearch.addEventListener('input', function (e) {
+              var query = e.target.value.toLowerCase().trim();
+
+              document.querySelectorAll('.repo-card').forEach(function (card) {
+                var text = card.textContent.toLowerCase();
+                card.style.display = !query || text.includes(query) ? '' : 'none';
+              });
+
+              document.querySelectorAll('table.sortable:not(.review-queue-table) tbody tr').forEach(function (row) {
+                var text = row.textContent.toLowerCase();
+                row.style.display = !query || text.includes(query) ? '' : 'none';
+              });
+            });
+          })();
+        </script>
+      </body>
+    </html>
+  `;
+}
+
+export function generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection = '', reviewQueueTeaser = '') {
+    return generatePage({
+        title: 'Mage-OS Dashboard',
+        description: OVERVIEW_DESCRIPTION,
+        activePage: 'overview',
+        content: `
           ${summarySection}
+
+          ${reviewQueueTeaser}
 
           ${recentActivitySection}
 
@@ -567,26 +655,15 @@ export function generateHTML(summarySection, orgSections, missingMirrorsSection,
 
           ${orgSections}
           ${missingMirrorsSection}
-          ${workflowSection}
-        </div>
-        <script>
-          document.getElementById('dashboardSearch').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase().trim();
+          ${workflowSection}`
+    });
+}
 
-            // Filter repo cards in org sections
-            document.querySelectorAll('.repo-card').forEach(function(card) {
-              const text = card.textContent.toLowerCase();
-              card.style.display = !query || text.includes(query) ? '' : 'none';
-            });
-
-            // Filter table rows in sortable tables
-            document.querySelectorAll('table.sortable tbody tr').forEach(function(row) {
-              const text = row.textContent.toLowerCase();
-              row.style.display = !query || text.includes(query) ? '' : 'none';
-            });
-          });
-        </script>
-      </body>
-    </html>
-  `;
+export function generateReviewQueuePage(reviewQueueSection) {
+    return generatePage({
+        title: 'PR Review Queue · Mage-OS Dashboard',
+        description: REVIEWS_DESCRIPTION,
+        activePage: 'reviews',
+        content: reviewQueueSection
+    });
 }

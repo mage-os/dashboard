@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "build": "node generate-dashboard.js",
+    "build:snapshot": "node generate-dashboard-from-snapshot.js",
+    "serve": "npx serve dist",
     "report": "node generate-report.js",
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },

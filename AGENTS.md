@@ -4,9 +4,17 @@ This is a Node.js static site generator (ES modules, Node >= 18) that builds an 
 
 ## Key entry points
 
-- `generate-dashboard.js` — main build script, produces `dist/index.html`, `dist/dashboard-data.json`, and the agent-facing files below
+- `generate-dashboard.js` — main build script, produces `dist/index.html`, `dist/reviews/index.html`, `dist/dashboard-data.json`, and the agent-facing files below
+- `generate-dashboard-from-snapshot.js`: builds the same output from an archived snapshot (default: `latest.json` on the `data` branch), for local previews without a GitHub token
 - `generate-report.js` — standalone CLI that regenerates `dist/report.md` from `dist/dashboard-data.json`
 - `config.json` — organizations, thresholds, priority weights, ignore lists
+
+## Pages
+
+- `/` overview: summary, PR review queue card, recent activity, per-repo issues and PRs, mirrors, CI health
+- `/reviews/` PR review queue (`src/review-queue.js` for logic, `src/review-queue-html.js` for markup, styles and the filter script). Status filter is persisted in `localStorage`; `?status=<status>` preselects one.
+
+Both pages share the shell in `generatePage()` in `src/html-generators.js`.
 
 ## Structured data
 
@@ -36,6 +44,7 @@ The `data` branch contains time-series snapshots archived by CI every 3 hours:
 ```sh
 npm install
 npm test                                        # run jest tests
+npm run build:snapshot && npm run serve         # local preview from the latest data branch snapshot
 GITHUB_TOKEN=ghp_... node generate-dashboard.js # generate dashboard
 node generate-report.js                         # generate markdown report
 ```
