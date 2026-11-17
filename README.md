@@ -30,6 +30,9 @@ src/
   review-queue.js        # PR review queue: approval status, size buckets, ordering
   review-queue-html.js   # PR review queue page, overview card, styles and filter script
   snapshot-adapter.js    # Converts an archived JSON snapshot back into generator input
+  snapshot-build.js      # Loads a snapshot and builds the site from it
+  site-output.js         # The set of files every build publishes, and writing them to dist/
+  build-mode.js          # Detects Cloudflare preview builds
   report.js              # Condensed markdown report
   agent-docs.js          # Markdown dashboard, llms.txt, Cloudflare _headers
   agent-resources.js     # URLs of agent-facing resources and the data branch archive
@@ -42,6 +45,7 @@ tests/
   data-processing.test.js # Tests for stats, priority scoring, workflow/mirror collection
   html-generators.test.js # Tests for badge and icon helpers
   review-queue.test.js   # Tests for the PR review queue, its pages and navigation
+  build-mode.test.js     # Tests for preview detection, site output and snapshot builds
 ```
 
 ## Setup
@@ -112,5 +116,7 @@ The GitHub Actions workflow (`.github/workflows/deploy.yml`) runs every 3 hours:
 1. Generates the dashboard and report
 2. Archives a JSON snapshot to the `data` branch
 3. Triggers a Cloudflare Pages deploy via webhook
+
+Cloudflare Pages also builds every other pushed branch as a preview. Those builds have no GitHub token, so `generate-dashboard.js` detects them (`CF_PAGES=1` and a `CF_PAGES_BRANCH` other than `main`) and builds from the latest `data` branch snapshot instead. Previews show production data up to 6 hours old; fields a branch adds stay empty until it is merged and the next scheduled build has run.
 
 The `data` branch maintains historical snapshots under `snapshots/YYYY/MM/` along with `latest.json` and `latest-report.md`.
