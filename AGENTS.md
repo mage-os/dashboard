@@ -6,6 +6,8 @@ This is a Node.js static site generator (ES modules, Node >= 18) that builds an 
 
 - `generate-dashboard.js` — main build script, produces `dist/index.html`, `dist/reviews/index.html`, `dist/dashboard-data.json`, and the agent-facing files below
 - `generate-dashboard-from-snapshot.js`: builds the same output from an archived snapshot (default: `latest.json` on the `data` branch), for local previews without a GitHub token
+- Cloudflare Pages preview builds (`CF_PAGES=1`, `CF_PAGES_BRANCH` not `main`) have no token; `generate-dashboard.js` detects them via `isPreviewBuild()` in `src/build-mode.js` and builds from the snapshot instead
+- `src/site-output.js` defines the files every build publishes; add new pages there so both build paths ship them
 - `generate-report.js` — standalone CLI that regenerates `dist/report.md` from `dist/dashboard-data.json`
 - `config.json` — organizations, thresholds, priority weights, ignore lists
 

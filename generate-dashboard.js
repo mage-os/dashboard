@@ -1,4 +1,3 @@
-import { writeFile, mkdir } from 'fs/promises';
 import { config, GITHUB_ORGS } from './src/config.js';
 import { fetchOrgData, fetchWorkflowRunsForRepo, fetchMagentoRepos } from './src/github-api.js';
 import { computeStats, collectDashboardData, collectWorkflowRuns, collectMissingMirrors } from './src/data-processing.js';
@@ -8,18 +7,28 @@ import {
     generateMissingMirrorsSectionFromData,
     generateSummarySection,
     generateRecentActivitySection,
-    generateReviewQueueSection,
     generateReviewQueueTeaser,
-    generateReviewQueuePage,
     generateHTML
 } from './src/html-generators.js';
-import { generateMarkdownDashboard, generateLlmsTxt, generateHeadersFile } from './src/agent-docs.js';
-import { generateReport } from './src/report.js';
+import { generateSiteFiles, writeSiteFiles } from './src/site-output.js';
+import { buildSiteFromSnapshot } from './src/snapshot-build.js';
+import { isPreviewBuild } from './src/build-mode.js';
 
 const token = process.env.GITHUB_TOKEN;
 
+async function buildPreviewFromSnapshot() {
+    console.log(`Preview build for branch ${process.env.CF_PAGES_BRANCH}: using the latest data branch snapshot instead of the GitHub API`);
+    const snapshot = await buildSiteFromSnapshot(config);
+    console.log(`Dashboard generated from snapshot (data captured ${snapshot.generatedAt})`);
+}
+
 async function main() {
     try {
+        if (isPreviewBuild(process.env)) {
+            await buildPreviewFromSnapshot();
+            return;
+        }
+
         console.log(`Fetching data for organizations: ${GITHUB_ORGS.join(', ')}...`);
         const orgResults = await Promise.all(
             GITHUB_ORGS.map(async (orgName) => {
@@ -71,17 +80,9 @@ async function main() {
 
         const html = generateHTML(summarySection, orgSections, missingMirrorsSection, workflowSection, recentActivitySection, reviewQueueTeaser);
 
-        await mkdir('dist', { recursive: true });
-        await writeFile('dist/index.html', html);
-        await mkdir('dist/reviews', { recursive: true });
-        await writeFile('dist/reviews/index.html', generateReviewQueuePage(generateReviewQueueSection(dashboardData, config)));
-        await writeFile('dist/dashboard-data.json', JSON.stringify(dashboardData, null, 2));
-        // Agent-facing copies, written here so they ship with every build
-        // regardless of which build command the deploy target runs.
-        await writeFile('dist/index.md', generateMarkdownDashboard(dashboardData, config));
-        await writeFile('dist/report.md', generateReport(dashboardData));
-        await writeFile('dist/llms.txt', generateLlmsTxt(dashboardData, config));
-        await writeFile('dist/_headers', generateHeadersFile());
+        // Agent-facing copies are part of the site files, so they ship with
+        // every build regardless of which build command the deploy target runs.
+        await writeSiteFiles(generateSiteFiles(html, dashboardData, config));
         console.log('Dashboard generated successfully!');
         console.log(`JSON data written with ${dashboardData.actionItems.length} action items`);
     } catch (error) {
