@@ -1,7 +1,11 @@
+// Each repository pulls up to 100 issues and 100 PRs with counts, so keep
+// pages small: larger pages make GitHub time out with 502s.
+const REPOSITORIES_PER_PAGE = 10;
+
 const ORG_QUERY = `
     query ($org: String!, $cursor: String) {
       organization(login: $org) {
-        repositories(first: 25, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        repositories(first: ${REPOSITORIES_PER_PAGE}, after: $cursor, orderBy: {field: UPDATED_AT, direction: DESC}) {
           pageInfo {
             hasNextPage
             endCursor
@@ -42,6 +46,17 @@ const ORG_QUERY = `
                 updatedAt
                 author {
                   login
+                }
+                isDraft
+                additions
+                deletions
+                changedFiles
+                reviewDecision
+                comments {
+                  totalCount
+                }
+                reviewThreads {
+                  totalCount
                 }
                 reviews(last: 1) {
                   nodes {
