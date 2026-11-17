@@ -1,5 +1,5 @@
 # Mage-OS Project Health Report
-Generated: Tue, 17 Nov 2026 15:40:18 GMT
+Generated: Tue, 17 Nov 2026 17:52:41 GMT
 
 ## Summary
 - **175** active repositories across 2 organizations
@@ -34,7 +34,7 @@ Generated: Tue, 17 Nov 2026 15:40:18 GMT
 | [:construction\_worker:  Adding PHPMD](https://github.com/mage-os/github-actions/pull/163) | github-actions (mage-os) | 679d | DavidLambauer | commented |
 | [:pencil:  Added a few sections for the env.php](https://github.com/mage-os/devdocs/pull/70) | devdocs (mage-os) | 609d | DavidLambauer | commented |
 | [Fix missing tree-massactions.js file for admin orders mass actions](https://github.com/mage-os/theme-adminhtml-m137/pull/24) | theme-adminhtml-m137 (mage-os) | 436d | Hawksama | none |
-| [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 336d | gowrizrh | changes_requested |
+| [Add REST and GraphQL functional test workflows](https://github.com/mage-os/github-actions/pull/138) | github-actions (mage-os) | 337d | gowrizrh | changes_requested |
 | [feat: structured attribute extraction with value mapping (#7)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/65) | module-catalog-data-ai (mage-os-lab) | 211d | DavidLambauer | none |
 | [feat: prompt rules engine with store, priority, and product conditions (#32)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/63) | module-catalog-data-ai (mage-os-lab) | 211d | DavidLambauer | none |
 | [feat: store-scoped enrichment with locale-aware system prompts (#12)](https://github.com/mage-os-lab/module-catalog-data-ai/pull/62) | module-catalog-data-ai (mage-os-lab) | 211d | DavidLambauer | none |
@@ -44,10 +44,10 @@ Generated: Tue, 17 Nov 2026 15:40:18 GMT
 | [ci(e2e): add Playwright-based E2E workflow for Mage-OS](https://github.com/mage-os/github-actions/pull/313) | github-actions (mage-os) | 195d | digitalrisedorset | commented |
 | [refactor(setup-di-compile) port restored Graycore implementation](https://github.com/mage-os/github-actions/pull/360) | github-actions (mage-os) | 189d | digitalrisedorset | review_requested |
 | [Add configurable branch protection patterns per repository](https://github.com/mage-os/terraform/pull/135) | terraform (mage-os) | 189d | rhoerr | review_requested |
-| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 139d | digitalrisedorset | commented |
+| [tests(e2e): vendor Elgentos Playwright E2E test suite](https://github.com/mage-os/mageos-magento2/pull/199) | mageos-magento2 (mage-os) | 140d | digitalrisedorset | commented |
 | [Add Lapce editor support documentation](https://github.com/mage-os-lab/magento2-lsp/pull/2) | magento2-lsp (mage-os-lab) | 134d | ProxiBlue | review_requested |
 | [ci: add check-extension](https://github.com/mage-os/module-rma/pull/45) | module-rma (mage-os) | 118d | damienwebdev | review_requested |
-| [Add release-mageos orchestration skill](https://github.com/mage-os/generate-mirror-repo-js/pull/351) | generate-mirror-repo-js (mage-os) | 80d | marcelmtz | commented |
+| [Add release-mageos orchestration skill](https://github.com/mage-os/generate-mirror-repo-js/pull/351) | generate-mirror-repo-js (mage-os) | 81d | marcelmtz | commented |
 | [fix issue #27: serialize the widget form the way a browser would](https://github.com/mage-os/module-page-builder-widget/pull/28) | module-page-builder-widget (mage-os) | 77d | lucafuser | review_requested |
 | [fix issue #25: stop overwriting the posted value of a source\_model select](https://github.com/mage-os/module-page-builder-widget/pull/26) | module-page-builder-widget (mage-os) | 77d | lucafuser | review_requested |
 | [fix issue #23: keep the widget when its preview cannot be rendered](https://github.com/mage-os/module-page-builder-widget/pull/24) | module-page-builder-widget (mage-os) | 77d | lucafuser | review_requested |
